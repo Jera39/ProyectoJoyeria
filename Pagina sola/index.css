@@ -1,8 +1,43 @@
 body{
     margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
     padding: 0; /* Elimina el relleno predeterminado del cuerpo */
-    background-image: url('./img/index.jpg'); /* Reemplaza 'url_de_la_imagen.jpg' con la URL de tu imagen */
     background-size: 100% 100%; /* Hace que la imagen de fondo cubra toda la pantalla */
-    background-attachment: fixed; /* Fija la imagen de fondo, evitando que se desplace con el contenido */
     background-position: center;
+}
+
+nav{
+    background-color: #f2bb5b;
+    font-size: 18px;
+}
+
+.navbar-brand{
+    font-size: 51px !important;
+    font-family: 'Dancing Script', cursive;
+    margin-left: 3%;
+}
+
+#login{
+    margin-right: 3%;
+}
+
+.cuadro-login{
+    background-color: #ffff;
+    width: 200px;
+    border-radius: 30px;
+    margin: 5px 0px;
+
+}
+
+.cuadro-login a{
+    text-decoration: none;
+    color: #e9ab41;
+    font-weight: bold;
+}
+
+.cuadro-login svg{
+    margin: 5px 10px;
+}
+
+.nav-item{
+    margin: 0px 20px;
 }
