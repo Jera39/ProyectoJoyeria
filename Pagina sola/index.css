@@ -1,19 +1,42 @@
-body{
-    margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
-    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
-    background-size: 100% 100%; /* Hace que la imagen de fondo cubra toda la pantalla */
+body {
+    margin: 0;
+    padding: 0;
+    background-size: 100% 100%;
     background-position: center;
 }
 
-nav{
-    background-color: #f2bb5b;
+nav {
+    background-color: #000000; /*  #f2bb5b */
     font-size: 18px;
 }
 
-.navbar-brand{
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logotipo {
     font-size: 51px !important;
     font-family: 'Dancing Script', cursive;
-    margin-left: 3%;
+    display: flex;
+    text-decoration: none;
+    color: #ffff;
+    
+}
+
+.cuadro-logotipo{
+    height: 100%;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    padding-right: 300px;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content:left;
+    align-items: center;
 }
 
 #login{
@@ -30,7 +53,7 @@ nav{
 
 .cuadro-login a{
     text-decoration: none;
-    color: #e9ab41;
+    color: #000000; /*  #f2bb5b */
     font-weight: bold;
 }
 
@@ -39,5 +62,191 @@ nav{
 }
 
 .nav-item{
-    margin: 0px 20px;
+    margin: 0px 5px;
+}
+
+.fondo-inicio{
+    background: url('img/fondo-index.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.texto-inicio {
+    padding: 0px 100px;
+    font-size: 75px;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    width: 800px;
+}
+
+/* contenido */
+
+.content-eslogan{
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    margin: 40px 0px;
+}
+
+.content-titulo{
+    justify-content: center;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40px;
+    display: flex;
+    font-weight: 550;
+    margin: 60px 0px 40px;
+}
+
+.content-muestra{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-muestra-anillos{
+    margin: 40px 10px;
+}
+
+.content-muestra-anillos:hover{
+    transform: scale(1.2);
+    filter: brightness(1.15);
+}
+
+.muestra-anillos-nombre{
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+.muestra-anillos-imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.muestra-anillos-imagen img{
+    height: 200px;
+    width: auto;
+}
+
+.muestra-anillos-estrellas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.muestra-anillos-estrellas img{
+    width: 175px;
+    height: auto;
+    margin: 10px;
+}
+
+
+.muestra-anillos-precio{
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+/* pasos de muestra */
+
+.content-muestra-bloques{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content-muestra-pasos{
+    margin: 40px 10px;
+}
+
+.content-muestra-pasos:hover{
+    transform: scale(1.2);
+}
+
+.muestra-pasos-imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.muestra-pasos-imagen img{
+    height: 250px;
+    width: auto;
+    margin: 10px;
+}
+.muestra-pasos-imagen img:hover{    
+    filter: brightness(1.2);
+}
+
+.muestra-pasos-nombre{
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.comentarios img{
+    width: 100%;
+    height: auto;
+}
+
+.categoria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria-joya-imagen {
+    position: relative;
+    margin: 20px;
+    
+}
+
+.categoria-joya-imagen img {
+    height: 250px;
+    width: auto;
+    margin: 10px;
+}
+
+.categoria-joya-tipo {
+    position: absolute;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1;
+    background-color: rgba(97, 97, 97, 0.5);
+    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+    bottom: -50%; /* Se coloca en la mitad del contenedor de imagen */
+    transform: translateY(-50%); /* Ajusta para centrar verticalmente */
+    padding: 120px 0px;
+    color: #ffffff;
+}
+
+.categoria-joya-tipo:hover{
+    background-color: rgba(97, 97, 97, 0.1);
+}
+
+.categoria-joya-imagen:hover{
+    .categoria-joya-tipo{
+        z-index: -1;
+        color: rgba(97, 97, 97, 0.1)
+    }
 }
