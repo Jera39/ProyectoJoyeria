@@ -17,12 +17,12 @@ nav {
 }
 
 .logotipo {
-    font-size: 51px !important;
+    font-size: 71px !important;
     font-family: 'Dancing Script', cursive;
     display: flex;
     text-decoration: none;
     color: #ffff;
-    
+    margin: -20px;
 }
 
 .cuadro-logotipo{
@@ -101,7 +101,7 @@ nav {
     font-size: 40px;
     display: flex;
     font-weight: 550;
-    margin: 60px 0px 40px;
+    margin: 60px 0px;
 }
 
 .content-muestra{
@@ -188,6 +188,8 @@ nav {
     height: 250px;
     width: auto;
     margin: 10px;
+    align-items: center;
+    justify-content: center;
 }
 .muestra-pasos-imagen img:hover{    
     filter: brightness(1.2);
@@ -211,42 +213,55 @@ nav {
     grid-column-gap: 10px;
     justify-content: center;
     align-items: center;
+    margin: 100px 0px;
+}
+
+.categoria-joya{
+
 }
 
 .categoria-joya-imagen {
     position: relative;
     margin: 20px;
-    
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+
 }
 
 .categoria-joya-imagen img {
     height: 250px;
     width: auto;
     margin: 10px;
+
 }
 
 .categoria-joya-tipo {
     position: absolute;
+    display: flex;
+    width: 100%; 
+    height: 100%;/* Ocupa el 100% del ancho del contenedor padre */
+    /*bottom: -50%;  Se coloca en la mitad del contenedor de imagen */
+    /*transform: translateY(0%);  Ajusta para centrar verticalmente */
+    /* padding: 120px 0px; */
+    z-index: -1;
+    color: rgba(97, 97, 97, 0);
+    background-color: rgba(97, 97, 97, 0.1);
+
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
-    z-index: 1;
-    background-color: rgba(97, 97, 97, 0.5);
-    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
-    bottom: -50%; /* Se coloca en la mitad del contenedor de imagen */
-    transform: translateY(-50%); /* Ajusta para centrar verticalmente */
-    padding: 120px 0px;
-    color: #ffffff;
-}
-
-.categoria-joya-tipo:hover{
-    background-color: rgba(97, 97, 97, 0.1);
 }
 
 .categoria-joya-imagen:hover{
     .categoria-joya-tipo{
-        z-index: -1;
-        color: rgba(97, 97, 97, 0.1)
+        color: #ffffff;
+        z-index: 1;
+        background-color: rgba(97, 97, 97, 0.5);
+
     }
 }
