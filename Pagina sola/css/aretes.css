@@ -129,7 +129,7 @@ nav {
 /* fin de la personalizacion del submenu */
 
 .fondo-inicio{
-    background: url('img/fondo-index.jpg');
+    background: url('../img/arete-html-fondo-inicio.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -138,34 +138,36 @@ nav {
     align-items: center;
 }
 
-.texto-inicio {
-    padding: 0px 100px;
-    font-size: 75px;
-    font-family: 'Dancing Script', cursive;
+.fondo-inicio-texto {
+    padding: 0px 50px;
+    /* font-family: 'Dancing Script', cursive; */
     display: flex;
     width: 800px;
+    flex-direction: column;
 }
 
-/* contenido */
+.fondo-inicio-texto-menu{
+    font-family: 'Cormorant', serif;
+    font-size: 25px;
+    margin: 20px 0px;
+}
 
-.content-eslogan{
-    justify-content: center;
-    text-align: center;
+.fondo-inicio-texto-categoria{
+    font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
-    font-family: 'Dancing Script', cursive;
-    display: flex;
-    margin: 40px 0px;
+    margin: 20px;
+    font-weight: bold;
 }
 
-.content-titulo{
-    justify-content: center;
-    text-align: center;
-    font-family:'Times New Roman', Times, serif;
-    font-size: 40px;
-    display: flex;
-    font-weight: 550;
-    margin: 60px 0px;
+.fondo-inicio-texto-descripcion{
+    font-family: 'Cormorant', serif;
+    font-size: 30px;
+    margin: 0px 20px;
+    letter-spacing: 0px;
+    width: 520px;
 }
+
+/* contenido de ejemplo */
 
 .content-muestra{
     display: grid;
@@ -179,6 +181,7 @@ nav {
 .content-muestra-anillos{
     margin: 40px 10px;
 }
+
 
 .muestra-anillos-nombre{
     text-align: center;
@@ -222,171 +225,6 @@ nav {
     font-size: 20px;
 }
 
-/* pasos de muestra */
-
-.content-muestra-bloques{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-column-gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin: 3%;
-}
-
-
-.content-muestra-pasos{
-    margin: 40px 10px;
-}
-
-.content-muestra-pasos:hover{
-    transform: scale(1.2);
-}
-
-.muestra-pasos-imagen{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-}
-
-.muestra-pasos-imagen img{
-    height: 250px;
-    width: auto;
-    margin: 10px;
-    align-items: center;
-    justify-content: center;
-}
-.muestra-pasos-imagen img:hover{    
-    filter: brightness(1.2);
-}
-
-.muestra-pasos-nombre{
-    text-align: center;
-    font-family:'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.comentarios img{
-    width: 100%;
-    height: auto;
-}
-
-.categoria {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin: 100px 0px;
-}
-
-.categoria-joya{
-    
-}
-
-.categoria-joya-imagen {
-    position: relative;
-    margin: 20px;
-    display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center; /* Centra los elementos verticalmente */
-
-}
-
-.categoria-joya-imagen img {
-    height: 250px;
-    width: auto;
-    margin: 10px;
-
-}
-
-.categoria-joya-tipo {
-    position: absolute;
-    display: flex;
-    width: 100%; 
-    height: 100%;/* Ocupa el 100% del ancho del contenedor padre */
-    /*bottom: -50%;  Se coloca en la mitad del contenedor de imagen */
-    /*transform: translateY(0%);  Ajusta para centrar verticalmente */
-    /* padding: 120px 0px; */
-    z-index: -1;
-    color: rgba(97, 97, 97, 0);
-    background-color: rgba(97, 97, 97, 0.1);
-    border-radius: 3rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.categoria-joya-imagen:hover{
-    .categoria-joya-tipo{
-        color: #ffffff;
-        z-index: 1;
-        background-color: rgba(97, 97, 97, 0.5);
-
-    }
-}
-
-.content-final{
-    display: grid;
-    grid-template-columns: 1.3fr 2fr;
-    grid-column-gap: 0px;
-    justify-content: center;
-    padding: 20px;
-
-}
-
-.content-final-izquierdo{
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-
-}
-
-.content-final-izquierdo img{
-    width: 90%;
-    height: auto;
-    border-radius: 3rem
-}
-
-.content-final-derecho{
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 20px;
-    justify-content: center;
-
-
-}
-
-.content-final-derecho-texto{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    right: 2%;
-    font-family: 'Cormorant', serif;
-    font-size: 30px;
-    margin: 20px;
-    padding: 30px 30px;
-    letter-spacing: -1px;
-    line-height: 2;
-    letter-spacing: 2px;
-
-}
-
-.content-final-derecho-imagen{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-.content-final-derecho-imagen img{
-    width: 90%;
-    height: auto;
-    border-radius: 3rem;
-}
 
 /* Estilizado completo del Footer */
 
