@@ -12,6 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
+        rel="stylesheet">
 
     <!-- *************************** -->
     <!-- cambio realizado de ejemplo -->
@@ -21,16 +26,27 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba" >
             <div class="container-fluid">
-                
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
                             <a class="nav-link active " href="index.html">Inicio</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active " aria-current="page" href="Nosotros.html">Venta</a>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="#">• Aretes</a></li>
+                                    <li><a href="#">• Anillos</a></li>
+                                    <li><a href="#">• Collares</a></li>
+                                    <li><a href="#">• Pulseras</a></li>
+                                </ul>
+                            </div>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active " href="Entrenadores.html">Personalizacion</a>
@@ -47,8 +63,8 @@
                     <a class="logotipo" href="index.html">Carito</a>
                 </div>
 
-                
-                
+
+
                 <li class="d-flex" id="login">
                     <div class="cuadro-login">
                         <a href="login.html"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
@@ -148,11 +164,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-titulo">
             DEJE QUE LOS CLIENTES HABLEN POR NOSOTROS
         </div>
-        
+
         <div class="comentarios">
             <img src="img/comentarios.png" alt="">
         </div>
@@ -168,7 +184,7 @@
                         Collares
                     </div>
                 </div>
-                
+
             </div>
             <div class="categoria-joya">
                 <div class="categoria-joya-imagen">
@@ -177,7 +193,7 @@
                         Anillos
                     </div>
                 </div>
-                
+
             </div>
             <div class="categoria-joya">
                 <div class="categoria-joya-imagen">
@@ -186,7 +202,7 @@
                         Pendientes
                     </div>
                 </div>
-                
+
             </div>
             <div class="categoria-joya">
                 <div class="categoria-joya-imagen">
@@ -195,23 +211,44 @@
                         Joya Personalizada
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
         <div class="content-tipojoyas">
 
         </div>
-        <div class="content-titulo">
-            LIMPIEZA GRATIS DE POR VIDA
-        </div>
-        <div class="content-final">
 
+        <div class="content-final">
+            <div class="content-final-izquierdo">
+                <img src="img/jiyas-izquierda-final-index.jpg" alt="">
+            </div>
+            <div class="content-final-derecho">
+                <div class="content-titulo">
+                    LIMPIEZA GRATIS DE POR VIDA
+                </div>
+                <div class="content-final-derecho-texto">
+                    Ofrecemos servicio de limpieza y mantenimiento gratis de por vida en todas nuestras joyas.
+                </div>
+                <div class="content-final-derecho-imagen">
+                    <img src="img/orfebreria.jpg" alt="">
+                </div>
+            </div>
         </div>
     </main>
 
     <footer>
-
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Carito</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo 03
+        </div>
     </footer>
 </body>
 
