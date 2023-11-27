@@ -171,58 +171,71 @@ nav {
 
 .content-muestra{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-column-gap: 50px;
     justify-content: center;
     align-items: center;
     margin: 3%;
+    padding-bottom: 5%;
+    
 }
 
-.content-muestra-anillos{
+.content-muestra a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.content-muestra-aretes{
     margin: 40px 10px;
 }
 
 
-.muestra-anillos-nombre{
+.muestra-aretes-nombre{
     text-align: center;
     font-family:'Courier New', Courier, monospace;
-    font-size: 30px;
+    font-size: 25px;
+
 }
 
-.muestra-anillos-imagen{
+.muestra-aretes-imagen{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 30px 20px;
 }
 
-.muestra-anillos-imagen:hover{
+.muestra-aretes-imagen:hover{
     transform: scale(1.2);
     filter: brightness(1.15);
 }
 
-.muestra-anillos-imagen img{
-    height: 200px;
+.muestra-aretes-imagen img{
+    height: 150px;
     width: auto;
 }
 
-.muestra-anillos-estrellas{
+/* estrellas que seran dejadas de lado por el momento */
+
+
+.muestra-aretes-estrellas{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.muestra-anillos-estrellas img{
-    width: 175px;
+.muestra-aretes-estrellas img{
+    width: 50px;
     height: auto;
     margin: 10px;
 }
 
+/* fin del estilo de las estrellas */
 
-.muestra-anillos-precio{
+
+.muestra-aretes-precio{
     text-align: center;
     font-family:'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 
