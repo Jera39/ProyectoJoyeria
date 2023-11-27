@@ -1,8 +1,0 @@
-body{
-    margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
-    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
-    background-image: url('./img/venta.jpg'); /* Reemplaza 'url_de_la_imagen.jpg' con la URL de tu imagen */
-    background-size: 100% 100%; /* Hace que la imagen de fondo cubra toda la pantalla */
-    background-attachment: fixed; /* Fija la imagen de fondo, evitando que se desplace con el contenido */
-    background-position: center;
-}
