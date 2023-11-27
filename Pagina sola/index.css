@@ -129,7 +129,7 @@ nav {
 /* fin de la personalizacion del submenu */
 
 .fondo-inicio{
-    background: url('img/fondo-index.jpg');
+    background: url('img/index/fondo-index.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
