@@ -6,71 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Contactenos</title>
-    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.css">
+    
+    <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Contactanos.css">
 </head>
 
-<body>    
-<div class="container">
-    <div class="text">
-       CONTACTANOS
-    </div>
-    <form action="#">
-       <div class="form-row">
-          <div class="input-data">
-             <input type="text" required>
-             <div class="underline"></div>
-             <label for="">Nombres:</label>
-          </div>
-          <br>
+<body class="grid-container">    
+   <header class="cabecera">
+      <p class="titulo">CARITO</p>
+   </header>
+   <aside class="imagen">
+      <br>
+      <br>
+      <img src="img/contactanosima.png" width="80%" height="100%" alt="Contact">
+      <br>
+      <br>
+      <p></p>
+   </aside>
+ 
+   <article class="formulario">
+      <br>
+      <div class="container">
+         <div class="text">
+            <br>
+            <h2>CONTÁCTANOS</h2>
+            <p></p>
+               Te agradeceremos hacernos llegar tu consulta a través de este formulario. 
+         </div>
+         <br>
+         <form action="#">
+            <div class="form-group" >
+               <label for="inputAddress" class="titus">Nombres:</label>
+               <input type="text" class="form-control" id="boxi" placeholder="Ingrese Nombres" required>
+             </div>
 
-          <div class="input-data">
-             <input type="text" required>
-             <div class="underline"></div>
-             <label for="">Apellidos:</label>
-          </div>
-       </div>
-       <br>
-       <div class="form-row">
-          <div class="input-data">
-             <input type="text" required>
-             <div class="underline"></div>
-             <label for="">Correo Electronico:</label>
-          </div>
-          <br>
-          <div class="input-data">
-             <input type="text" required>
-             <div class="underline"></div>
-             <label for="">Telefono:</label>
-          </div>
-          <br>
-          <div class="input-data">
-            <input type="text" required>
-            <div class="underline"></div>
-            <label for="">Asunto:</label>
+             <div class="form-group">
+               <label for="inputAddress">Apellidos:</label>
+               <input type="text" class="form-control" id="boxi" placeholder="Ingrese Apellidos" required>
+             </div>
+
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                 <label for="inputEmail4">Correo Electronico</label>
+                 <input type="email" class="form-control" id="boxi" placeholder="nombre@gmail.com" required>
+               </div>
+               <div class="form-group col-md-6">
+                 <label for="inputPassword4">Telefono</label>
+                 <input type="password" class="form-control" id="boxi" placeholder="Ingrese numero" required>
+               </div>
+             </div>
+
+             <div class="form-group">
+               <label for="inputAddress">Asunto:</label>
+               <input type="text" class="form-control" id="boxi" placeholder="Asunto" required>
+             </div>
+
+             <div class="form-group form-group-textarea mb-md-0">
+               <label for="inputAddress">Comentarios:</label>
+               <textarea class="form-control" id="boxi" placeholder="Ingresa detalles *" data-sb-validations="required"></textarea>
+               <div class="invalid-feedback" data-sb-feedback="message:required">es obligatorio.</div>
+           </div>
+          
+           <br>
+           <button class="btn btn-primary col-md-4" type="submit" id="botonci">Enviar</button>
+           <br> <br> <br>
+
+            
+         </form>
          </div>
 
-       </div>
-       <br>
-       <div class="form-row">
-       <div class="input-data textarea">
-          <textarea rows="8" cols="80" required></textarea>
-          <br />
-          <div class="underline"></div>
-          <label for="">Comentarios:</label>
-          <br />
-          <div class="form-row submit-btn">
-             <div class="input-data">
-                <div class="inner"></div>
-                <input type="submit" value="submit">
-             </div>
-          </div>
-          <br>
-    </form>
-    </div>
+
+   </article>
+   
+   <footer class="footer" ><p id="pies" href=#> <a href="" style="color: aliceblue;"> Los Cracks :v</a></p></footer>
 </body>
 
 </html>

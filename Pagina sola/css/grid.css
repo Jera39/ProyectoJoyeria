@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Trirong");
+
+* {
+    
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+
+body{
+    font-family: "Trirong", serif;
+    font-size: 1.2rem;
+    min-height: 100%;
+
+}
+/*
+.grid-container > * {
+  
+    text-align: center;
+}*/
+
+.cabecera{
+    grid-area: cabecera;
+    background-color: black;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    font-family:  "Trirong", serif;
+    font-size: 30px;
+    
+}
+
+.titulo{
+    text-align: center;
+    float: none;
+    margin-top: 15px;
+}
+
+.imagen{
+    grid-area: imagen;
+    background-color: rgba(255, 255, 255, 1);
+    text-align: center;
+    margin-top: 15%;
+}
+
+.formulario{
+    grid-area: formulario;
+    background-color: rgba(255, 255, 255, 1);
+}
+.footer{
+    grid-area: footer;
+    background-color: black;
+    text-align: center;
+}
+
+
+.grid-container{
+    display: grid;
+    
+    grid-template-rows: 100px auto auto 100px;
+    grid-template-areas: 
+        "cabecera"
+        "imagen"
+        "formulario"
+        "footer";
+}
+
+
+
+#boxi:focus{
+    border-color: #000000;
+    box-shadow: 0 0 5px black;
+    outline: none;
+    outline-offset: 4px;
+
+}
+
+#botonci{
+    
+    background-color: rgba(184, 97, 37, 1);
+    border-color: white;
+    box-shadow: #000000;
+}
+
+#botonci:hover{
+    background-color: black
+
+}
+@media (min-width:600px){
+    .grid-container{
+        background-color: rgba(255, 255, 255, 1);
+        grid-template-columns: 50% auto;
+        grid-template-rows: 75px auto 10%;
+        grid-template-areas: 
+        "cabecera cabecera"
+        "imagen formulario"
+        "footer footer";
+    }
+}
+
+.titus{
+    text-align: left;
+}
+
+#pies{
+    margin-top: 2%;
+    color: aliceblue;
+}
+
+.precio{
+    color: rgb(202, 102, 34);
+}
+
+.descri{
+    font-size: 21px;
+}
+
+#canti{
+    border-color: #000000;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+#canti:focus{
+    box-shadow: 0 0 5px black;
+
+}
