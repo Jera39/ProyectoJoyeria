@@ -401,7 +401,6 @@ footer{
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
-
     margin: 30px;
     align-items: center;
 }
