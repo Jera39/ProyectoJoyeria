@@ -129,7 +129,7 @@ nav {
 /* fin de la personalizacion del submenu */
 
 .fondo-inicio{
-    background: url('../img/aretes/arete-html-fondo-inicio.jpg');
+    background: url('../img/collares/fondo-collar-2.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -144,6 +144,7 @@ nav {
     display: flex;
     width: 800px;
     flex-direction: column;
+    color: #ffffff;
 }
 
 .fondo-inicio-texto-menu{
