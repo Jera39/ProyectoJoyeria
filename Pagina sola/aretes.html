@@ -89,8 +89,21 @@
         </div>
         <div class="contenido">
             <div class="content-muestra">
+                <!-- <div class="content-muestra-aretes" id="arete-1">
+                    <a href="venta.html">
+                        <div class="muestra-aretes-imagen">
+                            <img src="img/aretes/arete-1.png" alt="">
+                        </div>
+                        <div class="muestra-aretes-nombre">
+                            VICTORIA
+                        </div>
+                        <div class="muestra-aretes-precio">
+                            De S/. 520.00
+                        </div>
+                    </a>
+                </div> -->
                 <div class="content-muestra-aretes" id="arete-1">
-                    <a href="">
+                    <a href="venta.html" onclick="guardarNombreImagen('arete-1')">
                         <div class="muestra-aretes-imagen">
                             <img src="img/aretes/arete-1.png" alt="">
                         </div>
@@ -102,6 +115,14 @@
                         </div>
                     </a>
                 </div>
+                
+                <script>
+                    function guardarNombreImagen(id) {
+                        var nombreImagen = document.getElementById(id).querySelector('img').src;
+                        localStorage.setItem('nombreImagen', nombreImagen);
+                    }
+                </script>
+                
                 <div class="content-muestra-aretes"  id="arete-2">
                     <a href="">
                         <div class="muestra-aretes-imagen">
