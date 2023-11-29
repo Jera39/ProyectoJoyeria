@@ -224,7 +224,7 @@ nav {
 
 }
 
-#botonci{
+#botonPersonalizar{
     
     background-color: rgba(184, 97, 37, 1);
     border-color: white;
@@ -234,7 +234,22 @@ nav {
     margin: 20px 30px;
 }
 
-#botonci:hover{
+#botonPersonalizar:hover{
+    background-color: black
+
+}
+
+#botonAgregarCarrito{
+    
+    background-color: rgba(184, 97, 37, 1);
+    border-color: white;
+    box-shadow: #000000;
+    height: 80px;
+    font-size: 20px;
+    margin: 20px 30px;
+}
+
+#botonAgregarCarrito:hover{
     background-color: black
 
 }

@@ -43,7 +43,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active " href="">Personalizacion</a>
+                            <a class="nav-link active " href="personalizacion.html">Personalizacion</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active " href="">Nosotros</a>
@@ -96,7 +96,7 @@
 
                 </div>
                 <div class="content-formulario-product-precio" id="precioProducto">
-                    USD
+                    
                 </div>
                 <div class="content-formulario-product-description">
                     Aretes de oro amarillo 18k con perlas y brillantes de 0.16ct.
@@ -118,9 +118,9 @@
                 </form>
             </div>
             <div class="form-row">
-                <button class="btn btn-primary col-md-4" type="submit" id="botonci">PERSONALIZAR
+                <button class="btn btn-primary col-md-4" type="submit" id="botonPersonalizar">PERSONALIZAR
                     PEDIDO</button>
-                <button class="btn btn-primary col-md-4" type="submit" id="botonci">AÑADIR AL
+                <button class="btn btn-primary col-md-4" type="submit" id="botonAgregarCarrito">AÑADIR AL
                     CARRITO</button>
             </div>
         </article>
@@ -138,6 +138,25 @@
         document.getElementById('nombreProducto').innerText = nombreProducto;
         document.getElementById('precioProducto').innerText = precioProducto;
         document.querySelector('.content-imagen img').src = nombreImagen;
+    </script>
+
+    <script>
+        // Obtener referencia al botón "AÑADIR AL CARRITO"
+        var botonAgregarCarrito = document.getElementById('botonAgregarCarrito');
+        // Agregar un event listener para redirigir al hacer clic
+        botonAgregarCarrito.addEventListener('click', function () {
+            // Redirigir a la página carrito.html
+            window.location.href = 'carrito.html';
+        });
+    </script>
+    <script>
+        // Obtener referencia al botón "AÑADIR AL CARRITO"
+        var botonPersonalizar = document.getElementById('botonPersonalizar');
+        // Agregar un event listener para redirigir al hacer clic
+        botonPersonalizar.addEventListener('click', function () {
+            // Redirigir a la página carrito.html
+            window.location.href = 'personalizacion.html';
+        });
     </script>
 
     <!-- fin de los scripts -->
