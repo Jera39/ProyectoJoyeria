@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta</title>
-    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/carrito.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Font Dancing Script de Google Fonts -->
@@ -23,7 +23,6 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
             <div class="container-fluid">
-
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
@@ -78,52 +77,58 @@
             </div>
         </nav>
     </header>
-
     <main class="content">
-        <aside class="content-imagen">
-            <img src="" alt="Imagen del Producto">
-        </aside>
+    
+        <div class="content-menu">
+            JOYERIA / CATEGORIA / ARETES / CARRITO
+        </div>
 
-
-
-        <article class="content-formulario">
-            <br>
-            <div class="content-formulario-product">
-                <div class="content-formulario-product-menu">
-                    JOYERIA / CATEGORIA /ARETES
+        <div class="content-tabla">
+            <div class="content-tabla-producto">
+                <div class="content-tabla-titulo">
+                    PRODUCTO
                 </div>
-                <div class="content-formulario-product-nombre" id="nombreProducto">
-
-                </div>
-                <div class="content-formulario-product-precio" id="precioProducto">
-                    USD
-                </div>
-                <div class="content-formulario-product-description">
-                    Aretes de oro amarillo 18k con perlas y brillantes de 0.16ct.
-                </div>
-                <div class="content-formulario-product-medidas">
-                    Medidas: 9.4mm
-                </div>
-                <form action="#">
-                    <div class="form-group">
-                        <div class="col-sm-">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    CANTIDAD          
-                                </div>
-                                <input type="number" class="form-control" id="canti" value="">
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <aside class="content-tabla-producto-imagen">
+                    <img src="" alt="Imagen del Producto">
+                </aside>
             </div>
-            <div class="form-row">
-                <button class="btn btn-primary col-md-4" type="submit" id="botonci">PERSONALIZAR
-                    PEDIDO</button>
-                <button class="btn btn-primary col-md-4" type="submit" id="botonci">AÑADIR AL
-                    CARRITO</button>
+            <div class="content-tabla-description">
+                <div class="content-tabla-titulo" id="nombreProducto">
+                    DESCRIPCIÓN
+                </div>
+                <div class="content-tabla-description-joya">
+
+                </div>
             </div>
-        </article>
+            <div class="content-tabla-cantidad">
+                <div class="content-tabla-titulo">
+                    CANTIDAD
+                </div>
+                <div class="content-tabla-cantidad-joya">
+
+                </div>
+            </div>
+            <div class="content-tabla-subtotal">
+                <div class="content-tabla-titulo">
+                    SUBTOTAL
+                </div>
+                <div class="content-tabla-subtotal-joya">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="content-total">
+
+        </div>
+        <div class="content-boton">
+            <div class="content-boton-left">
+                CONTINUAR COMPRANDO
+            </div>
+            <div class="content-boton-right">
+                PAGAR
+            </div>
+        </div>
     </main>
 
     <!-- script para obtener los datos de la tienda -->
@@ -142,11 +147,9 @@
 
     <!-- fin de los scripts -->
 
-
-
     <footer class="footer">
-        <div class="">
-            <div class="">
+        <div class="footer-content">
+            <div class="logotipo-footer">
                 <a class="logotipo" href="index.html">Carito</a>
             </div>
             <div class="derecho-reservado">
