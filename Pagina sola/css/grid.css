@@ -190,7 +190,7 @@ nav {
     .grid-container{
         background-color: rgba(255, 255, 255, 1);
         grid-template-columns: 50% auto;
-        grid-template-rows: 75px auto 10%;
+        grid-template-rows: 75px auto 100px;
         grid-template-areas: 
         "cabecera cabecera"
         "imagen formulario"
@@ -202,10 +202,7 @@ nav {
     text-align: left;
 }
 
-#pies{
-    margin-top: 2%;
-    color: aliceblue;
-}
+
 
 .precio{
     color: rgb(202, 102, 34);
@@ -226,22 +223,22 @@ nav {
 
 }
 
-/* Estilizado completo del Footer */
-
 footer{
-    position: relative;
-    display: flex;
-    background: #000000;
-    justify-content: center;
-    color: #ffffff;
+    background-color: black;
+}
+/* Estilizado completo del Footer */
+.footer{
+    margin-top: 130%;
+    text-align: center;
+    background-color: #000000;
 }
 
 .footer-content{
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
-
-    margin: 30px;
+    
+    margin: -90px;
     align-items: center;
 }
 
@@ -249,21 +246,35 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    text-align: 10px;
+    padding: 50px;
     font-weight: bold;
+    background-color: #000000;
+    margin-left: -650px;
 }
 
 .grupo{
-    position: absolute;
-    top:39%;
-    right: 3%;
     font-size: 45px;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
+    margin-left: 50%;
 }
 
 .derecho-reservado{
     font-size: 20px;
     letter-spacing: 1px;
-    padding-top: 20px;
+    padding-top: -20px;
+    margin-left: -650px;
+    background-color: #000000;
+}
+@media (min-width:600px){
+    .grid-container{
+        background-color: rgba(255, 255, 255, 1);
+        grid-template-columns: 50% auto;
+        grid-template-rows: 75px auto 100px;
+        grid-template-areas: 
+        "cabecera cabecera"
+        "imagen formulario"
+        "footer footer";
+    }
 }
