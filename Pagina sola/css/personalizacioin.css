@@ -219,7 +219,7 @@ footer{
 @media (min-width:900px) {
     .grid-contenido{
         grid-template: 
-        "cabe" auto
+        "cabe" 12%
         "cuer" auto
         "pies" 200px;
     }
