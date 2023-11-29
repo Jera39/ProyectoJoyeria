@@ -254,6 +254,17 @@ nav {
     background-color: black
 
 }
+@media (min-width:600px){
+    .grid-container{
+        background-color: rgba(255, 255, 255, 1);
+        grid-template-columns: 50% auto;
+        grid-template-rows: 75px auto 10%;
+        grid-template-areas: 
+        "cabecera cabecera"
+        "imagen formulario"
+        "footer footer";
+    }
+}
 
 .titus{
     text-align: left;
@@ -262,6 +273,14 @@ nav {
 #pies{
     margin-top: 2%;
     color: aliceblue;
+}
+
+.precio{
+    color: rgb(202, 102, 34);
+}
+
+.descri{
+    font-size: 21px;
 }
 
 #canti{
@@ -275,6 +294,9 @@ nav {
 
 }
 
+footer{
+    background-color: black;
+}
 /* Estilizado completo del Footer */
 
 footer{
@@ -283,15 +305,14 @@ footer{
     background: #000000;
     justify-content: center;
     color: #ffffff;
-    margin-top: 5%;
 }
 
 .footer-content{
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
-
-    margin: 30px;
+    
+    margin: -90px;
     align-items: center;
 }
 
@@ -299,21 +320,35 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    text-align: 10px;
+    padding: 50px;
     font-weight: bold;
+    background-color: #000000;
+    margin-left: -650px;
 }
 
 .grupo{
-    position: absolute;
-    top:39%;
-    right: 3%;
     font-size: 45px;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
+    margin-left: 50%;
 }
 
 .derecho-reservado{
     font-size: 20px;
     letter-spacing: 1px;
-    padding-top: 20px;
+    padding-top: -20px;
+    margin-left: -650px;
+    background-color: #000000;
+}
+@media (min-width:600px){
+    .grid-container{
+        background-color: rgba(255, 255, 255, 1);
+        grid-template-columns: 50% auto;
+        grid-template-rows: 75px auto 100px;
+        grid-template-areas: 
+        "cabecera cabecera"
+        "imagen formulario"
+        "footer footer";
+    }
 }
