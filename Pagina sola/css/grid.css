@@ -214,7 +214,6 @@ nav {
 }
 
 
-
 /* inicio codigo aparte */
 
 #boxi:focus{
@@ -242,7 +241,7 @@ nav {
 @media (min-width:600px){
     .grid-container{
         background-color: rgba(255, 255, 255, 1);
-        grid-template-columns: 50% auto;
+        grid-template-columns: 25% 50%;
         grid-template-rows: 75px auto 10%;
         grid-template-areas: 
         "cabecera cabecera"
@@ -279,11 +278,8 @@ nav {
 
 }
 
-footer{
-    background-color: black;
-}
 /* Estilizado completo del Footer */
-
+/*
 footer{
     position: relative;
     display: flex;
@@ -325,11 +321,11 @@ footer{
     padding-top: -20px;
     margin-left: -650px;
     background-color: #000000;
-}
+}*/
 @media (min-width:600px){
     .grid-container{
         background-color: rgba(255, 255, 255, 1);
-        grid-template-columns: 50% auto;
+        grid-template-columns: 25% 50%;
         grid-template-rows: 75px auto 100px;
         grid-template-areas: 
         "cabecera cabecera"
