@@ -219,7 +219,7 @@ footer{
 @media (min-width:900px) {
     .grid-contenido{
         grid-template: 
-        "cabe" 12%
+        "cabe" 10%
         "cuer" auto
         "pies" 200px;
     }
@@ -227,5 +227,24 @@ footer{
 
 html{
     height: 100%;
+}
+
+#soli{
+    background-color: rgba(184, 97, 37, 1);
+    color: #ffffff;
+    border-color: #ffffff;
+    float: right;
+    height: 55px;
+    width: 190px;
+}
+
+#soli:hover{
+    background-color: rgb(192, 79, 4);
+}
+
+#pers:focus{
+    border-color: #000000;
+    border-width: 2px;
+    box-shadow: none;
 }
 
