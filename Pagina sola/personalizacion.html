@@ -118,6 +118,7 @@
 
             </div>
             <div class="personalizalo">
+                
                 <p>
                     ¿Dispone de un diseño o imagen de la joya que desea que fabriquemos?*
                     <br><br>
@@ -127,24 +128,41 @@
                     <input type="radio" name="grupo1" id="bot">
                     <label>No</label>
                 </p>
-                <p>
+                
+                
+               
+                <p class="leve">
                     Tipo de Joya*
-                    <select class="form-control col-md-4" id="comb" required>
-                        <option id="comb">Seleccione una opción</option>
-                        <option id="comb">Anillo</option>
-                        <option id="comb">Arete</option>
-                        <option id="comb">Collar</option>
-                        <option id="comb">Pulsera</option>
-                        <option id="comb">Colgante</option>
-                    </select>
+                    <div class="tip">
+                        <select id="opciones" class="form-control col-md-4" onchange="carga()">
+                            <option value="">Seleccione una opción</option>
+                            <option value="mostrar">Anillo</option> 
+                            <option value="">Arete</option>
+                            <option value="moscol">Collar</option>
+                            <option value="mospul">Pulsera</option>
+                            <option value="">Colgante</option>
+                        </select><br>
+
+                        <p id="mensaje" style="display: none;">  </p>
+                       
+                        <div id="cuadroTexto">
+                             <label for="texto"  id="Mens"></label>
+                            <input type="text"  id="pers" name="texto" class="form-control col-md-5" placeholder="Ingrese dato...">
+                        </div>
+                    </div>
+                    
                 </p>
+                </div>
+                <script>
+                   
+                  </script>
                 <p>
                     Cantidad de Joyas*
                     <input type="number" class="form-control col-md-2" id="pers" value="1">
                 </p>
                 <p>
                     Material*
-                    <select class="form-control col-md-4" id="comb" required>
+                    <select class="form-control col-md-4" id="comb2" required>
                         <option>Seleccione una opción</option>
                         <option>Plata de Ley 925</option>
                         <option>Oro de Ley 18k</option>
@@ -178,6 +196,7 @@
         </div>
         <BR><BR><BR>
     </article>
+   
 
 
     <footer class="pies">
@@ -193,7 +212,7 @@
             Grupo 03
         </div>
     </footer>
-
+    <script src="js/personaliz.js"></script>
     
 </body>
 

@@ -248,3 +248,21 @@ html{
     box-shadow: none;
 }
 
+.tip{
+    display: flex;
+}
+#comb1:focus{
+    border-color: #000000;
+    border-width: 2px;
+    box-shadow: none;
+}
+#comb2:focus{
+    border-color: #000000;
+    border-width: 2px;
+    box-shadow: none;
+}
+
+#cuadroTexto {
+    display: none;
+    align-items: center;
+}
