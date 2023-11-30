@@ -234,6 +234,7 @@ html{
     color: #ffffff;
     border-color: #ffffff;
     float: right;
+    margin-right: 5%;
     height: 55px;
     width: 190px;
 }
@@ -265,4 +266,14 @@ html{
 #cuadroTexto {
     display: none;
     align-items: center;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+table{
+    border-color: white;
+    font-weight: bold;
 }

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/personalizacioin.css">
+    
 </head>
 
 <body class="grid-contenido">
@@ -80,6 +81,8 @@
     <article class="cuer">
         <div class="container">
 
+
+   
             <h2>PERSONALIZA TU JOYA COMO DESEES</h2>
             <p>JOYERÍA / CATEGORÍA / PERSONALIZAR</p>
             <div class="form-row">
@@ -153,9 +156,6 @@
                     
                 </p>
                 </div>
-                <script>
-                   
-                  </script>
                 <p>
                     Cantidad de Joyas*
                     <input type="number" class="form-control col-md-2" id="pers" value="1">
@@ -170,16 +170,56 @@
                         <option>Necesito asesoramiento</option>
                     </select>
                 </p>
+                
+                <div class="precios">
                 <p>
                     ¿Quieres incluir alguna pueda preciosa?*
                     <br><br>
-                    <input type="radio" name="grupo2" id="bot">
-                    <label>Si  </label>
+                    <label>
+                    <input type="radio" name="grupo2" id="roca" onclick="mostrarPiedras()">
+                    Si  </label>
                     <br>
-                    <input type="radio" name="grupo2" id="bot">
-                    <label>No</label>
+                    <label>
+                    <input type="radio" name="grupo2" id="piedras2" onclick="mostrarPiedras()">
+                    No</label>
                 </p>
+                <div id="prueba1" style="display:none;" >
+                    <form name="form1" method="post" action="">
+                        <table width="700px" height="173" border="1" >
+                      <tr>
+                        <td height="35" width="15%" align="center">Amatista</td>
+                        <td width="15%">Rubí</td>
+                        <td width="15%">Perla Mar del Sur</td>
+                        <td width="15%">Zafiro</td>
+                        <td width="15%">Diamante</td>
+                      </tr>
+                      <tr>
+                        <td height="100" ><img src="img/piedras/piedra1.png" alt=""></td>
+                        <td><img src="img/piedras/piedra2.png" alt=""></td>
+                        <td><img src="img/piedras/piedra3.png" alt=""></td>
+                        <td><img src="img/piedras/piedra4.png" alt=""></td>
+                        <td><img src="img/piedras/piedra5.png" alt=""></td>
+                      </tr>
+                      <tr>
+                        <td height="20"><input type="checkbox" name="chkAma" id="chkAma">
+                        <label for="chkAma"></label></td>
+                        <td><input type="checkbox" name="chkRubí" id="chkRubí">
+                        <label for="chkRubí"></label></td>
+                        <td><input type="checkbox" name="chkPerla" id="chkPerla">
+                        <label for="chkPerla"></label></td>
+                        <td><input type="checkbox" name="chkZafiro" id="chkZafiro">
+                        <label for="chkZafiro"></label></td>
+                        <td><input type="checkbox" name="chkDiamante" id="chkDiamante">
+                        <label for="chkDiamante"></label></td>
+                      </tr>
+                    </table>
+                    
+                  </form>
+                </div>
+                </div>
+
                 <p>
+                    <br>
                     ¿Para cuando deseas la joya?*<br>
                     <br>
                     <input type="date" class="form-control col-md-2" id="pers" placeholder="" required>
@@ -188,6 +228,8 @@
                     Por último, para ayudarnos a diseñar tu joya, describela con exactitud. (medidas, numero de piedras...)
                     <br><br>
                     <textarea class="form-control col-md-6" id="pers" placeholder="Ingresa detalles *" data-sb-validations="required"></textarea>
+                    
+                    
                 </p>
                 <br>
             </div>
@@ -197,7 +239,7 @@
         <BR><BR><BR>
     </article>
    
-
+    
 
     <footer class="pies">
         <div class="footer-content">
@@ -212,7 +254,12 @@
             Grupo 03
         </div>
     </footer>
+
+    
     <script src="js/personaliz.js"></script>
+    
+
+
     
 </body>
 
