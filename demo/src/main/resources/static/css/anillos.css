@@ -215,6 +215,10 @@ nav {
     width: auto;
 }
 
+.muestra-aretes-descripcion, .muestra-aretes-medida, .muestra-aretes-stock{
+    display: none;
+}
+
 /* estrellas que seran dejadas de lado por el momento */
 
 
