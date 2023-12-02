@@ -89,8 +89,8 @@
         <article class="content-formulario">
             <br>
             <div class="content-formulario-product">
-                <div class="content-formulario-product-menu">
-                    JOYERIA / CATEGORIA /ARETES
+                <div class="content-formulario-product-menu" id="tipoDeJoya">
+                    
                 </div>
                 <div class="content-formulario-product-nombre" id="nombreProducto">
 
@@ -98,20 +98,20 @@
                 <div class="content-formulario-product-precio" id="precioProducto">
                     
                 </div>
-                <div class="content-formulario-product-description">
-                    Aretes de oro amarillo 18k con perlas y brillantes de 0.16ct.
+                <div class="content-formulario-product-description" id="descripcionProducto">
+                    
                 </div>
-                <div class="content-formulario-product-medidas">
-                    Medidas: 9.4mm
+                <div class="content-formulario-product-medidas" id="medidaProducto">
+                    
                 </div>
-                <form action="#">
+                <form action="#" onsubmit="return validarCantidad()">
                     <div class="form-group">
                         <div class="col-sm-">
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    CANTIDAD          
+                                    CANTIDAD          
                                 </div>
-                                <input type="number" class="form-control" id="canti" value="">
+                                <input type="number" class="form-control" id="canti" value="" min="1" max="" required>
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
             <div class="form-row">
                 <button class="btn btn-primary col-md-4" type="submit" id="botonPersonalizar">PERSONALIZAR
                     PEDIDO</button>
-                <button class="btn btn-primary col-md-4" type="submit" id="botonAgregarCarrito">AÑADIR AL
+                <button class="btn btn-primary col-md-4" type="button" id="botonAgregarCarrito" onclick="validarCantidad()">AÑADIR AL
                     CARRITO</button>
             </div>
         </article>
@@ -133,31 +133,41 @@
         var nombreProducto = localStorage.getItem('nombreProducto');
         var precioProducto = localStorage.getItem('precioProducto');
         var nombreImagen = localStorage.getItem('nombreImagen');
+        var descripcionProducto = localStorage.getItem('descripcionProducto');
+        var medidaProducto = localStorage.getItem('medidaProducto');
 
         // Llenar la información en la página de venta
         document.getElementById('nombreProducto').innerText = nombreProducto;
-        document.getElementById('precioProducto').innerText = precioProducto;
+        document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
         document.querySelector('.content-imagen img').src = nombreImagen;
+        document.getElementById('descripcionProducto').innerText = descripcionProducto;
+        document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
+        document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
     </script>
 
-    <script>
-        // Obtener referencia al botón "AÑADIR AL CARRITO"
-        var botonAgregarCarrito = document.getElementById('botonAgregarCarrito');
-        // Agregar un event listener para redirigir al hacer clic
-        botonAgregarCarrito.addEventListener('click', function () {
-            // Redirigir a la página carrito.html
-            window.location.href = 'carrito.html';
-        });
-    </script>
-    <script>
-        // Obtener referencia al botón "AÑADIR AL CARRITO"
-        var botonPersonalizar = document.getElementById('botonPersonalizar');
-        // Agregar un event listener para redirigir al hacer clic
-        botonPersonalizar.addEventListener('click', function () {
-            // Redirigir a la página carrito.html
-            window.location.href = 'personalizacion.html';
-        });
-    </script>
+<script>
+    // Función para validar la cantidad
+    function validarCantidad() {
+        var cantidadInput = document.getElementById('canti');
+        var cantidadSeleccionada = parseInt(cantidadInput.value, 10);
+        var stockDisponible = parseInt(localStorage.getItem('stockProducto'), 10);
+
+        if (isNaN(cantidadSeleccionada) || cantidadSeleccionada < 1) {
+            alert("La cantidad seleccionada no es válida.");
+            return false;
+        }
+
+        if (cantidadSeleccionada > stockDisponible) {
+            alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
+            return false;
+        }
+
+        window.location.href = 'carrito.html';
+
+        return true;
+    }
+</script>
+
 
     <!-- fin de los scripts -->
 
