@@ -15,7 +15,7 @@ nav {
     width: 100%;
     /* Ancho completo */
     top: 0;
-    /* Colocar en la pacrte superior */
+    /* Colocar en la pacrtde superior */
     z-index: 1000;
 }
 
@@ -220,15 +220,15 @@ nav {
     width: auto;
 }
 
-.muestra-aretes-descripcion{
+.muestra-aretes-descripcion {
     display: none;
 }
 
-.muestra-aretes-medida{
+.muestra-aretes-medida {
     display: none;
 }
 
-.muestra-aretes-stock{
+.muestra-aretes-stock {
     display: none;
 }
 
