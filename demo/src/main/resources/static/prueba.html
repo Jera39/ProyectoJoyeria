@@ -97,11 +97,11 @@
                     .then(response => response.json())
                     .then(joyas => {
                         // Filtrar las joyas del tipo "pendiente"
-                        const joyasPendientes = joyas.filter(joya => joya.tipo === 'anillo');
+                        const tipoDeJoya = joyas.filter(joya => joya.tipo === 'pendiente');
             
                         // Llenar dinámicamente el contenedor de joyas
                         const joyasContainer = document.getElementById('joyas-container');
-                        joyasPendientes.forEach(joya => {
+                        tipoDeJoya.forEach(joya => {
                             const joyaElement = document.createElement('div');
                             joyaElement.classList.add('muestra-aretes');
             
@@ -109,11 +109,13 @@
                             <div id="${joya.id}" class="content-muestra-aretes">
                                 <a href="venta.html" onclick="guardarInformacionProducto(this)">
                                     <div class="muestra-aretes-imagen">
-                                        <img src="${joya.imagen}" alt="">
+                                        <img src="https://drive.google.com/uc?export=view&id=${joya.imagen}" alt="">
                                     </div>
                                     <div class="muestra-aretes-nombre">${joya.nombre}</div>
                                     <div class="muestra-aretes-precio">${joya.precio}</div>
                                     <div class="muestra-aretes-descripcion">${joya.descripcion}</div>
+                                    <div class="muestra-aretes-medida">${joya.medida}</div>
+                                    <div class="muestra-aretes-stock">${joya.stock}</div>
                                 </a>
                             </div>
                             `;
@@ -133,10 +135,18 @@
             var nombre = elemento.querySelector('.muestra-aretes-nombre').innerText;
             var precio = elemento.querySelector('.muestra-aretes-precio').innerText;
             var imagen = elemento.querySelector('img').src;
+            var descripcion = elemento.querySelector('.muestra-aretes-descripcion').innerText;
+            var medida = elemento.querySelector('.muestra-aretes-medida').innerText;
+            var stock = elemento.querySelector('.muestra-aretes-stock').innerText;
+            var tipo = "PENDIENTE"
 
             localStorage.setItem('nombreProducto', nombre);
             localStorage.setItem('precioProducto', precio);
             localStorage.setItem('nombreImagen', imagen);
+            localStorage.setItem('descripcionProducto', descripcion);
+            localStorage.setItem('medidaProducto', medida);
+            localStorage.setItem('stockProducto', stock);
+            localStorage.setItem('tipoProducto', tipo);
         }
     </script>
 
