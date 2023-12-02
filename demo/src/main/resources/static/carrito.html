@@ -79,8 +79,8 @@
     </header>
     <main class="content">
 
-        <div class="content-menu">
-            JOYERIA / CATEGORIA / ARETES / CARRITO
+        <div class="content-menu" id="tipoDeJoya">
+            
         </div>
 
         <div class="content-tabla">
@@ -144,11 +144,18 @@
         var nombreProducto = localStorage.getItem('nombreProducto');
         var precioProducto = localStorage.getItem('precioProducto');
         var nombreImagen = localStorage.getItem('nombreImagen');
+        var descripcionProducto = localStorage.getItem('descripcionProducto');
+        var medidaProducto = localStorage.getItem('medidaProducto');
+        var tipoDeJoya = localStorage.getItem('tipoProducto'); 
 
         // Llenar la información en la página de venta
         document.getElementById('nombreProducto').innerText = nombreProducto;
-        document.getElementById('precioProducto').innerText = precioProducto;
-        document.querySelector('.content-tabla-producto-imagen img').src = nombreImagen;
+        document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
+        document.querySelector('.content-imagen img').src = nombreImagen;
+        document.getElementById('descripcionProducto').innerText = descripcionProducto;
+        document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
+        document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya + " / CARRITO";
+
     </script>
 
     <!-- fin de los scripts -->

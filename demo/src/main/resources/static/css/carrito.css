@@ -264,6 +264,7 @@ nav {
     height: 90px;
     width: 400px;
     background-color: rgba(184, 97, 37, 1);
+    color: #ffffff;
     margin: 10px 100px;
     padding: 20px;
     border-radius: 1rem;
@@ -278,6 +279,7 @@ nav {
     height: 90px;
     width: 400px;
     background-color: rgba(184, 97, 37, 1);
+    color: #ffffff;
     margin: 10px 100px;
     padding: 20px;
     border-radius: 1rem;
@@ -289,12 +291,10 @@ nav {
 
 .content-boton-right:hover{
     background-color: #000000;
-    color: #ffffff;
 } 
 
 .content-boton-left:hover{
     background-color: #000000;
-    color: #ffffff;
 }
 
 .content-total-num{
