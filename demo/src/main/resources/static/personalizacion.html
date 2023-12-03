@@ -132,7 +132,7 @@
                 <p class="leve">
                     Tipo de Joya*
                 <div class="tip">
-                    <select id="opciones" class="form-control col-md-4" onchange="carga()">
+                    <select id="tipoJoya" class="form-control col-md-4" onchange="carga()">
                         <option value="">Seleccione una opción</option>
                         <option value="mostrar">Anillo</option>
                         <option value="">Arete</option>
@@ -151,11 +151,11 @@
             </div>
             <p>
                 Cantidad de Joyas*
-                <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1">
+                <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1" min="1">
             </p>
             <p>
                 Material*
-                <select class="form-control col-md-4" id="comb2" required>
+                <select class="form-control col-md-4" id="materialJoya" required>
                     <option>Seleccione una opción</option>
                     <option>Plata de Ley 925</option>
                     <option>Oro de Ley 18k</option>
@@ -193,19 +193,20 @@
                                 <td><img src="img/piedras/piedra5.png" alt=""></td>
                             </tr>
                             <tr>
-                                <td height="20"><input type="checkbox" name="chkAma" id="chkAma">
-                                    <label for="chkAma"></label>
+                                <td height="20"><input type="checkbox" name="chkPiedra" id="chkAmatista"
+                                        value="Amatista">
+                                    <label for="chkAmatista"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkRubí" id="chkRubí">
+                                <td><input type="checkbox" name="chkPiedra" id="chkRubí" value="Rubí">
                                     <label for="chkRubí"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkPerla" id="chkPerla">
+                                <td><input type="checkbox" name="chkPiedra" id="chkPerla" value="Perla">
                                     <label for="chkPerla"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkZafiro" id="chkZafiro">
+                                <td><input type="checkbox" name="chkPiedra" id="chkZafiro" value="Zafiro">
                                     <label for="chkZafiro"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkDiamante" id="chkDiamante">
+                                <td><input type="checkbox" name="chkPiedra" id="chkDiamante" value="Diamante">
                                     <label for="chkDiamante"></label>
                                 </td>
                             </tr>
@@ -217,17 +218,17 @@
                 <br>
                 ¿Para cuando deseas la joya?*<br>
                 <br>
-                <input type="date" class="form-control col-md-2" id="pers" placeholder="" required>
+                <input type="date" class="form-control col-md-2" id="fechaDeseada" placeholder="" required>
             </p>
             <p>
                 Por último, para ayudarnos a diseñar tu joya, describela con exactitud. (medidas, numero de piedras...)
                 <br><br>
-                <textarea class="form-control col-md-6" id="pers" placeholder="Ingresa detalles *"
+                <textarea class="form-control col-md-6" id="descripcionJoya" placeholder="Ingresa detalles *"
                     data-sb-validations="required"></textarea>
             </p>
             <br>
         </div>
-        <button class="btn btn-primary col-md-3" type="submit" id="soli">SOLICITAR</button>
+        <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="enviarPedido()">SOLICITAR</button>
         <BR><BR>
         </div>
         <BR><BR><BR>
@@ -246,10 +247,9 @@
             var provincia = document.getElementById('provincia').value;
             var distrito = document.getElementById('distrito').value;
             var direccion = document.getElementById('direccion').value;
-            var linkImagen = document.getElementById('linkImagen').value;
+            // var linkImagen = document.getElementById('linkImagen').value;
             var cantidadJoya = document.getElementById('cantidadJoya').value;
             var materialJoya = document.getElementById('materialJoya').value;
-            var piedraPreciosa = document.getElementById('piedraPreciosa').value;
             var descripcionJoya = document.getElementById('descripcionJoya').value;
             var fechaDeseada = document.getElementById('fechaDeseada').value;
 
@@ -266,18 +266,30 @@
             var fechaActual = Date.now();
             var fechaRegistro = new Date(fechaActual);
             var fechaOptima = new Date(fechaDeseada)
+            var fechaActualObj = new Date(fechaActual);
 
             var fechaNacimientoObj = new Date(fechaNacimiento);
-            var edad = fechaActual.getFullYear() - fechaNacimientoObj.getFullYear();
+            var edad = fechaActualObj.getFullYear() - fechaNacimientoObj.getFullYear();
             // Sumamos una semana a la fecha actual
             var fechaAproximada = new Date(fechaActual + 7 * 24 * 60 * 60 * 1000)
 
+            // Obtener todos los checkboxes por su nombre para las piedra preciosas
+            var checkboxes = document.getElementsByName('chkPiedra');
+            var piedrasSeleccionadas = [];
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    piedrasSeleccionadas.push(checkboxes[i].value);
+                }
+            }
+
+            var piedraPreciosa = piedrasSeleccionadas.join(', ')
 
             //ADICIONALES
 
             // Verifica si el cumpleaños ya ha pasado este año
-            if (fechaActual.getMonth() < fechaNacimientoObj.getMonth() ||
-                (fechaActual.getMonth() === fechaNacimientoObj.getMonth() && fechaActual.getDate() < fechaNacimientoObj.getDate())) {
+            if (fechaActualObj.getMonth() < fechaNacimientoObj.getMonth() ||
+                (fechaActualObj.getMonth() === fechaNacimientoObj.getMonth() && fechaActualObj.getDate() < fechaNacimientoObj.getDate())) {
                 edad--;
             }
 
@@ -289,7 +301,7 @@
                 telefonoCliente: telefono,
                 edadCliente: edad,
                 direccionCliente: 'Provincia: ' + provincia + '   | Distrito: ' + distrito + '   | Direccion: ' + direccion,
-                imagen: linkImagen,
+                // imagen: linkImagen,
                 tipo: tipoJoya,
                 cantidad: cantidadJoya,
                 material: materialJoya,
@@ -298,8 +310,8 @@
                 descripcion: descripcionJoya,
                 estadoPedido: 'En proceso',
                 fechaRegistro: fechaRegistro.toLocaleString(),
-                fechaAproximada: fechaAproximada.toLocalString(),
-                idCliente: '23'
+                fechaAproximada: fechaAproximada.toLocaleString(),
+                idCliente: '$00000$'
             };
 
             console.log(pedidoData);
