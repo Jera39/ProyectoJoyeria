@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
     <!-- Font Dancing Script de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 
 <body>
@@ -69,8 +73,8 @@
 
                 <li class="d-flex" id="login">
                     <div class="cuadro-login">
-                        <a href="" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                        <a th:href="@{/login}" id="enlaceLogin"><svg viewBox="0 0 24 24" width="50px" height="50px"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
@@ -86,11 +90,11 @@
     <script>
         // Obtener referencia al enlace de login
         var enlaceLogin = document.getElementById('enlaceLogin');
-    
+
         // Agregar un event listener para redirigir al hacer clic
         enlaceLogin.addEventListener('click', function () {
             // Redirigir a la página login.php
-            window.location.href = 'login.php';
+            window.location.href = 'login.html';
         });
     </script>
     <main>
