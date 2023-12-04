@@ -224,7 +224,6 @@ footer{
 
 .imagene{
     grid-area: imagene;
-    text-align: center;
 }
 
 .cuer{
@@ -249,7 +248,7 @@ footer{
         grid-template: 
         "cabe cabe" 10%
         "imagene cuer" auto
-        "pies pies" 200px /
+        "pies pies" 125px /
         40% auto;
     }
 }
