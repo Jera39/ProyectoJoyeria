@@ -27,6 +27,10 @@ public class PedidoPersonalizadoService {
         return pedidoPersonalizadoRepository.findById(id);
     }
 
+    public ArrayList<PedidoPersonalizadoModel> obtenerPorIdCliente(Long idCliente) {
+        return pedidoPersonalizadoRepository.findByIdCliente(idCliente);
+    }
+
     public boolean aliminarPedidoPersonalizado(Long id) {
         try {
             pedidoPersonalizadoRepository.deleteById(id);

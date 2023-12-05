@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.PedidoPersonalizadoModel;
@@ -36,6 +37,12 @@ public class PedidoPersonalizadoController {
     @GetMapping(path = "/{id}")
     public Optional<PedidoPersonalizadoModel> obtenerPedidoPersonalizadoPorId(@PathVariable("id") Long id) {
         return this.pedidoPersonalizadoService.obtenerPorId(id);
+    }
+
+    @GetMapping("/pedidosUsuario")
+    public ArrayList<PedidoPersonalizadoModel> obtenerPedidoPersonalizadoPorIdCliente(
+            @RequestParam("idCliente") Long idCliente) {
+        return this.pedidoPersonalizadoService.obtenerPorIdCliente(idCliente);
     }
 
     @DeleteMapping(path = "/{id}")

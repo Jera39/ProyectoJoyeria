@@ -277,3 +277,51 @@ table{
     border-color: white;
     font-weight: bold;
 }
+
+/* estilo del cuadro de vista animada del diseño */
+
+.vistaPrevia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vistaPrevia-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vistaPrevia-container-container{
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+    border:4px solid #f2bb5b;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 1.5rem;
+}
+
+.vistaPrevia-container-imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:4px solid #f2bb5b;
+    border-radius: 1.5rem;
+}
+
+.vistaPrevia-container-imagen img{
+    display: flex;
+    width: 25rem;
+    height: auto;
+}
+
+.vistaPrevia-container-descripcion{
+    display: flex;
+    font-size: 30px;
+    font-family: 'Dancing Script';
+    margin: 20px;
+    padding: 20px;
+}
