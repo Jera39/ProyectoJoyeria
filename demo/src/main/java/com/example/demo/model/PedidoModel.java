@@ -23,13 +23,22 @@ public class PedidoModel {
     private String tipo;
     private Integer cantidad;
     private String descripcion;
-    private String medidaProducto;
+    private Double medidaProducto;
     private String estadoPedido;
     private String codigoEntrega;
     private Date fechaRegistro;
     private Date fechaAproximada;
     private Date fechaEntrega;
     private Long idCliente;
+    private Double precio;
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 
     public Long getId() {
         return id;
@@ -167,11 +176,11 @@ public class PedidoModel {
         this.nombrePedido = nombrePedido;
     }
 
-    public String getMedidaProducto() {
+    public Double getMedidaProducto() {
         return medidaProducto;
     }
 
-    public void setMedidaProducto(String medidaProducto) {
+    public void setMedidaProducto(Double medidaProducto) {
         this.medidaProducto = medidaProducto;
     }
 

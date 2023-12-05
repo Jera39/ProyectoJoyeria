@@ -22,6 +22,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body>
@@ -98,150 +100,147 @@
             window.location.href = 'login.html';
         });
     </script>
-    <div class="container-title">Lista de pedidos de Joyas</div>
-    <div style="border: 1px solid rgb(88, 47, 47);">
-        
 
-            <div class="container-img">
-                <img src="./img/3e3fe300ba5559955bc55bd921932abb.jpg" alt="imagen-producto" />
-            </div>
-            <div class="container-info-product">
-
-
-                <div class="container-details-product">
-                    <div class="form-group">
-                        <label for="colour">Nombre del pedido</label>
-                        <h1>------</h1>
+    <main>
+        <div class="container-title">Lista de pedidos de Joyas</div>
+        <br>
+        <br>
+        <div id="contenidoDinamico">
+            <div style="border: 1px solid rgb(88, 47, 47);">
+                <!-- <div class="panel-principal">
+                    <div class="container-img">
+                        <img src="./img/3e3fe300ba5559955bc55bd921932abb.jpg" alt="imagen-producto" />
                     </div>
-                    <div class="form-group">
-                        <label for="colour">Cantidad</label>
-                        <h1>-------</h1>
+                    <div class="container-info-product">
+                        <div class="container-details-product">
+                            <div class="form-group">
+                                <label for="colour">Nombre del pedido</label>
+                                <h1>------</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Cantidad</label>
+                                <h1>-------</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Precio </label>
+                                <h1>------</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Estado del pedido</label>
+                                <h1>-------</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="colour">Precio </label>
-                        <h1>------</h1>
-                    </div>
-                    <div class="form-group">
-                        <label for="colour">Estado del pedido</label>
-                        <h1>-------</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="container-details-producto">
-                <div class="form-group">
-                    <label for="colour">Descripcion</label>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos cumque neque quod illo
-                        deleniti, exercitationem dolor nobis vel rem aliquam dicta nihil eaque eos voluptas animi,
-                        dolorum veritatis, perferendis vero.</p>
-                </div>
-
-            </div>
-
-
-    </div>
-
-
-
-
-    <div style="border: 1px solid rgb(88, 47, 47);">
-        <main>
-
-            <div class="container-img">
-                <img src="./img/3e3fe300ba5559955bc55bd921932abb.jpg" alt="imagen-producto" />
-            </div>
-            <div class="container-info-product">
-
-
-                <div class="container-details-product">
-                    <div class="form-group">
-                        <label for="colour">Nombre del pedido</label>
-                        <h1>------</h1>
-                    </div>
-                    <div class="form-group">
-                        <label for="colour">Cantidad</label>
-                        <h1>-------</h1>
-                    </div>
-                    <div class="form-group">
-                        <label for="colour">Precio </label>
-                        <h1>------</h1>
-                    </div>
-                    <div class="form-group">
-                        <label for="colour">Estado del pedido</label>
-                        <h1>-------</h1>
+                    <div class="container-details-producto">
+                        <div class="form-group">
+                            <label for="colour">Descripcion</label>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos cumque neque quod illo
+                                deleniti, exercitationem dolor nobis vel rem aliquam dicta nihil eaque eos voluptas
+                                animi,
+                                dolorum veritatis, perferendis vero.</p>
+                        </div>
                     </div>
                 </div>
-
-
-
             </div>
-            <div class="container-details-producto">
-                <div class="form-group">
-                    <label for="colour">Descripcion</label>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos cumque neque quod illo
-                        deleniti, exercitationem dolor nobis vel rem aliquam dicta nihil eaque eos voluptas animi,
-                        dolorum veritatis, perferendis vero.</p>
-                </div>
-
+            <br>
+            <br>
+            <div style="border: 1px solid rgb(88, 47, 47);">
+                <div class="panel-principal">
+                    <div class="container-img">
+                        <img src="./img/3e3fe300ba5559955bc55bd921932abb.jpg" alt="imagen-producto" />
+                    </div>
+                    <div class="container-info-product">
+                        <div class="container-details-product">
+                            <div class="form-group">
+                                <label for="colour">Nombre del pedido</label>
+                                <h1>------</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Cantidad</label>
+                                <h1>-------</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Precio </label>
+                                <h1>------</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Estado del pedido</label>
+                                <h1>-------</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-details-producto">
+                        <div class="form-group">
+                            <label for="colour">Descripcion</label>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos cumque neque quod illo
+                                deleniti, exercitationem dolor nobis vel rem aliquam dicta nihil eaque eos voluptas
+                                animi,
+                                dolorum veritatis, perferendis vero.</p>
+                        </div>
+                    </div>
+                </div> -->
             </div>
-
-
-    </div>
-
-    <div id="pedidos-container" style="border: 1px solid rgb(88, 47, 47);">
-        <main>
-            <!-- Contenido dinámico se agregará aquí -->
-        </main>
-    </div>
+            <br>
+            <br>
+        </div>
+    </main>
 
     <script>
-        // Obtén el contenedor donde se mostrarán los pedidos
-        const pedidosContainer = document.getElementById('pedidos-container');
-
-        // Realiza una solicitud al servidor para obtener los pedidos del cliente con un ID específico
-        const idCliente = 1; // Reemplaza con el ID del cliente que desees
-        fetch(`/pedidosPersonalizados/pedidosUsuario?idCliente=${idCliente}`)
+        // Obtener los pedidos del cliente desde el servidor
+        fetch('/pedidos')
             .then(response => response.json())
             .then(pedidos => {
-                // Genera dinámicamente el contenido HTML basado en los pedidos recibidos
-                const contenidoHTML = pedidos.map(pedido => `
-                    <div style="border: 1px solid rgb(88, 47, 47);">
-                        <div class="container-img">
-                            <img src="https://drive.google.com/uc?export=view&id=${pedido.imagen}" alt="imagen-producto" />
-                        </div>
-                        <div class="container-info-product">
-                            <div class="container-details-product">
-                                <div class="form-group">
-                                    <label for="colour">Nombre del pedido</label>
-                                    <h1>${pedido.nombrePedido}</h1>
-                                </div>
-                                <div class="form-group">
-                                    <label for="colour">Cantidad</label>
-                                    <h1>${pedido.cantidad}</h1>
-                                </div>
-                                <div class="form-group">
-                                    <label for="colour">Precio</label>
-                                    <h1>${pedido.precio}</h1>
-                                </div>
-                                <div class="form-group">
-                                    <label for="colour">Estado del pedido</label>
-                                    <h1>${pedido.estado}</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-details-producto">
-                            <div class="form-group">
-                                <label for="colour">Descripcion</label>
-                                <p>${pedido.descripcion}</p>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
+                // Filtrar los pedidos por ID del Cliente
+                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
 
-                // Agrega el contenido HTML al contenedor
-                pedidosContainer.innerHTML = contenidoHTML;
+                // Verificar si hay pedidos para el cliente
+                if (idDelCliente.length > 0) {
+                    // Llenar dinámicamente el contenedor de pedidos
+                    const pedidosContainer = document.getElementById('contenidoDinamico');
+                    idDelCliente.forEach(pedido => {
+                        const pedidoElement = document.createElement('div');
+                        pedidoElement.classList.add('panel-principal');
+                        pedidoElement.innerHTML = `
+                                <div class="container-img">
+                                    <img src="${pedido.imagen}" alt="imagen-producto" />
+                                </div>
+                                <div class="container-info-product">
+                                    <div class="container-details-product">
+                                        <div class="form-group">
+                                            <label for="colour">Nombre del pedido</label>
+                                            <h1>${pedido.nombrePedido}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colour">Cantidad</label>
+                                            <h1>${pedido.cantidad}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colour">Precio </label>
+                                            <h1>${pedido.precio}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colour">Estado del pedido</label>
+                                            <h1>${pedido.estadoPedido}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-details-producto">
+                                    <div class="form-group">
+                                        <label for="colour">Descripcion</label>
+                                        <p>${pedido.descripcion}</p>
+                                    </div>
+                                </div>
+                    `;
+
+                        pedidosContainer.appendChild(pedidoElement);
+                    });
+                } else {
+                    console.log('No hay pedidos para el cliente con ID 1111');
+                }
             })
             .catch(error => console.error('Error al obtener pedidos:', error));
     </script>
+
 
 
     <footer>
