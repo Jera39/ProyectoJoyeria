@@ -232,20 +232,6 @@ nav {
     display: none;
 }
 
-/* estrellas que seran dejadas de lado por el momento */
-
-
-.muestra-aretes-estrellas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.muestra-aretes-estrellas img {
-    width: 50px;
-    height: auto;
-    margin: 10px;
-}
 
 /* fin del estilo de las estrellas */
 
