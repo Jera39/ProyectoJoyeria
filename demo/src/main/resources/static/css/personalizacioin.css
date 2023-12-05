@@ -277,3 +277,48 @@ table{
     border-color: white;
     font-weight: bold;
 }
+/***************pedido******/
+.cabes{
+    grid-area: cabes;
+}
+
+.slog{
+    grid-area: slog;
+}
+
+.navs{
+    grid-area: navs;
+}
+.cuers{
+    grid-area: cuers;
+}
+.asides{
+    grid-area: asides;
+}
+
+.piess{
+    grid-area: piess;
+}
+
+
+.grid-contenidos{
+    display: grid;
+    grid-template-areas: 
+    "cabes"
+    "slog"
+    "navs"
+    "cuers"
+    "asides"
+    "piess";
+}
+
+@media (min-width:900px) {
+    .grid-contenidos{
+        grid-template: 
+        "cabes cabes cabes" 5%
+        "slog slog slog" 15%
+        "navs cuers asides" auto
+        "piess piess piess" 180px/
+        33% 34% 33%;
+    }
+}
