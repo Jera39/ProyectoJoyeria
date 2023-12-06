@@ -44,8 +44,13 @@ main{
 .container-img {
 	background-color: #f7f7f9;
 	flex: 1;
-	padding: 80px;
+	padding: 10px;
 
+}
+
+.container-img img{
+	width: 300px;
+	height: auto;
 }
 
 .container-info-product {
@@ -74,7 +79,7 @@ main{
 
 .container-details-producto {
 	width: 55%;
-	padding: 50px 110px;
+	padding: 40px 90px;
 }
 
 .form-group {
@@ -91,12 +96,16 @@ main{
 }
 
 .form-group select {
-	width: 300px;
+	width: 100px;
 	border: none;
 	padding: 12px 15px;
 	background-color: #f7f7f7;
 	outline: none;
 	color: #666;
+}
+
+.form-group h1{
+	font-size: 20px;
 }
 
 .btn-clean {

@@ -151,7 +151,10 @@ nav {
 /* contenido */
 
 
-
+.content-imagen img{
+    width: 220px;
+    height: auto;
+}
 
 
 
