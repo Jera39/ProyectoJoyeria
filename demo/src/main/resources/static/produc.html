@@ -192,7 +192,7 @@
             .then(pedidos => {
                 // Filtrar los pedidos por ID del Cliente
                 const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
-
+    
                 // Verificar si hay pedidos para el cliente
                 if (idDelCliente.length > 0) {
                     // Llenar dinámicamente el contenedor de pedidos
@@ -201,8 +201,9 @@
                         const pedidoElement = document.createElement('div');
                         pedidoElement.classList.add('panel-principal');
                         pedidoElement.innerHTML = `
+                            <div id="${pedido.id}" class="pedido-item">
                                 <div class="container-img">
-                                    <img src="${pedido.imagen}" alt="imagen-producto" />
+                                    <img src="https://drive.google.com/uc?export=view&id=${pedido.imagen}" alt="imagen-producto" />
                                 </div>
                                 <div class="container-info-product">
                                     <div class="container-details-product">
@@ -230,8 +231,15 @@
                                         <p>${pedido.descripcion}</p>
                                     </div>
                                 </div>
-                    `;
-
+                            </div>
+                        `;
+    
+                        // Agregar un evento de clic al elemento del pedido
+                        pedidoElement.addEventListener('click', function () {
+                            // Redirigir a pedido.html y pasar el ID del pedido como parámetro
+                            window.location.href = `/pedido.html?id=${pedido.id}`;
+                        });
+    
                         pedidosContainer.appendChild(pedidoElement);
                     });
                 } else {
@@ -240,6 +248,7 @@
             })
             .catch(error => console.error('Error al obtener pedidos:', error));
     </script>
+    
 
 
 

@@ -176,6 +176,62 @@
         </div>
     </aside>
 
+    <script>
+        // Obtener los pedidos del cliente desde el servidor
+        fetch('/pedidos')
+            .then(response => response.json())
+            .then(pedidos => {
+                // Filtrar los pedidos por ID del Cliente
+                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
+
+                // Verificar si hay pedidos para el cliente
+                if (idDelCliente.length > 0) {
+                    // Llenar dinámicamente el contenedor de pedidos
+                    const pedidosContainer = document.getElementById('contenidoDinamico');
+                    idDelCliente.forEach(pedido => {
+                        const pedidoElement = document.createElement('div');
+                        pedidoElement.classList.add('panel-principal');
+                        pedidoElement.innerHTML = `
+                                <div class="container-img">
+                                    <img src="https://drive.google.com/uc?export=view&id=${pedido.imagen}" alt="imagen-producto" />
+                                </div>
+                                <div class="container-info-product">
+                                    <div class="container-details-product">
+                                        <div class="form-group">
+                                            <label for="colour">Nombre del pedido</label>
+                                            <h1>${pedido.nombrePedido}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colour">Cantidad</label>
+                                            <h1>${pedido.cantidad}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colour">Precio </label>
+                                            <h1>${pedido.precio}</h1>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colour">Estado del pedido</label>
+                                            <h1>${pedido.estadoPedido}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-details-producto">
+                                    <div class="form-group">
+                                        <label for="colour">Descripcion</label>
+                                        <p>${pedido.descripcion}</p>
+                                    </div>
+                                </div>
+                    `;
+
+                        pedidosContainer.appendChild(pedidoElement);
+                    });
+                } else {
+                    console.log('No hay pedidos para el cliente con ID 1111');
+                }
+            })
+            .catch(error => console.error('Error al obtener pedidos:', error));
+    </script>
+
 
 
 
