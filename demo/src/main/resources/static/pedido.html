@@ -136,15 +136,15 @@
                         <p>
 
                             <br><br><br>
-                            <img id="ic" src="img/pedido/1ico.PNG" width="30px">
+                            <img id="ic" src="img/pedido/1.png" width="30px">
                             <br>
-                            <img id="ic" src="img/pedido/ico2check.png" width="30px">
+                            <img id="ic" src="img/pedido/2.png" width="30px">
                             <br>
-                            <img id="ic" src="img/pedido/ico3Blanco.PNG" width="33px">
+                            <img id="ic" src="img/pedido/3n.png" width="33px">
                             <br>
-                            <img id="ic" src="img/pedido/ico4Blanco.PNG" width="30px">
+                            <img id="ic" src="img/pedido/4n.png" width="30px">
                             <br>
-                            <img id="ic" src="img/pedido/ico5Blanco.PNG" width="30px">
+                            <img id="ic" src="img/pedido/5n.png" width="30px">
                         </p>
 
                     </div>
@@ -178,6 +178,29 @@
                         </div>
                         </p>
                         <br><br>
+
+
+                        <!-- Pruebas para ver le funcionamiento de la pagina, se eliminiará despues -->
+                        <br><br><br><br><br>
+                        <div id="imagenesContainer" style="margin-left: 10%;" class="form-row">
+                            <!-- Aquí se colocarán las imágenes dinámicamente -->
+                            <div class="col-2">
+                                <div class="linea-pasando-por-debajo"></div>
+                                <p>
+                                    <br><br><br>
+                                    <img id="ic1" src="" width="30px">
+                                    <br>
+                                    <img id="ic2" src="" width="30px">
+                                    <br>
+                                    <img id="ic3" src="" width="33px">
+                                    <br>
+                                    <img id="ic4" src="" width="30px">
+                                    <br>
+                                    <img id="ic5" src="" width="30px">
+                                </p>
+                            </div>
+                        </div>
+                        <br><br><br><br><br><br>
                     </div>
                 </div>
             </div>
@@ -189,7 +212,7 @@
         function obtenerDatosPedidoPorId() {
             // Hacer la solicitud HTTP GET al endpoint correspondiente
             const idPedido = 1;
-    
+
             fetch(`/pedidos/${idPedido}`)
                 .then(response => {
                     if (!response.ok) {
@@ -213,29 +236,53 @@
                         medidaProducto,
                         precio
                     } = pedido;
-    
+
                     // Actualiza los elementos del DOM con los nuevos datos
-                    document.getElementById('nombreCliente').innerText = nombreCliente;
-                    document.getElementById('codigoEntrega').innerText = codigoEntrega;
-                    document.getElementById('direccionCliente').innerText = direccionCliente;
-                    document.getElementById('fechaRegistro').innerText = fechaRegistro;
-                    document.getElementById('fechaAproximada').innerText = fechaAproximada;
-                    document.getElementById('estadoPedido').innerText = estadoPedido;
-                    document.getElementById('imagen').innerText = imagen;
-                    document.getElementById('nombrePedido').innerText = nombrePedido;
-                    document.getElementById('cantidad').innerText = cantidad + "unidades.";
-                    document.getElementById('descripcion').innerText = descripcion;
-                    document.getElementById('medidaProducto').innerText = medidaProducto + " cm.";
-                    document.getElementById('precio').innerText = "S/. " + precio;
+                    // document.getElementById('nombreCliente').innerText = nombreCliente;
+                    // document.getElementById('codigoEntrega').innerText = codigoEntrega;
+                    // document.getElementById('direccionCliente').innerText = direccionCliente;
+                    // document.getElementById('fechaRegistro').innerText = fechaRegistro;
+                    // document.getElementById('fechaAproximada').innerText = fechaAproximada;
+                    // document.getElementById('imagen').innerText = imagen;
+                    // document.getElementById('nombrePedido').innerText = nombrePedido;
+                    // document.getElementById('cantidad').innerText = cantidad + "unidades.";
+                    // document.getElementById('descripcion').innerText = descripcion;
+                    // document.getElementById('medidaProducto').innerText = medidaProducto + " cm.";
+                    // document.getElementById('precio').innerText = "S/. " + precio;
                     // ... otros campos
-    
-                    // Puedes utilizar estos datos como necesites
+                    // Obtén el elemento div donde se mostrarán las imágenes
+                    const imagenesContainer = document.getElementById('imagenesContainer');
+
+                    // Define un objeto que mapea los estados a las imágenes correspondientes
+                    const imagenesPorEstado = {
+                        "Pedido realizado": ["1.png", "2n.png", "3n.png", "4n.png", "5n.png"],
+                        "Pedido confirmado": ["1.png", "2.png", "3n.png", "4n.png", "5n.png"],
+                        "En camino": ["1.png", "2.png", "3.png", "4n.png", "5n.png"],
+                        "En Entrega": ["1.png", "2.png", "3.png", "4.png", "5n.png"],
+                        "Entregado": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+                    };
+                    // Obtiene las imágenes correspondientes al estado actual del pedido
+                    const imagenesMostradas = imagenesPorEstado[estadoPedido] || [];
+
+                    // Muestra información en la consola para depuración
+                    console.log("Estado del pedido:", estadoPedido);
+                    console.log("Imágenes a mostrar:", imagenesMostradas);
+                    const contenconten = "img/pedido/" + (imagenesMostradas[1] || '');
+                    console.log("contenido que deberia salir:", contenconten);
+
+                    // Actualiza el contenido de las imágenes en el contenedor
+                    document.getElementById('ic1').src = "img/pedido/" + (imagenesMostradas[0] || '');
+                    document.getElementById('ic2').src = "img/pedido/" + (imagenesMostradas[1] || '');
+                    document.getElementById('ic3').src = "img/pedido/" + (imagenesMostradas[2] || '');
+                    document.getElementById('ic4').src = "img/pedido/" + (imagenesMostradas[3] || '');
+                    document.getElementById('ic5').src = "img/pedido/" + (imagenesMostradas[4] || '');
                 })
+
                 .catch(error => console.error(error));
         }
-    
+
         // Llamada a la función cuando la página se haya cargado completamente
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             obtenerDatosPedidoPorId();
         });
     </script>
