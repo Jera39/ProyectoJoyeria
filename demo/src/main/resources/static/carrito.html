@@ -84,41 +84,26 @@
 
             </div>
         </div>
-
-        <div class="content-tabla">
-            <div class="content-tabla-producto">
-                <div class="content-tabla-titulo">
-                    PRODUCTO
-                </div>
-                <aside class="content-tabla-producto-imagen">
-                    <img src="" alt="Imagen del Producto">
-                </aside>
-            </div>
-            <div class="content-tabla-description">
-                <div class="content-tabla-titulo">
-                    DESCRIPCIÓN
-                </div>
-                <div class="content-tabla-description-joya" id="nombreProducto">
-                    
-                </div>
-            </div>
-            <div class="content-tabla-cantidad">
-                <div class="content-tabla-titulo">
-                    CANTIDAD
-                </div>
-                <div class="content-tabla-cantidad-joya">
-                    PRUEBA
-                </div>
-            </div>
-            <div class="content-tabla-subtotal">
-                <div class="content-tabla-titulo">
-                    SUBTOTAL
-                </div>
-                <div class="content-tabla-subtotal-joya"  id="precioProducto">
-                    
-                </div>
-            </div>
-        </div>
+        <table class="content-tabla">
+            <thead>
+                <tr class="content-tabla-producto">
+                    <th class="content-tabla-titulo">PRODUCTO</th>
+                    <th class="content-tabla-titulo">DESCRIPCIÓN</th>
+                    <th class="content-tabla-titulo">CANTIDAD</th>
+                    <th class="content-tabla-titulo">SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="content-tabla-producto">
+                    <td class="content-tabla-producto-imagen">
+                        <img src="" alt="Imagen del Producto">
+                    </td>
+                    <td class="content-tabla-description-joya" id="nombreProducto"></td>
+                    <td class="content-tabla-cantidad-joya" id="cantidad"></td>
+                    <td class="content-tabla-subtotal-joya" id="subtotal"></td>
+                </tr>
+            </tbody>
+        </table>
 
         <div class="content-total">
             <div class="content-total-text">
@@ -130,10 +115,10 @@
 
         </div>
         <div class="content-boton">
-            <div class="content-boton-left">
+            <div class="content-boton-left" onclick="continuarComprando()">
                 CONTINUAR COMPRANDO
             </div>
-            <div class="content-boton-right">
+            <div class="content-boton-right" onclick="confirmarCompra()">
                 PAGAR
             </div>
         </div>
@@ -149,6 +134,12 @@
         var descripcionProducto = localStorage.getItem('descripcionProducto');
         var medidaProducto = localStorage.getItem('medidaProducto');
         var tipoDeJoya = localStorage.getItem('tipoProducto'); 
+        var cantidadSeleccionada = localStorage.getItem("cantidadSeleccionada");
+
+        // Hallar el total
+
+        var subtotal = cantidadSeleccionada * precioProducto;
+
 
         // Llenar la información en la página de venta
         document.getElementById('nombreProducto').innerText = nombreProducto;
@@ -157,6 +148,15 @@
         document.getElementById('descripcionProducto').innerText = descripcionProducto;
         document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
         document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya + " / CARRITO";
+        document.getElementById('subtotal').innerText = "S/. " + subtotal;
+
+        function continuarComprando(){
+            window.location.href = 'index.html'
+        }
+
+        function confirmarCompra(){
+            window.location.href = 'confirmarCarrito.html'
+        }
 
     </script>
 

@@ -92,23 +92,20 @@
             <br>
             <div class="content-formulario-product">
                 <div class="content-formulario-product-menu" id="tipoDeJoya">
-                    <br><br>
                 </div>
+                <br><br>
                 <div class="content-formulario-product-nombre" id="nombreProducto">
-                    <br>
                 </div>
                 <br>
                 <div class="content-formulario-product-precio" id="precioProducto">
-
                 </div>
+                <br>
                 <div class="content-formulario-product-description" id="descripcionProducto">
                 </div>
                 <br>
                 <div class="content-formulario-product-medidas" id="medidaProducto">
-
                 </div>
-
-                <br>
+                <br><br>
                 <form action="#" onsubmit="return validarCantidad()">
                     <div class="form-group">
                         <div>
@@ -125,7 +122,7 @@
                     </div>
                 </form>
             </div>
-            <br><br>
+            <br><br><br><br>
             <div class="form-row">
                 <button class="btn btn-primary col-md-4" type="submit" id="botonPersonalizar"
                     onclick="personalizarPedido()">PERSONALIZAR
@@ -134,29 +131,12 @@
                     onclick="validarCantidad()">AÑADIR AL
                     CARRITO</button>
             </div>
+            <br><br><br><br><br>
     </article>
 
 
     </div>
     <!-- script para obtener los datos de la tienda -->
-
-    <script>
-        // Recuperar la información del producto del almacenamiento local
-        var nombreProducto = localStorage.getItem('nombreProducto');
-        var precioProducto = localStorage.getItem('precioProducto');
-        var nombreImagen = localStorage.getItem('nombreImagen');
-        var descripcionProducto = localStorage.getItem('descripcionProducto');
-        var medidaProducto = localStorage.getItem('medidaProducto');
-        var tipoDeJoya = localStorage.getItem('tipoProducto');
-
-        // Llenar la información en la página de venta
-        document.getElementById('nombreProducto').innerText = nombreProducto;
-        document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
-        document.querySelector('.content-imagen img').src = nombreImagen;
-        document.getElementById('descripcionProducto').innerText = descripcionProducto;
-        document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
-        document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
-    </script>
 
     <script>
         // Función para validar la cantidad
@@ -179,6 +159,28 @@
 
             return true;
         }
+
+        var cantidadSeleccionada = document.getElementById('canti').value;
+        //guardar la informacion para la pagina de carrito
+        localStorage.setItem('cantidadSeleccionada', cantidadSeleccionada);
+        // Recuperar la información del producto del almacenamiento local
+        var nombreProducto = localStorage.getItem('nombreProducto');
+        var precioProducto = localStorage.getItem('precioProducto');
+        var nombreImagen = localStorage.getItem('nombreImagen');
+        var descripcionProducto = localStorage.getItem('descripcionProducto');
+        var medidaProducto = localStorage.getItem('medidaProducto');
+        var tipoDeJoya = localStorage.getItem('tipoProducto');
+
+        // Llenar la información en la página de venta
+        document.getElementById('nombreProducto').innerText = nombreProducto;
+        document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
+        document.querySelector('.content-imagen img').src = nombreImagen;
+        document.getElementById('descripcionProducto').innerText = descripcionProducto;
+        document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
+        document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
+
+        
+
 
         function personalizarPedido() {
             window.location.href = 'personalizacion.html';

@@ -152,16 +152,14 @@ nav {
     margin: 20px 0px;
 }
 
-.content-tabla {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.3fr;
+.content-tabla {    
     justify-content: center;
 
 }
 
 .content-tabla-producto {
     display: grid;
-    grid-template-columns: repeat(1fr);
+    grid-template-columns: 1fr 1fr 1fr 1.3fr;
     justify-content: center;
 
 }
