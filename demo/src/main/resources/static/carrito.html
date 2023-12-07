@@ -165,7 +165,7 @@
         function actualizarTotal(subtotal) {
             var totalActual = parseFloat(document.getElementById("operacion-total-final").textContent) || 0;
             var nuevoTotal = totalActual + subtotal;
-            document.getElementById("operacion-total-final").textContent = nuevoTotal.toFixed(2);
+            document.getElementById("operacion-total-final").textContent =" S/." + (nuevoTotal.toFixed(2));
 
             console.log("Nuevo Total:", nuevoTotal.toFixed(2));
         }

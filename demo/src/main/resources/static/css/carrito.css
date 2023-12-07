@@ -245,7 +245,7 @@ nav {
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
-    margin: 20px 0px;
+    margin: 20px 30px;
     text-align: center;
 }
 
@@ -299,8 +299,9 @@ nav {
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
-    margin: 20px 0px;
+    margin: 20px 30px;
     text-align: center;
+    padding-left: 200px;
 }
 
 .content-formulario-product-precio {
