@@ -80,7 +80,7 @@
     <main class="content">
 
         <div class="content-menu">
-            <div  id="tipoDeJoya">
+            <div id="tipoDeJoya">
 
             </div>
         </div>
@@ -93,15 +93,8 @@
                     <th class="content-tabla-titulo">SUBTOTAL</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="content-tabla-producto">
-                    <td class="content-tabla-producto-imagen">
-                        <img src="" alt="Imagen del Producto">
-                    </td>
-                    <td class="content-tabla-description-joya" id="nombreProducto"></td>
-                    <td class="content-tabla-cantidad-joya" id="cantidadSeleccionada"></td>
-                    <td class="content-tabla-subtotal-joya" id="subtotal"></td>
-                </tr>
+            <tbody id="tbodyProductos">
+                
             </tbody>
         </table>
 
@@ -133,29 +126,55 @@
         var nombreImagen = localStorage.getItem('nombreImagen');
         var descripcionProducto = localStorage.getItem('descripcionProducto');
         var medidaProducto = localStorage.getItem('medidaProducto');
-        var tipoDeJoya = localStorage.getItem('tipoProducto'); 
+        var tipoDeJoya = localStorage.getItem('tipoProducto');
         var cantidadSeleccionada = localStorage.getItem("cantidadSeleccionada");
 
         // Hallar el total
 
         var subtotal = cantidadSeleccionada * precioProducto;
 
+        // Crear nueva fila
+        var nuevaFila = document.createElement("tr");
+        nuevaFila.classList.add("content-tabla-producto");
 
-        // Llenar la información en la página de venta
-        document.getElementById('cantidadSeleccionada').innerText = cantidadSeleccionada + (" unidades.");
-        document.getElementById('nombreProducto').innerText = nombreProducto;
-        document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
-        document.querySelector('.content-tabla-producto-imagen img').src = "https://drive.google.com/uc?export=view&id=" + nombreImagen;
-        document.getElementById('descripcionProducto').innerText = descripcionProducto;
-        document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
-        document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya + " / CARRITO";
-        document.getElementById('subtotal').innerText = ("S/. ") + subtotal;
+        // Añadir celdas
+        nuevaFila.innerHTML = `
+            <td class="content-tabla-producto-imagen">
+                <img src="${nombreImagen}" alt="Imagen del Producto">
+            </td>
+            <td class="content-tabla-description-joya">${nombreProducto}</td>
+            <td class="content-tabla-cantidad-joya">${cantidadSeleccionada}</td>
+            <td class="content-tabla-subtotal-joya">${subtotal}</td>
+        `;
 
-        function continuarComprando(){
+        // Agregar fila a la tabla
+        document.getElementById("tbodyProductos").appendChild(nuevaFila);
+
+        // Actualizar el total
+        actualizarTotal(subtotal);
+
+        // Guardar el pedido en el almacenamiento local
+        const guardarPedido = ({
+            nombre: nombreProducto,
+            cantidad: cantidadSeleccionada,
+            subtotal: subtotal
+        });
+
+        console.log("Cantidad Seleccionada:", cantidadSeleccionada);
+
+        function actualizarTotal(subtotal) {
+            var totalActual = parseFloat(document.getElementById("operacion-total-final").textContent) || 0;
+            var nuevoTotal = totalActual + subtotal;
+            document.getElementById("operacion-total-final").textContent = nuevoTotal.toFixed(2);
+
+            console.log("Nuevo Total:", nuevoTotal.toFixed(2));
+        }
+
+        function continuarComprando() {
             window.location.href = 'index.html'
         }
 
-        function confirmarCompra(){
+        function confirmarCompra() {
             window.location.href = 'confirmarCarrito.html'
         }
 
