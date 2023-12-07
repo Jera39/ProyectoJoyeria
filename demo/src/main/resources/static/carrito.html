@@ -99,7 +99,7 @@
                         <img src="" alt="Imagen del Producto">
                     </td>
                     <td class="content-tabla-description-joya" id="nombreProducto"></td>
-                    <td class="content-tabla-cantidad-joya" id="cantidad"></td>
+                    <td class="content-tabla-cantidad-joya" id="cantidadSeleccionada"></td>
                     <td class="content-tabla-subtotal-joya" id="subtotal"></td>
                 </tr>
             </tbody>
@@ -142,13 +142,14 @@
 
 
         // Llenar la información en la página de venta
+        document.getElementById('cantidadSeleccionada').innerText = cantidadSeleccionada + (" unidades.");
         document.getElementById('nombreProducto').innerText = nombreProducto;
         document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
-        document.querySelector('.content-tabla-producto-imagen img').src = nombreImagen;
+        document.querySelector('.content-tabla-producto-imagen img').src = "https://drive.google.com/uc?export=view&id=" + nombreImagen;
         document.getElementById('descripcionProducto').innerText = descripcionProducto;
         document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
         document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya + " / CARRITO";
-        document.getElementById('subtotal').innerText = "S/. " + subtotal;
+        document.getElementById('subtotal').innerText = ("S/. ") + subtotal;
 
         function continuarComprando(){
             window.location.href = 'index.html'

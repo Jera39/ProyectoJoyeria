@@ -161,8 +161,7 @@
         }
 
         var cantidadSeleccionada = document.getElementById('canti').value;
-        //guardar la informacion para la pagina de carrito
-        localStorage.setItem('cantidadSeleccionada', cantidadSeleccionada);
+
         // Recuperar la información del producto del almacenamiento local
         var nombreProducto = localStorage.getItem('nombreProducto');
         var precioProducto = localStorage.getItem('precioProducto');
@@ -179,12 +178,20 @@
         document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
         document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
 
-        
+
 
 
         function personalizarPedido() {
             window.location.href = 'personalizacion.html';
         }
+    </script>
+    <script>
+        function guardarInformacionProducto(elemento) {
+            var cantidadSeleccionada = elemento.getElementById('canti').innerText;
+            //guardar la informacion para la pagina de carrito
+            localStorage.setItem('cantidadSeleccionada', cantidadSeleccionada);
+        }
+
     </script>
 
 
