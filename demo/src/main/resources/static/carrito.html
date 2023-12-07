@@ -94,7 +94,7 @@
                 </tr>
             </thead>
             <tbody id="tbodyProductos">
-                
+
             </tbody>
         </table>
 
@@ -133,22 +133,27 @@
 
         var subtotal = cantidadSeleccionada * precioProducto;
 
-        // Crear nueva fila
-        var nuevaFila = document.createElement("tr");
-        nuevaFila.classList.add("content-tabla-producto");
+        // Recuperar la información de los productos del almacenamiento local
+        var pedidosGuardados = JSON.parse(localStorage.getItem('pedidos')) || [];
 
-        // Añadir celdas
-        nuevaFila.innerHTML = `
-            <td class="content-tabla-producto-imagen">
-                <img src="${nombreImagen}" alt="Imagen del Producto">
-            </td>
-            <td class="content-tabla-description-joya">${nombreProducto}</td>
-            <td class="content-tabla-cantidad-joya">${cantidadSeleccionada}</td>
-            <td class="content-tabla-subtotal-joya">${subtotal}</td>
-        `;
+        // Iterar sobre los pedidos y agregarlos a la tabla
+        pedidosGuardados.forEach(function (pedido) {
+            var nuevaFila = document.createElement("tr");
+            nuevaFila.classList.add("content-tabla-producto");
 
-        // Agregar fila a la tabla
-        document.getElementById("tbodyProductos").appendChild(nuevaFila);
+            nuevaFila.innerHTML = `
+        <td class="content-tabla-producto-imagen">
+            <img src="${pedido.nombreImagen}" alt="Imagen del Producto">
+        </td>
+        <td class="content-tabla-description-joya">${pedido.nombreProducto}</td>
+        <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
+        <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
+    `;
+
+            document.getElementById("tbodyProductos").appendChild(nuevaFila);
+        });
+
+
 
         // Actualizar el total
         actualizarTotal(subtotal);
@@ -162,10 +167,22 @@
 
         console.log("Cantidad Seleccionada:", cantidadSeleccionada);
 
+        function guardarPedido(pedido) {
+            // Recuperar la información de los pedidos existentes del almacenamiento local
+            var pedidosGuardados = JSON.parse(localStorage.getItem('pedidos')) || [];
+
+            // Agregar el nuevo pedido a la lista de pedidos
+            pedidosGuardados.push(pedido);
+
+            // Guardar la lista actualizada de pedidos en el almacenamiento local
+            localStorage.setItem('pedidos', JSON.stringify(pedidosGuardados));
+        }
+
+
         function actualizarTotal(subtotal) {
             var totalActual = parseFloat(document.getElementById("operacion-total-final").textContent) || 0;
             var nuevoTotal = totalActual + subtotal;
-            document.getElementById("operacion-total-final").textContent =" S/." + (nuevoTotal.toFixed(2));
+            document.getElementById("operacion-total-final").textContent = " S/." + (nuevoTotal.toFixed(2));
 
             console.log("Nuevo Total:", nuevoTotal.toFixed(2));
         }

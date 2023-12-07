@@ -195,11 +195,13 @@ nav {
 }
 
 .content-tabla-description-joya {
+    display: flex;
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
     margin: 20px 0px;
     text-align: center;
+    justify-content: center;
 }
 
 .content-tabla-cantidad {
@@ -210,11 +212,13 @@ nav {
 }
 
 .content-tabla-cantidad-joya {
+    display: flex;
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
     margin: 20px 0px;
     text-align: center;
+    justify-content: center;
 }
 
 .content-tabla-subtotal {
@@ -225,11 +229,13 @@ nav {
 }
 
 .content-tabla-subtotal-joya {
+    display: flex;
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
     margin: 20px 0px;
     text-align: center;
+    justify-content: center;
 }
 
 .content-total{
