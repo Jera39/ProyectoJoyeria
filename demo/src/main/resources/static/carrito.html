@@ -164,16 +164,13 @@
             // Recuperar la información de los productos del almacenamiento local
             var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
 
-            // Verificar si hay pedidos guardados
-            console.log('Pedidos guardados:', arrayPedidos);
-
             // Iterar sobre los pedidos y agregarlos a la tabla
-            arrayPedidos.forEach(function (pedido) {
+            arrayPedidos.forEach(function (pedido, index) {
                 // Verificar qué se está intentando agregar
                 console.log('Agregando pedido:', pedido);
 
                 // Intentar agregar la fila
-                crearFila(pedido);
+                crearFila(pedido, index);
             });
 
             // Actualizar el total después de cargar los pedidos
@@ -193,8 +190,7 @@
                 <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
                 <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
                 <td>
-        <div id="svg-container">
-            <!-- Tu SVG aquí -->
+        <div class="eliminar-pedido" id="svg-container">
             <svg class="svg-content" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" width="256px" height="256px" viewBox="0 0 488.936 488.936"
                 xml:space="preserve">
@@ -222,6 +218,12 @@
             `;
 
             document.getElementById("tbodyProductos").appendChild(nuevaFila);
+
+            // Agregar evento de clic al botón de eliminar en esta fila
+            var botonEliminar = nuevaFila.querySelector('.eliminar-pedido');
+            botonEliminar.addEventListener('click', function () {
+                eliminarPedido(index);
+            });
         }
 
         // Función para actualizar el total

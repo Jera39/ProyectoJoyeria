@@ -331,27 +331,25 @@ nav {
 
 #svg-container {
     display: flex;
+    align-items: center;
 }
 
 .svg-content {
-    fill: #c04f04;
-    /* Color blanco por defecto */
+    fill: #ffffff;
     transition: fill 0.3s;
-    /* Agrega transición para un cambio suave de color */
     width: 50%;
     height: auto;
+    align-items: center;
 }
 
 /* #svg-container:hover { */
 .svg-content:hover {
-    fill: #ffffff;
-    /* Cambia a color #c04f04 cuando el mouse está encima */
+    fill: #c04f04;
 }
 
 /* #svg-container:active { */
 .svg-content:active {
     fill: #000000;
-    /* Cambia a color #000000 cuando se hace clic */
 }
 
 
