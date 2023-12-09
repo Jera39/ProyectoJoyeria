@@ -91,6 +91,7 @@
                     <th class="content-tabla-titulo">DESCRIPCIÓN</th>
                     <th class="content-tabla-titulo">CANTIDAD</th>
                     <th class="content-tabla-titulo">SUBTOTAL</th>
+                    <th class="content-tabla-titulo"></th>
                 </tr>
             </thead>
             <tbody id="tbodyProductos">
@@ -107,6 +108,7 @@
             </div>
 
         </div>
+
         <div class="content-boton">
             <div class="content-boton-left" onclick="continuarComprando()">
                 CONTINUAR COMPRANDO
@@ -114,8 +116,10 @@
             <div class="content-boton-right" onclick="confirmarCompra()">
                 PAGAR
             </div>
+
         </div>
     </main>
+
 
     <!-- script para obtener los datos de la tienda -->
 
@@ -130,72 +134,166 @@
         var cantidadSeleccionada = localStorage.getItem("cantidadSeleccionada");
 
         // Hallar el total
-
         var subtotal = cantidadSeleccionada * precioProducto;
 
-        // Recuperar la información de los productos del almacenamiento local
-        var pedidosGuardados = JSON.parse(localStorage.getItem('pedidos')) || [];
+        // Función para guardar un nuevo pedido
+        function guardarPedido() {
+            // Crear un objeto con la información del pedido actual
+            var pedidoActual = {
+                nombreImagen: nombreImagen,
+                nombreProducto: nombreProducto,
+                cantidad: cantidadSeleccionada,
+                subtotal: subtotal
+            };
 
-        // Iterar sobre los pedidos y agregarlos a la tabla
-        pedidosGuardados.forEach(function (pedido) {
+            // Recuperar la lista actualizada de pedidos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Agregar el pedido actual a la lista de pedidos
+            arrayPedidos.push(pedidoActual);
+
+            // Guardar la lista actualizada de pedidos en el almacenamiento local
+            localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
+        }
+
+        // Llamar a la función de guardar el pedido antes de continuar comprando
+        guardarPedido();
+
+        // Función para cargar y mostrar los pedidos
+        function cargarYMostrarPedidos() {
+            // Recuperar la información de los productos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Verificar si hay pedidos guardados
+            console.log('Pedidos guardados:', arrayPedidos);
+
+            // Iterar sobre los pedidos y agregarlos a la tabla
+            arrayPedidos.forEach(function (pedido) {
+                // Verificar qué se está intentando agregar
+                console.log('Agregando pedido:', pedido);
+
+                // Intentar agregar la fila
+                crearFila(pedido);
+            });
+
+            // Actualizar el total después de cargar los pedidos
+            actualizarTotal(subtotal);
+        }
+
+        // Función para crear una nueva fila en la tabla
+        function crearFila(pedido) {
             var nuevaFila = document.createElement("tr");
             nuevaFila.classList.add("content-tabla-producto");
 
             nuevaFila.innerHTML = `
-        <td class="content-tabla-producto-imagen">
-            <img src="${pedido.nombreImagen}" alt="Imagen del Producto">
-        </td>
-        <td class="content-tabla-description-joya">${pedido.nombreProducto}</td>
-        <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
-        <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
-    `;
+                <td class="content-tabla-producto-imagen">
+                    <img src="${pedido.nombreImagen}" alt="Imagen del Producto">
+                </td>
+                <td class="content-tabla-description-joya">${pedido.nombreProducto}</td>
+                <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
+                <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
+                <td>
+        <div id="svg-container">
+            <!-- Tu SVG aquí -->
+            <svg class="svg-content" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="256px" height="256px" viewBox="0 0 488.936 488.936"
+                xml:space="preserve">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g>
+                        <g>
+                            <path
+                                d="M381.16,111.948H107.376c-6.468,0-12.667,2.819-17.171,7.457c-4.504,4.649-6.934,11.014-6.738,17.477l9.323,307.69 c0.39,12.92,10.972,23.312,23.903,23.312h20.136v-21.012c0-24.121,19.368-44.049,43.488-44.049h127.896 c24.131,0,43.893,19.928,43.893,44.049v21.012h19.73c12.933,0,23.52-10.346,23.913-23.268l9.314-307.7 c0.195-6.462-2.234-12.863-6.738-17.513C393.821,114.767,387.634,111.948,381.16,111.948z">
+                            </path>
+                            <path
+                                d="M309.166,435.355H181.271c-6.163,0-11.915,4.383-11.915,11.516v30.969c0,6.672,5.342,11.096,11.915,11.096h127.895 c6.323,0,11.366-4.773,11.366-11.096v-30.969C320.532,440.561,315.489,435.355,309.166,435.355z">
+                            </path>
+                            <path
+                                d="M427.696,27.106C427.696,12.138,415.563,0,400.591,0H88.344C73.372,0,61.239,12.138,61.239,27.106v30.946 c0,14.973,12.133,27.106,27.105,27.106H400.59c14.973,0,27.105-12.133,27.105-27.106L427.696,27.106L427.696,27.106z">
+                            </path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </td>
+                
+            `;
 
             document.getElementById("tbodyProductos").appendChild(nuevaFila);
-        });
-
-
-
-        // Actualizar el total
-        actualizarTotal(subtotal);
-
-        // Guardar el pedido en el almacenamiento local
-        const guardarPedido = ({
-            nombre: nombreProducto,
-            cantidad: cantidadSeleccionada,
-            subtotal: subtotal
-        });
-
-        console.log("Cantidad Seleccionada:", cantidadSeleccionada);
-
-        function guardarPedido(pedido) {
-            // Recuperar la información de los pedidos existentes del almacenamiento local
-            var pedidosGuardados = JSON.parse(localStorage.getItem('pedidos')) || [];
-
-            // Agregar el nuevo pedido a la lista de pedidos
-            pedidosGuardados.push(pedido);
-
-            // Guardar la lista actualizada de pedidos en el almacenamiento local
-            localStorage.setItem('pedidos', JSON.stringify(pedidosGuardados));
         }
 
+        // Función para actualizar el total
+        function actualizarTotal() {
+            // Recuperar la información de los productos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
 
-        function actualizarTotal(subtotal) {
-            var totalActual = parseFloat(document.getElementById("operacion-total-final").textContent) || 0;
-            var nuevoTotal = totalActual + subtotal;
+            // Calcular el total sumando los subtotales de todos los elementos en el array
+            var nuevoTotal = arrayPedidos.reduce(function (total, pedido) {
+                return total + parseFloat(pedido.subtotal);
+            }, 0);
+
+            // Actualizar el elemento en la página
             document.getElementById("operacion-total-final").textContent = " S/." + (nuevoTotal.toFixed(2));
 
             console.log("Nuevo Total:", nuevoTotal.toFixed(2));
         }
 
-        function continuarComprando() {
-            window.location.href = 'index.html'
+        // Llamar a la función de carga y muestra de pedidos al cargar la página
+        cargarYMostrarPedidos();
+
+        // Llamar a la función para actualizar el total
+        actualizarTotal();
+
+        // Función para eliminar un pedido
+        function eliminarPedido(index) {
+            // Recuperar la lista actualizada de pedidos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Eliminar el pedido en el índice especificado
+            arrayPedidos.splice(index, 1);
+
+            // Guardar la lista actualizada de pedidos en el almacenamiento local
+            localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
+
+            // Recargar y mostrar los pedidos actualizados
+            cargarYMostrarPedidos();
+
+            // Actualizar el total después de eliminar el pedido
+            actualizarTotal();
         }
 
+        // Agregar evento de clic al botón de eliminar en cada fila
+        function agregarEventosEliminar() {
+            var botonesEliminar = document.querySelectorAll('.eliminar-pedido');
+
+            botonesEliminar.forEach(function (boton, index) {
+                boton.addEventListener('click', function () {
+                    eliminarPedido(index);
+                });
+            });
+        }
+
+        // Llamar a la función para agregar eventos de eliminar
+        agregarEventosEliminar();
+
+        // Función para continuar comprando
+        function continuarComprando() {
+            window.location.href = 'index.html';
+        }
+
+        // Función para confirmar la compra
         function confirmarCompra() {
-            window.location.href = 'confirmarCarrito.html'
+            window.location.href = 'confirmarCarrito.html';
         }
 
     </script>
+
+
+
+
+
 
     <!-- fin de los scripts -->
 
