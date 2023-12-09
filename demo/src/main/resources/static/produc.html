@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body style="background-image: url(./img/fnd.avif);">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
             <div class="container-fluid">
@@ -102,7 +102,11 @@
     </script>
 
     <main>
-        <div class="container-title">Lista de pedidos de Joyas</div>
+        <div class="container-title row border border-dark rounded-4" id="most">Lista de pedidos de Joyas</div>
+        <div class="container-title row border border-dark rounded-4" id="mostrarle" style="display: none;">Lista de
+            pedidos de Joyas personalizadas
+        </div>
+
         <br>
         <br>
         <div id="contenidoDinamico">
@@ -180,10 +184,197 @@
                     </div>
                 </div> -->
             </div>
-            <br>
-            <br>
+
         </div>
     </main>
+
+    <div>
+        <center>
+            <button type="button" class="btn btn-primary btn-lg" id="btn_Lista" onclick="mostrarperson()"
+                style="display: disabled;">Lista de
+                pedidos</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="btn-Person" onclick="mosrtrarpedidos()">Lista de
+                pedidos
+                personalizados</button>
+        </center>
+
+    </div>
+    <br>
+
+    <div class="container" id="pedido">
+        <div class="row border border-dark rounded-4" style="background: rgba(228, 226, 226, 0.61);">
+            <div class="col-12 col-sm-3 col-md-2">
+                <img src="./img/anillos/ORA02CA62-7TC_918dd66c-8409-4555-818d-788f8deb01b8_1100x.png"
+                    class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-2 col-sm-3  col-md-5">
+                <div class="form-group">
+                    <label for="colour">Nombre del pedido:</label>
+                    <h1>Collar del corazones</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Cantidad:</label>
+                    <h1>5</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Precio:</label>
+                    <h1>900</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Estado del pedido:</label>
+                    <h1>Pendiente</h1>
+                </div>
+
+
+
+            </div>
+            <div class="col-2 col-sm-3 col-md-4">
+                <div class="form-group">
+                    <label for="colour">Descripcion:</label>
+                    <h1>Objeto material hecho de un metal noble y muy a menudo acompañado de piedras preciosas de mucho
+                        valor económico con un fin de carácter decorativo personal.</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Medida:</label>
+                    <h1>2.5</h1>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row border border-dark rounded-4" style="background: rgba(228, 226, 226, 0.61);">
+            <div class="col-12 col-sm-3 col-md-2">
+                <img src="./img/anillos/ARPAN6364-7Y_b683f1f1-c6b7-414c-83b7-c9d0094b0a30_1100x.png"
+                    class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-2 col-sm-3  col-md-5">
+                <div class="form-group">
+                    <label for="colour">Nombre del pedido:</label>
+                    <h1>Collar del corazones</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Cantidad:</label>
+                    <h1>5</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Precio:</label>
+                    <h1>900</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Estado del pedido:</label>
+                    <h1>Pendiente</h1>
+                </div>
+
+
+
+            </div>
+            <div class="col-2 col-sm-3 col-md-4">
+                <div class="form-group">
+                    <label for="colour">Descripcion:</label>
+                    <h1>Objeto material hecho de un metal noble y muy a menudo acompañado de piedras preciosas de mucho
+                        valor económico con un fin de carácter decorativo personal.</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Medida:</label>
+                    <h1>2.5</h1>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container" id="ped" style="display: none;">
+        <div class="row border border-dark rounded-4" style="background: rgba(228, 226, 226, 0.61);">
+            <div class="col-12 col-sm-3 col-md-2">
+                <img src="./img/anillos/ORA02CA62-7TC_918dd66c-8409-4555-818d-788f8deb01b8_1100x.png"
+                    class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-2 col-sm-3  col-md-5">
+                <div class="form-group">
+                    <label for="colour">Tipo de pedido:</label>
+                    <h1>Collar</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Cantidad:</label>
+                    <h1>5</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Precio:</label>
+                    <h1>900</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Estado del pedido:</label>
+                    <h1>Pendiente</h1>
+                </div>
+
+
+
+            </div>
+            <div class="col-2 col-sm-3 col-md-4">
+                <div class="form-group">
+                    <label for="colour">Descripcion:</label>
+                    <h1>Objeto material hecho de un metal noble y muy a menudo acompañado de piedras preciosas.</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Medida:</label>
+                    <h1>2.5</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Codigo de Entrega:</label>
+                    <h1>789456123</h1>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row border border-dark rounded-4" style="background: rgba(228, 226, 226, 0.61);">
+            <div class="col-12 col-sm-3 col-md-2">
+                <img src="./img/anillos/ARPAN6364-7Y_b683f1f1-c6b7-414c-83b7-c9d0094b0a30_1100x.png"
+                    class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-2 col-sm-3  col-md-5">
+                <div class="form-group">
+                    <label for="colour">Tipo de pedido:</label>
+                    <h1>Collar</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Cantidad:</label>
+                    <h1>5</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Precio:</label>
+                    <h1>900</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Estado del pedido:</label>
+                    <h1>Pendiente</h1>
+                </div>
+
+
+
+            </div>
+            <div class="col-2 col-sm-3 col-md-4">
+                <div class="form-group">
+                    <label for="colour">Descripcion:</label>
+                    <h1>Objeto material hecho de un metal noble y muy a menudo acompañado de piedras preciosas.</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Medida:</label>
+                    <h1>2.5</h1>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Codigo de Entrega:</label>
+                    <h1>789456123</h1>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
     <script>
         // Obtener los pedidos del cliente desde el servidor
@@ -192,7 +383,7 @@
             .then(pedidos => {
                 // Filtrar los pedidos por ID del Cliente
                 const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
-    
+
                 // Verificar si hay pedidos para el cliente
                 if (idDelCliente.length > 0) {
                     // Llenar dinámicamente el contenedor de pedidos
@@ -233,13 +424,13 @@
                                 </div>
                             </div>
                         `;
-    
+
                         // Agregar un evento de clic al elemento del pedido
                         pedidoElement.addEventListener('click', function () {
                             // Redirigir a pedido.html y pasar el ID del pedido como parámetro
                             window.location.href = `/pedido.html?id=${pedido.id}`;
                         });
-    
+
                         pedidosContainer.appendChild(pedidoElement);
                     });
                 } else {
@@ -248,9 +439,26 @@
             })
             .catch(error => console.error('Error al obtener pedidos:', error));
     </script>
-    
 
 
+    <script>
+        function mostrarperson() {
+
+            document.getElementById('ped').style.display = 'none'
+            document.getElementById('pedido').style.display = "block"
+            document.getElementById('most').style.display = "block"
+            document.getElementById('mostrarle').style.display = "none"
+        }
+
+        function mosrtrarpedidos() {
+            document.getElementById('pedido').style.display = "none"
+            document.getElementById('ped').style.display = "block"
+            document.getElementById('mostrarle').style.display = "block"
+            document.getElementById('most').style.display = "none"
+
+
+        }
+    </script>
 
     <footer>
         <div class="footer-content">
