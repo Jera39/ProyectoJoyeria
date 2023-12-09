@@ -1,19 +1,19 @@
     function carga() {
-        var comboBox = document.getElementById("opciones");
-        var cuadroTexto = document.getElementById("cuadroTexto");
+        var comboBox = document.getElementById("tipoJoya");
+        var cuadroTexto = document.getElementById("miCuadroTexto");
 
         // Verifica si el item seleccionado en el ComboBox es el que quieres
-        if (comboBox.value === "mostrar") {
+        if (comboBox.value === "anillo") {
             document.getElementById('Mens').innerHTML="  Talla del Anillo:  ";
-            cuadroTexto.style.display = "flex"; // Muestra el cuadro de texto
-        } else if (comboBox.value === "moscol") {
+            cuadroTexto.style.display = "flex";
+        } else if (comboBox.value === "collar") {
             document.getElementById('Mens').innerHTML="  Longitud del Collar:  ";
-            cuadroTexto.style.display = "flex"; // Oculta el cuadro de texto
-            mensaje.style.display = "block"; // Oculta el mensaje
-        } else if (comboBox.value === "mospul") {
+            cuadroTexto.style.display = "flex"; 
+            mensaje.style.display = "block"; 
+        } else if (comboBox.value === "pulsera") {
             document.getElementById('Mens').innerHTML="  Longitud de Pulsera:  ";
-            cuadroTexto.style.display = "flex"; // Oculta el cuadro de texto
-            mensaje.style.display = "block"; // Oculta el mensaje
+            cuadroTexto.style.display = "flex"; 
+            mensaje.style.display = "block";
         } else {
             cuadroTexto.style.display = "none"; // Oculta el cuadro de texto
             mensaje.style.display = "none"; // Oculta el mensaje
