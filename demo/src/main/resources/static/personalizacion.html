@@ -142,11 +142,11 @@
                         <option value="collar">Collar</option>
                         <option value="pulsera">Pulsera</option>
                     </select><br>
-                    <p id="mensaje" style="display: none;">  </p>
-                    <div id="cuadroTexto">
+                    <p id="mensaje" >  </p>
+                    <div id="miCuadroTexto" style="display: none;" >
                         <label for="texto" id="Mens"></label>
-                        <input type="text" id="pers" name="texto" class="form-control col-md-5"
-                            placeholder="Ingrese dato...">
+                        <input type="text" id="cuadroTexto" name="cuadroTexto" class="form-control col-md-5" placeholder="Ingrese dato...">
+                      
                     </div>
                 </div>
                 </p>
@@ -179,9 +179,9 @@
                 </p>
                 <div id="prueba1" style="display:none;">
                     <form name="form1" method="post" action="">
-                        <table width="700px" height="173" border="1">
+                        <table width="700px" height="173" >
                             <tr>
-                                <td height="35" width="15%" align="center">Amatista</td>
+                                <td height="35" width="15%">Amatista</td>
                                 <td width="15%">Rubí</td>
                                 <td width="15%">Perla Mar del Sur</td>
                                 <td width="15%">Zafiro</td>
@@ -274,10 +274,10 @@
                     piedrasSeleccionadas.push(checkboxes[i].value);
                 }
             }
-
+            //variable    
             var piedraPreciosa = piedrasSeleccionadas.join(', ');
 
-            // Obtener el valor seleccionado del dropdown de materiales
+            // Obtener el valor seleccionado del dropdown de materiales Val,Ind,Lis
             var materialSeleccionado = materialDropdown.options[materialDropdown.selectedIndex].value;
 
             // Asignar el valor correspondiente a materialJoya
@@ -298,7 +298,7 @@
                     materialJoya = null;
                     break;
             }
-
+            //obj->propi
             var pruebaConsola = {
                 "Material": materialJoya,
                 "Tipo": tipoJoya,
