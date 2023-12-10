@@ -142,11 +142,12 @@
                         <option value="collar">Collar</option>
                         <option value="pulsera">Pulsera</option>
                     </select><br>
-                    <p id="mensaje" >  </p>
-                    <div id="miCuadroTexto" style="display: none;" >
+                    <p id="mensaje">  </p>
+                    <div id="miCuadroTexto" style="display: none;">
                         <label for="texto" id="Mens"></label>
-                        <input type="text" id="cuadroTexto" name="cuadroTexto" class="form-control col-md-5" placeholder="Ingrese dato...">
-                      
+                        <input type="text" id="cuadroTexto" name="cuadroTexto" class="form-control col-md-5"
+                            placeholder="Ingrese dato...">
+
                     </div>
                 </div>
                 </p>
@@ -179,7 +180,7 @@
                 </p>
                 <div id="prueba1" style="display:none;">
                     <form name="form1" method="post" action="">
-                        <table width="700px" height="173" >
+                        <table width="700px" height="173">
                             <tr>
                                 <td height="35" width="15%">Amatista</td>
                                 <td width="15%">Rubí</td>
@@ -239,7 +240,8 @@
 
 
 
-            <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="enviarPedido()">SOLICITAR</button>
+            <button class="btn btn-primary col-md-3" type="submit" id="soli"
+                onclick="validarFormulario()">SOLICITAR</button> <!-- enviarPedido() -->
             <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="crearModeloJoya()">VISTA
                 ANIMADA</button>
             <BR><BR><br>
@@ -253,7 +255,7 @@
                 </div>
             </div>
             <BR><BR><BR>
-                <br><br><br><br>
+            <br><br><br><br>
         </div>
 
     </article>
@@ -442,9 +444,77 @@
                     // Manejar errores de la solicitud
                     console.error('Error al enviar la solicitud:', error);
                 });
-                alert("Se acaba de registrar tu nuevo pedido")
+            alert("Se acaba de registrar tu nuevo pedido")
 
-                window.location.href = 'index.html';
+            window.location.href = 'index.html';
+        }
+
+        function validarFormulario() {
+            // Obtener los valores de los campos
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+            var tipoJoya = document.getElementById('tipoJoya').value;
+            var cantidadJoya = document.getElementById('cantidadJoya').value;
+            var materialJoya = document.getElementById('materialJoya').value;
+            var fechaDeseada = document.getElementById('fechaDeseada').value;
+            var descripcionJoya = document.getElementById('descripcionJoya').value;
+            var cuadroTexto = document.getElementById('cuadroTexto').value;
+
+            // Validar que todos los campos estén llenos
+            if (nombres === '' || apellidos === '' || correo === '' || telefono === '' ||
+                fechaNacimiento === '' || provincia === '' || distrito === '' || direccion === '' ||
+                tipoJoya === '' || cantidadJoya === '' || materialJoya === '' || fechaDeseada === '' || descripcionJoya === '') {
+                alert('Todos los campos son obligatorios. Por favor, completa el formulario.');
+                return false;
+            }
+
+            // Validar que el campo cuadroTexto sea numérico
+            if (!validarCampoNumerico(cuadroTexto)) {
+                alert('El campo "Ingrese dato..." debe contener un valor numérico.');
+                return false;
+            }
+
+            // Validar el formato del correo
+            if (!validarFormatoCorreo(correo)) {
+                alert('El formato del correo electrónico no es válido.');
+                return false;
+            }
+
+            // Validar el formato del teléfono
+            if (!validarFormatoTelefono(telefono)) {
+                alert('El formato del teléfono no es válido. Debe empezar con 9 y tener 9 dígitos.');
+                return false;
+            }
+
+            // Validar que la cantidad de joyas sea mayor o igual a 1
+            if (parseInt(cantidadJoya) < 1) {
+                alert('La cantidad de joyas debe ser mayor o igual a 1.');
+                return false;
+            }
+
+            // Si todas las validaciones pasan, el formulario es válido
+            alert('Formulario válido. ¡Gracias por tu solicitud!');
+            return true;
+        }
+
+        // Función para validar el formato del correo
+        function validarFormatoCorreo(correo) {
+            return correo.includes('@') && correo.includes('.');
+        }
+
+        function validarCampoNumerico(valor) {
+            return !isNaN(parseFloat(valor)) && isFinite(valor);
+        }
+
+        // Función para validar el formato del teléfono
+        function validarFormatoTelefono(telefono) {
+            return /^\d{9}$/.test(telefono) && telefono.startsWith('9');
         }
     </script>
 

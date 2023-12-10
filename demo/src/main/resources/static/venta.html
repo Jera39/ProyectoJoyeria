@@ -128,7 +128,7 @@
                     onclick="personalizarPedido()">PERSONALIZAR
                     PEDIDO</button>
                 <button class="btn btn-primary col-md-4" type="button" id="botonAgregarCarrito"
-                    onclick="validarCantidad()">AÑADIR AL
+                    onclick="validarCantidadYGuardarPedido()">AÑADIR AL
                     CARRITO</button>
             </div>
             <br><br><br><br><br>
@@ -139,11 +139,36 @@
     <!-- script para obtener los datos de la tienda -->
 
     <script>
-        // Función para validar la cantidad
-        function validarCantidad() {
-            var cantidadInput = document.getElementById('canti');
-            var cantidadSeleccionada = parseInt(cantidadInput.value, 10);
-            var stockDisponible = parseInt(localStorage.getItem('stockProducto'), 10);
+        // Obtener elementos del DOM
+        const cantidadInput = document.getElementById('canti');
+        const nombreProductoElement = document.getElementById('nombreProducto');
+        const precioProductoElement = document.getElementById('precioProducto');
+        const imagenElement = document.querySelector('.content-imagen img');
+        const descripcionProductoElement = document.getElementById('descripcionProducto');
+        const medidaProductoElement = document.getElementById('medidaProducto');
+        const tipoDeJoyaElement = document.getElementById('tipoDeJoya');
+
+        // Recuperar información del producto del almacenamiento local
+        const nombreProducto = localStorage.getItem('nombreProducto');
+        const precioProducto = localStorage.getItem('precioProducto');
+        const nombreImagen = localStorage.getItem('nombreImagen');
+        const descripcionProducto = localStorage.getItem('descripcionProducto');
+        const medidaProducto = localStorage.getItem('medidaProducto');
+        const tipoDeJoya = localStorage.getItem('tipoProducto');
+
+        // Llenar la información en la página de venta
+        nombreProductoElement.innerText = nombreProducto;
+        precioProductoElement.innerText = "S/. " + precioProducto;
+        imagenElement.src = nombreImagen;
+        descripcionProductoElement.innerText = descripcionProducto;
+        medidaProductoElement.innerText = "Medidas: " + medidaProducto + "cm";
+        tipoDeJoyaElement.innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
+
+        // Función para validar la cantidad y guardar el pedido
+        // Función para validar la cantidad y guardar el pedido
+        function validarCantidadYGuardarPedido() {
+            const cantidadSeleccionada = parseInt(cantidadInput.value, 10);
+            const stockDisponible = parseInt(localStorage.getItem('stockProducto'), 10);
 
             if (isNaN(cantidadSeleccionada) || cantidadSeleccionada < 1) {
                 alert("La cantidad seleccionada no es válida.");
@@ -154,58 +179,39 @@
                 alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
                 return false;
             }
-            
-            window.location.href = 'carrito.html';
 
-            return true;
-        }
-
-        var cantidadSeleccionada = document.getElementById('canti').value;
-
-        // Recuperar la información del producto del almacenamiento local
-        var nombreProducto = localStorage.getItem('nombreProducto');
-        var precioProducto = localStorage.getItem('precioProducto');
-        var nombreImagen = localStorage.getItem('nombreImagen');
-        var descripcionProducto = localStorage.getItem('descripcionProducto');
-        var medidaProducto = localStorage.getItem('medidaProducto');
-        var tipoDeJoya = localStorage.getItem('tipoProducto');
-
-        // Llenar la información en la página de venta
-        document.getElementById('nombreProducto').innerText = nombreProducto;
-        document.getElementById('precioProducto').innerText = "S/. " + precioProducto;
-        document.querySelector('.content-imagen img').src = nombreImagen;
-        document.getElementById('descripcionProducto').innerText = descripcionProducto;
-        document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
-        document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
-
-        // Función para guardar un nuevo pedido
-        function guardarPedido() {
-
-            var cantidadSeleccionada = document.getElementById('canti').value;
             // Crear un objeto con la información del pedido actual
-            var pedidoActual = {
+            const pedidoActual = {
                 nombreImagen: nombreImagen,
                 nombreProducto: nombreProducto,
                 cantidad: cantidadSeleccionada,
                 subtotal: precioProducto,
-                descripcionProducto: descripcionProducto,
-                
+                descripcionProducto: descripcionProducto
             };
 
             // Recuperar la lista actualizada de pedidos del almacenamiento local
-            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+            const arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
 
             // Agregar el pedido actual a la lista de pedidos
             arrayPedidos.push(pedidoActual);
 
             // Guardar la lista actualizada de pedidos en el almacenamiento local
             localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
-        }
 
+            console.log('Datos del pedido guardados:', arrayPedidos);
+
+            // Redirigir a la página del carrito
+            window.location.href = 'carrito.html';
+
+            return true;
+        }
+        console.log('Datos del pedido guardados:', arrayPedidos);
+        // Función para redirigir a la página de personalización
         function personalizarPedido() {
             window.location.href = 'personalizacion.html';
         }
     </script>
+
 
 
     <!-- fin de los scripts -->

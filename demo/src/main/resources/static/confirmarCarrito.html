@@ -122,12 +122,59 @@
             </div>
         </div>
         <br><br><br>
-        <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="confirmarCompra()">Realizar Compra</button>
+        <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="validarFormulario()">Realizar
+            Compra</button>
         <br><br><br><br><br>
     </article>
-    
+
     <script>
-        function confirmarCompra(){
+
+        function validarFormulario() {
+            // Obtener los valores de los campos
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+
+            // Validar que todos los campos estén llenos
+            if (nombres === '' || apellidos === '' || correo === '' || telefono === '' ||
+                fechaNacimiento === '' || provincia === '' || distrito === '' || direccion === '') {
+                alert('Todos los campos son obligatorios. Por favor, completa el formulario.');
+                return false;
+            }
+
+            // Validar el formato del correo
+            if (!validarFormatoCorreo(correo)) {
+                alert('El formato del correo electrónico no es válido.');
+                return false;
+            }
+
+            // Validar el formato del teléfono
+            if (!validarFormatoTelefono(telefono)) {
+                alert('El formato del teléfono no es válido. Debe empezar con 9 y tener 9 dígitos.');
+                return false;
+            }
+
+            // Si todas las validaciones pasan, el formulario es válido
+            alert('Formulario válido. ¡Gracias por tu compra!');
+            return true;
+        }
+
+        // Función para validar el formato del correo
+        function validarFormatoCorreo(correo) {
+            return correo.includes('@') && correo.includes('.');
+        }
+
+        // Función para validar el formato del teléfono
+        function validarFormatoTelefono(telefono) {
+            return /^\d{9}$/.test(telefono) && telefono.startsWith('9');
+        }
+
+        function confirmarCompra() {
             var nombres = document.getElementById('nombres').value;
             var apellidos = document.getElementById('apellidos').value;
             var correo = document.getElementById('correo').value;
@@ -171,9 +218,9 @@
                     // Manejar errores de la solicitud
                     console.error('Error al enviar la solicitud:', error);
                 });
-                alert("Se acaba de registrar tu nuevo pedido")
+            alert("Se acaba de registrar tu nuevo pedido")
 
-                window.location.href = 'index.html';
+            window.location.href = 'index.html';
         }
     </script>
 

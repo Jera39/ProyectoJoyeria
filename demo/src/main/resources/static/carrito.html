@@ -136,15 +136,14 @@
         // Hallar el total
         var subtotal = cantidadSeleccionada * precioProducto;
 
-        
-
-        // Llamar a la función de guardar el pedido antes de continuar comprando
-        // guardarPedido();
-
         // Función para cargar y mostrar los pedidos
         function cargarYMostrarPedidos() {
             // Recuperar la información de los productos del almacenamiento local
             var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Limpiar la tabla antes de agregar filas
+            var tbodyProductos = document.getElementById("tbodyProductos");
+            tbodyProductos.innerHTML = "";
 
             // Iterar sobre los pedidos y agregarlos a la tabla
             arrayPedidos.forEach(function (pedido, index) {
@@ -156,8 +155,9 @@
             });
 
             // Actualizar el total después de cargar los pedidos
-            actualizarTotal(subtotal);
+            actualizarTotal();
         }
+
 
         // Función para crear una nueva fila en la tabla
         function crearFila(pedido) {
@@ -171,7 +171,7 @@
                 <td class="content-tabla-description-joya">${pedido.nombreProducto}</td>
                 <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
                 <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
-                <td>
+                <td class="content-tabla-producto-imagen">
         <div class="eliminar-pedido" id="svg-container">
             <svg class="svg-content" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" width="256px" height="256px" viewBox="0 0 488.936 488.936"
@@ -241,11 +241,11 @@
             // Guardar la lista actualizada de pedidos en el almacenamiento local
             localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
 
-            // Actualizar el total después de eliminar el pedido
-            actualizarTotal();
-
-            // Recargar y mostrar los pedidos actualizados
-            setTimeout(cargarYMostrarPedidos, 50);
+            // Recargar y mostrar los pedidos actualizados después de un breve retraso
+            setTimeout(function () {
+                cargarYMostrarPedidos();
+                actualizarTotal();
+            }, 50);
         }
 
         // Agregar evento de clic al botón de eliminar en cada fila
