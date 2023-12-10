@@ -125,16 +125,18 @@
 
     <script>
         // Recuperar la información del producto del almacenamiento local
-        var nombreProducto = localStorage.getItem('nombreProducto');
-        var precioProducto = localStorage.getItem('precioProducto');
-        var nombreImagen = localStorage.getItem('nombreImagen');
-        var descripcionProducto = localStorage.getItem('descripcionProducto');
+        var nombrePedido = localStorage.getItem('nombrePedido');
+        var precio = localStorage.getItem('precio');
+        var imagen = localStorage.getItem('imagen');
+        var descripcion = localStorage.getItem('descripcion');
         var medidaProducto = localStorage.getItem('medidaProducto');
         var tipoDeJoya = localStorage.getItem('tipoProducto');
-        var cantidadSeleccionada = localStorage.getItem("cantidadSeleccionada");
-
+        var cantidad = localStorage.getItem("cantidad");
+        console.log('cantidad del pedido:', cantidad);
+        console.log('precio del pedido:', precio);
         // Hallar el total
-        var subtotal = cantidadSeleccionada * precioProducto;
+        var subtotal = cantidad * precio;
+        console.log('subtotal del pedido:', subtotal);
 
         // Función para cargar y mostrar los pedidos
         function cargarYMostrarPedidos() {
@@ -166,9 +168,9 @@
 
             nuevaFila.innerHTML = `
                 <td class="content-tabla-producto-imagen">
-                    <img src="${pedido.nombreImagen}" alt="Imagen del Producto">
+                    <img src="${pedido.imagen}" alt="Imagen del Producto">
                 </td>
-                <td class="content-tabla-description-joya">${pedido.nombreProducto}</td>
+                <td class="content-tabla-description-joya">${pedido.nombrePedido}</td>
                 <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
                 <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
                 <td class="content-tabla-producto-imagen">
