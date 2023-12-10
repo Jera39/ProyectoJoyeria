@@ -335,6 +335,7 @@ nav {
 }
 
 .svg-content {
+    display: flex;
     fill: #ffffff;
     transition: fill 0.3s;
     width: 50%;

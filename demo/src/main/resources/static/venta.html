@@ -154,8 +154,6 @@
                 alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
                 return false;
             }
-
-            guardarInformacionProducto();
             
             window.location.href = 'carrito.html';
 
@@ -180,11 +178,28 @@
         document.getElementById('medidaProducto').innerText = "Medidas: " + medidaProducto + "cm";
         document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
 
+        // Función para guardar un nuevo pedido
+        function guardarPedido() {
 
-        function guardarInformacionProducto() {
             var cantidadSeleccionada = document.getElementById('canti').value;
-            // Guardar la información para la página de carrito
-            localStorage.setItem('cantidadSeleccionada', cantidadSeleccionada);
+            // Crear un objeto con la información del pedido actual
+            var pedidoActual = {
+                nombreImagen: nombreImagen,
+                nombreProducto: nombreProducto,
+                cantidad: cantidadSeleccionada,
+                subtotal: precioProducto,
+                descripcionProducto: descripcionProducto,
+                
+            };
+
+            // Recuperar la lista actualizada de pedidos del almacenamiento local
+            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Agregar el pedido actual a la lista de pedidos
+            arrayPedidos.push(pedidoActual);
+
+            // Guardar la lista actualizada de pedidos en el almacenamiento local
+            localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
         }
 
         function personalizarPedido() {

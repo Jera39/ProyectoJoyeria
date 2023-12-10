@@ -136,28 +136,10 @@
         // Hallar el total
         var subtotal = cantidadSeleccionada * precioProducto;
 
-        // Función para guardar un nuevo pedido
-        function guardarPedido() {
-            // Crear un objeto con la información del pedido actual
-            var pedidoActual = {
-                nombreImagen: nombreImagen,
-                nombreProducto: nombreProducto,
-                cantidad: cantidadSeleccionada,
-                subtotal: subtotal
-            };
-
-            // Recuperar la lista actualizada de pedidos del almacenamiento local
-            var arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
-
-            // Agregar el pedido actual a la lista de pedidos
-            arrayPedidos.push(pedidoActual);
-
-            // Guardar la lista actualizada de pedidos en el almacenamiento local
-            localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
-        }
+        
 
         // Llamar a la función de guardar el pedido antes de continuar comprando
-        guardarPedido();
+        // guardarPedido();
 
         // Función para cargar y mostrar los pedidos
         function cargarYMostrarPedidos() {
@@ -259,11 +241,11 @@
             // Guardar la lista actualizada de pedidos en el almacenamiento local
             localStorage.setItem('arrayPedidos', JSON.stringify(arrayPedidos));
 
-            // Recargar y mostrar los pedidos actualizados
-            cargarYMostrarPedidos();
-
             // Actualizar el total después de eliminar el pedido
             actualizarTotal();
+
+            // Recargar y mostrar los pedidos actualizados
+            setTimeout(cargarYMostrarPedidos, 50);
         }
 
         // Agregar evento de clic al botón de eliminar en cada fila
