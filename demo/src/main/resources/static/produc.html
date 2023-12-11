@@ -304,8 +304,8 @@
                         const pedidoElement = document.createElement('div');
                         pedidoElement.classList.add('row', 'border', 'border-dark', 'rounded-4');
                         pedidoElement.style.background = 'rgba(228, 226, 226, 0.61)';
+                        pedidoElement.style.marginBottom = '30px';
                         pedidoElement.innerHTML = `
-                        <div id="${pedido.id}"class="pedido-item">
                             <div class="col-12 col-sm-3 col-md-2">
                                 <img src="${pedido.imagen}"
                                     class="img-fluid rounded-start" alt="...">
@@ -338,8 +338,8 @@
                                     <h1>${pedido.medida}</h1>
                                 </div>
                             </div>
-                        </div>
                         `;
+                        
 
                         // Agregar el elemento al contenedor
                         pedidosContainer.appendChild(pedidoElement);
