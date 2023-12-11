@@ -193,10 +193,10 @@
             </div>
         </div> -->
     </div>
-<!--  -->
+    <!--  -->
 
     <div class="container" id="ped" style="display: none;">
-        <div class="row border border-dark rounded-4" style="background: rgba(228, 226, 226, 0.61);">
+        <div class="row border border-dark rounded-4" style="background: rgba(228, 226, 226, 0.61); margin-bottom: 100px;">
             <div class="col-12 col-sm-3 col-md-2">
                 <img src="./img/anillos/ORA02CA62-7TC_918dd66c-8409-4555-818d-788f8deb01b8_1100x.png"
                     class="img-fluid rounded-start" alt="...">
@@ -304,7 +304,7 @@
                         pedidoElement.classList.add('row', 'border', 'border-dark', 'rounded-4');
                         pedidoElement.style.background = 'rgba(228, 226, 226, 0.61)';
                         pedidoElement.innerHTML = `
-                        <!-- <div id="${pedido.id}" class="pedido-item"> -->
+                        <div id="${pedido.id}"class="pedido-item">
                             <div class="col-12 col-sm-3 col-md-2">
                                 <img src="${pedido.imagen}"
                                     class="img-fluid rounded-start" alt="...">
@@ -337,8 +337,7 @@
                                     <h1>${pedido.medida}</h1>
                                 </div>
                             </div>
-                            <!-- </div> -->
-                        <br><br>
+                        </div>
                         `;
 
                         // Agregar el elemento al contenedor
@@ -346,10 +345,10 @@
 
 
                         // Agregar un evento de clic al elemento del pedido
-                        // pedidoElement.addEventListener('click', function () {
-                            // Redirigir a pedido.html y pasar el ID del pedido como parámetro
-                        //     window.location.href = `/pedido.html?id=${pedido.id}`;
-                        // });
+                        pedidoElement.addEventListener('click', function () {
+                        // Redirigir a pedido.html y pasar el ID del pedido como parámetro
+                            window.location.href = `/pedido.html?id=${pedido.id}`;
+                        });
 
                         pedidosContainer.appendChild(pedidoElement);
                     });
