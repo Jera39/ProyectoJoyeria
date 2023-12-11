@@ -95,7 +95,7 @@
             <br>
 
             <br><br>
-            <img src="img/aretes/arete-1.png" alt="" style="width: 80%; margin-left: 10%;">
+            <img src="" alt="" style="width: 60%; margin-left: 10%; margin-top: -10%;">
         </div>
     </div>
     <article class="form-group cuers">
@@ -134,8 +134,8 @@
                 <div class="col-2">
                     <div class="linea-pasando-por-debajo"></div>
                     <p>
-
-                        <br><br><br>
+                        <br>
+                        <br>
                         <img id="ic" class="ic1" src="" width="30px">
                         <br>
                         <img id="ic" class="ic2" src="" width="30px">
@@ -154,7 +154,7 @@
                     <br>
                     <div class="itemms">
                         <a class="cab" id="cab">Pedido realizado</a>
-                        <p class="descri"><div class="fechaPedido"></div></p>
+                        <p class="descri">El Pedido ha sido realizado</p>
                     </div>
                     <br>
                     <div class="itemms">
@@ -182,6 +182,7 @@
                 </div>
             </div>
         </div>
+        <br><br><br><br><br>
 
     </aside>
     <!-- img/pedido/2.png
@@ -276,18 +277,18 @@
                     document.querySelector('.ic4').src = "img/pedido/" + (imagenesMostradas[3] || '');
                     document.querySelector('.ic5').src = "img/pedido/" + (imagenesMostradas[4] || '');
 
-                    if (codigoEntrega) {
-                        const codigo = codigoEntrega;
-                    }else{
-                        const codigo = "------"
-                    }
+                    // if (!codigoEntrega === null) {
+                    //     const codigo = codigoEntrega;
+                    // } else {
+                    //     const codigo = "------";
+                    // }
+                    const codigo = "------";
                     document.querySelector('.cliente').textContent = nombreCliente;
-                    document.querySelector('.codigoEntrega').textContent = codigoEntrega;
+                    document.querySelector('.codigoEntrega').textContent = codigo;
                     document.querySelector('.direccion').textContent = direccionCliente;
                     document.querySelector('.fechaPedido').textContent = fechaRegistro;
                     document.querySelector('.fechaLlegada').textContent = fechaAproximada;
-
-                    // document.querySelector().src = ;
+                    document.querySelector('.navs img').src = imagen;
                 })
 
                 .catch(error => console.error(error));
