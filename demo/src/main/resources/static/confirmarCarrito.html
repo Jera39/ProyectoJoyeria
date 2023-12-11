@@ -225,29 +225,29 @@
             console.log('Array de pedidos con datos generales:', arrayPedidosConDatosGenerales);
 
             // Enviar los pedidos a la base de datos
-            // arrayPedidos.forEach(pedido => {
-            //     fetch('/pedidos', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //         },
-            //         body: JSON.stringify(pedido),
-            //     })
-            //         .then(response => response.json())
-            //         .then(data => {
-            //             // Manejar la respuesta del servidor si es necesario
-            //             console.log('Respuesta del servidor:', data);
-            //             // Redirigir o mostrar un mensaje de éxito, según sea necesario
-            //         })
-            //         .catch(error => {
-            //             // Manejar errores de la solicitud
-            //             console.error('Error al enviar la solicitud:', error);
-            //         });
-            // });
+            arrayPedidosConDatosGenerales.forEach(pedido => {
+                fetch('/pedidos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(pedido),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Manejar la respuesta del servidor si es necesario
+                        console.log('Respuesta del servidor:', data);
+                        // Redirigir o mostrar un mensaje de éxito, según sea necesario
+                    })
+                    .catch(error => {
+                        // Manejar errores de la solicitud
+                        console.error('Error al enviar la solicitud:', error);
+                    });
+            });
             alert("Se acaba de registrar tu nuevo pedido")
             // Limpiar el arrayPedidos después de enviarlos a la base de datos
             localStorage.removeItem('arrayPedidos');
-            // window.location.href = 'index.html';
+            window.location.href = 'index.html';
         }
     </script>
 

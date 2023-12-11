@@ -150,7 +150,7 @@
 
         // Recuperar información del producto del almacenamiento local
         const nombreProducto = localStorage.getItem('nombreProducto');
-        const precioProducto = localStorage.getItem('precioProducto');
+        const precioProducto = parseFloat(localStorage.getItem('precioProducto'));
         const nombreImagen = localStorage.getItem('nombreImagen');
         const descripcionProducto = localStorage.getItem('descripcionProducto');
         const medidaProducto = localStorage.getItem('medidaProducto');
@@ -158,13 +158,12 @@
 
         // Llenar la información en la página de venta
         nombreProductoElement.innerText = nombreProducto;
-        precioProductoElement.innerText = "S/. " + precioProducto;
+        precioProductoElement.innerText = "S/. " + precioProducto.toFixed(2);
         imagenElement.src = nombreImagen;
         descripcionProductoElement.innerText = descripcionProducto;
         medidaProductoElement.innerText = "Medidas: " + medidaProducto + "cm";
         tipoDeJoyaElement.innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
 
-        // Función para validar la cantidad y guardar el pedido
         // Función para validar la cantidad y guardar el pedido
         function validarCantidadYGuardarPedido() {
             const cantidadSeleccionada = parseInt(cantidadInput.value, 10);
@@ -179,6 +178,9 @@
                 alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
                 return false;
             }
+
+            console.log('Cantidad seleccionada:', cantidadSeleccionada);
+            console.log('Precio del producto:', precioProducto);
 
             // Crear un objeto con la información del pedido actual
             const pedidoActual = {
@@ -205,7 +207,6 @@
 
             return true;
         }
-        console.log('Datos del pedido guardados:', arrayPedidos);
         // Función para redirigir a la página de personalización
         function personalizarPedido() {
             window.location.href = 'personalizacion.html';

@@ -132,11 +132,6 @@
         var medidaProducto = localStorage.getItem('medidaProducto');
         var tipoDeJoya = localStorage.getItem('tipoProducto');
         var cantidad = localStorage.getItem("cantidad");
-        console.log('cantidad del pedido:', cantidad);
-        console.log('precio del pedido:', precio);
-        // Hallar el total
-        var subtotal = cantidad * precio;
-        console.log('subtotal del pedido:', subtotal);
 
         // Función para cargar y mostrar los pedidos
         function cargarYMostrarPedidos() {
@@ -172,7 +167,7 @@
                 </td>
                 <td class="content-tabla-description-joya">${pedido.nombrePedido}</td>
                 <td class="content-tabla-cantidad-joya">${pedido.cantidad}</td>
-                <td class="content-tabla-subtotal-joya">${pedido.subtotal}</td>
+                <td class="content-tabla-subtotal-joya">${pedido.cantidad * pedido.precio}</td>
                 <td class="content-tabla-producto-imagen">
         <div class="eliminar-pedido" id="svg-container">
             <svg class="svg-content" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +212,7 @@
 
             // Calcular el total sumando los subtotales de todos los elementos en el array
             var nuevoTotal = arrayPedidos.reduce(function (total, pedido) {
-                return total + parseFloat(pedido.subtotal);
+                return total + parseFloat(pedido.precio);
             }, 0);
 
             // Actualizar el elemento en la página
