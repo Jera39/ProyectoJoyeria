@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="css/anillos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!-- Font Dancing Script de Google Fonts -->
+    <!-- Font Dancing Script de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
@@ -16,9 +17,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Dancing+Script&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba" >
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
             <div class="container-fluid">
 
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -44,7 +46,7 @@
                             <a class="nav-link active " href="personalizacion.html">Personalizacion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active " href="">Nosotros</a>
+                            <a class="nav-link active " href="nosotrosh.html">Nosotros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active " href="produc.html">Mis Pedidos</a>
@@ -88,8 +90,8 @@
             </div>
         </div>
         <div class="contenido">
-            <div class="content-muestra" id="joyas-container">                
-                
+            <div class="content-muestra" id="joyas-container">
+
             </div>
             <script>
                 // Obtener las joyas desde el servidor
@@ -98,17 +100,17 @@
                     .then(joyas => {
                         // Filtrar las joyas del tipo "pendiente"
                         const tipoDeJoya = joyas.filter(joya => joya.tipo === 'anillo');
-            
+
                         // Llenar dinámicamente el contenedor de joyas
                         const joyasContainer = document.getElementById('joyas-container');
                         tipoDeJoya.forEach(joya => {
                             const joyaElement = document.createElement('div');
                             joyaElement.classList.add('muestra-aretes');
-            
+
                             joyaElement.innerHTML = `
-                            <div id="${joya.id}" class="content-muestra-aretes">
-                                <a href="venta.html" onclick="guardarInformacionProducto(this)">
-                                    <div class="muestra-aretes-imagen">
+                            <a href="venta.html" onclick="guardarInformacionProducto(this)">
+                                <div id="${joya.id}" class="content-muestra-aretes">
+                                <div class="muestra-aretes-imagen">
                                         <img src="https://drive.google.com/uc?export=view&id=${joya.imagen}" alt="">
                                     </div>
                                     <div class="muestra-aretes-nombre">${joya.nombre}</div>
@@ -116,10 +118,10 @@
                                     <div class="muestra-aretes-descripcion">${joya.descripcion}</div>
                                     <div class="muestra-aretes-medida">${joya.medida}</div>
                                     <div class="muestra-aretes-stock">${joya.stock}</div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                             `;
-            
+
                             joyasContainer.appendChild(joyaElement);
                         });
                     })
@@ -138,7 +140,8 @@
             var descripcion = elemento.querySelector('.muestra-aretes-descripcion').innerText;
             var medida = elemento.querySelector('.muestra-aretes-medida').innerText;
             var stock = elemento.querySelector('.muestra-aretes-stock').innerText;
-            var tipo = "ANILLOS"
+            var tipo = "ANILLOS";
+            var idJoya = elemento.id;
 
             localStorage.setItem('nombreProducto', nombre);
             localStorage.setItem('precioProducto', precio);
@@ -146,7 +149,10 @@
             localStorage.setItem('descripcionProducto', descripcion);
             localStorage.setItem('medidaProducto', medida);
             localStorage.setItem('stockProducto', stock);
-            localStorage.setItem('tipoProducto', tipo);s
+            localStorage.setItem('tipoProducto', tipo);
+            localStorage.setItem('idProducto', idJoya);
+
+            console.log("prueba:", idJoya);
         }
     </script>
 
@@ -166,4 +172,5 @@
         </div>
     </footer>
 </body>
+
 </html>

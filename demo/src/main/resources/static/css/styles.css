@@ -315,6 +315,10 @@ main{
 	color: #1bbeb4;
 }
 
+.pedido-item{
+	display: flex;
+}
+
 footer {
 	padding: 30px;
 	background-color: #eee;

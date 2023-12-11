@@ -152,14 +152,14 @@ nav {
     margin: 20px 0px;
 }
 
-.content-tabla {    
+.content-tabla {
     justify-content: center;
 
 }
 
 .content-tabla-producto {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.3fr;
+    grid-template-columns: 1fr 1fr 1fr 1.3fr 0.5fr;
     justify-content: center;
 
 }
@@ -178,7 +178,6 @@ nav {
     justify-content: center;
     align-items: center;
     margin: 20px;
-
 }
 
 .content-tabla-producto-imagen img {
@@ -238,24 +237,24 @@ nav {
     justify-content: center;
 }
 
-.content-total{
+.content-total {
     display: flex;
-    justify-content:right;
+    justify-content: right;
     padding-right: 25%;
     padding-top: 2%;
     margin: 6%;
     border-top: 2px solid #000000;
 }
 
-.content-total-text{
+.content-total-text {
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
-    margin: 20px 30px;
+    margin: 20px 10px;
     text-align: center;
 }
 
-.content-boton{
+.content-boton {
     display: flex;
     margin: 5%;
     padding: 0px 20px;
@@ -263,7 +262,7 @@ nav {
     align-items: center;
 }
 
-.content-boton-left{
+.content-boton-left {
     display: flex;
     height: 90px;
     width: 400px;
@@ -278,7 +277,7 @@ nav {
     font-size: 20px;
 }
 
-.content-boton-right{
+.content-boton-right {
     display: flex;
     height: 90px;
     width: 400px;
@@ -293,21 +292,20 @@ nav {
     font-size: 20px;
 }
 
-.content-boton-right:hover{
-    background-color: #000000;
-} 
-
-.content-boton-left:hover{
+.content-boton-right:hover {
     background-color: #000000;
 }
 
-.content-total-num{
+.content-boton-left:hover {
+    background-color: #000000;
+}
+
+.content-total-num {
     align-items: center;
     font-family: 'Cormorant', serif;
     font-size: 25px;
-    margin: 20px 30px;
+    margin: 20px 10px;
     text-align: center;
-    padding-left: 200px;
 }
 
 .content-formulario-product-precio {
@@ -326,6 +324,32 @@ nav {
 .content-formulario-product-medidas {
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
+}
+
+/* estilo del svg */
+
+#svg-container {
+    display: flex;
+    align-items: center;
+}
+
+.svg-content {
+    display: flex;
+    fill: #ffffff;
+    transition: fill 0.3s;
+    width: 50%;
+    height: auto;
+    align-items: center;
+}
+
+/* #svg-container:hover { */
+.svg-content:hover {
+    fill: #c04f04;
+}
+
+/* #svg-container:active { */
+.svg-content:active {
+    fill: #000000;
 }
 
 

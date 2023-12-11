@@ -47,7 +47,7 @@
                             <div class="submenu">
                                 <ul>
                                     <li><a href="contactenos.html">• Contáctanos</a></li>
-                                    <li><a href="nosotros.html">• Nuestra Historia</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -122,12 +122,15 @@
             </div>
         </div>
         <br><br><br>
-        <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="confirmarCompra()">Realizar Compra</button>
+        <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="confirmarCompra()">Realizar
+            Compra</button>
         <br><br><br><br><br>
     </article>
-    
+
     <script>
-        function confirmarCompra(){
+
+        function validarFormulario() {
+            // Obtener los valores de los campos
             var nombres = document.getElementById('nombres').value;
             var apellidos = document.getElementById('apellidos').value;
             var correo = document.getElementById('correo').value;
@@ -137,43 +140,114 @@
             var distrito = document.getElementById('distrito').value;
             var direccion = document.getElementById('direccion').value;
 
-            //verificación de que hayan subido los datos
-
-            if (!fechaNacimiento) {
-                alert("Por favor, ingresa tu fecha de nacimiento.");
-                return;
-
+            // Validar que todos los campos estén llenos
+            if (nombres === '' || apellidos === '' || correo === '' || telefono === '' ||
+                fechaNacimiento === '' || provincia === '' || distrito === '' || direccion === '') {
+                alert('Todos los campos son obligatorios. Por favor, completa el formulario.');
+                return false;
             }
 
-            var pedidoData = {
+            // Validar el formato del correo
+            if (!validarFormatoCorreo(correo)) {
+                alert('El formato del correo electrónico no es válido.');
+                return false;
+            }
+
+            // Validar el formato del teléfono
+            if (!validarFormatoTelefono(telefono)) {
+                alert('El formato del teléfono no es válido. Debe empezar con 9 y tener 9 dígitos.');
+                return false;
+            }
+            return true;
+        }
+
+        // Función para validar el formato del correo
+        function validarFormatoCorreo(correo) {
+            return correo.includes('@') && correo.includes('.');
+        }
+
+        // Función para validar el formato del teléfono
+        function validarFormatoTelefono(telefono) {
+            return /^\d{9}$/.test(telefono) && telefono.startsWith('9');
+        }
+
+        function confirmarCompra() {
+            if (!validarFormulario()) {
+                // Si la validación del formulario falla, salir de la función
+                return;
+            }
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+
+            //Calculando todas las fechas
+            var fechaActual = Date.now();
+            var fechaRegistro = new Date(fechaActual);
+            var fechaActualObj = new Date(fechaActual);
+
+            var fechaNacimientoObj = new Date(fechaNacimiento);
+            var edad = fechaActualObj.getFullYear() - fechaNacimientoObj.getFullYear();
+            // Sumamos una semana a la fecha actual
+            var fechaAproximada = new Date(fechaActual + 7 * 24 * 60 * 60 * 1000)
+
+            // Obtener la lista de pedidos del almacenamiento local
+            const arrayPedidos = JSON.parse(localStorage.getItem('arrayPedidos')) || [];
+
+            // Datos generales para cada pedido
+            const pedidoData = {
                 "nombreCliente": nombres + " " + apellidos,
                 "correoCliente": correo,
                 "telefonoCliente": telefono,
                 "edadCliente": edad,
-                "direccionCliente": "Provincia: " + provincia + "   | Distrito: " + distrito + "   | Direccion: " + direccion,
+                "direccionCliente": "Provincia: " + provincia + " | Distrito: " + distrito + " | Direccion: " + direccion,
+                "estadoPedido": "Pedido realizado",
+                "fechaRegistro": fechaRegistro.toISOString(),
+                "fechaAproximada": fechaAproximada.toISOString(),
                 "idCliente": 1111
             };
 
-            fetch('/pedidos', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(pedidoData),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Manejar la respuesta del servidor si es necesario
-                    console.log('Respuesta del servidor:', data);
-                    // Redirigir o mostrar un mensaje de éxito, según sea necesario
-                })
-                .catch(error => {
-                    // Manejar errores de la solicitud
-                    console.error('Error al enviar la solicitud:', error);
-                });
-                alert("Se acaba de registrar tu nuevo pedido")
+            // Crear un nuevo array con los datos combinados
+            const arrayPedidosConDatosGenerales = arrayPedidos.map(pedido => {
+                // Crear un nuevo objeto combinando los datos de pedidoData y el pedido actual
+                const pedidoCompleto = {
+                    ...pedidoData,
+                    ...pedido
+                };
 
-                window.location.href = 'index.html';
+                return pedidoCompleto;
+            });
+
+            console.log('Array de pedidos con datos generales:', arrayPedidosConDatosGenerales);
+
+            // Enviar los pedidos a la base de datos
+            arrayPedidosConDatosGenerales.forEach(pedido => {
+                fetch('/pedidos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(pedido),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Manejar la respuesta del servidor si es necesario
+                        console.log('Respuesta del servidor:', data);
+                        // Redirigir o mostrar un mensaje de éxito, según sea necesario
+                    })
+                    .catch(error => {
+                        // Manejar errores de la solicitud
+                        console.error('Error al enviar la solicitud:', error);
+                    });
+            });
+            alert("Se acaba de registrar tu nuevo pedido")
+            // Limpiar el arrayPedidos después de enviarlos a la base de datos
+            localStorage.removeItem('arrayPedidos');
+            window.location.href = 'index.html';
         }
     </script>
 
