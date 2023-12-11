@@ -112,15 +112,15 @@
                     <p> Codigo de Entrega:</p>
                     <p> Dirección:</p>
                     <p> Fec. de Pedido:</p>
-                    <p> Fec. Soli. Entrega:</p>
+                    <p> Fec. Entrega:</p>
                 </div>
 
                 <div class="col-7">
-                    <div class="cliente">Isai Huiza</div>
-                    <div class="codigoEntrega">15987844</div>
-                    <div class="direccion">Av. Los Girasoles Mz.8 Lt.2 Surco</div>
-                    <div class="fechaPedido">04/12/23</div>
-                    <div class="fechaLlegada">20/12/23</div>
+                    <div class="cliente"></div>
+                    <div class="codigoEntrega"></div>
+                    <div class="direccion"></div>
+                    <div class="fechaPedido"></div>
+                    <div class="fechaLlegada"></div>
                 </div>
             </div>
         </div>
@@ -154,12 +154,12 @@
                     <br>
                     <div class="itemms">
                         <a class="cab" id="cab">Pedido realizado</a>
-                        <p class="descri">05 de Diciembre, 2023 · 20:50</p>
+                        <p class="descri"><div class="fechaPedido"></div></p>
                     </div>
                     <br>
                     <div class="itemms">
                         <a class="cab" id="cab">Pedido confirmado</a>
-                        <p class="descri">05 de Diciembre, 2023 · 20:50</p>
+                        <p class="descri">El pedido ha sido confirmado</p>
                     </div>
                     <br>
                     <div class="itemms">
@@ -182,7 +182,7 @@
                 </div>
             </div>
         </div>
-        
+
     </aside>
     <!-- img/pedido/2.png
     img/pedido/3n.png
@@ -263,6 +263,11 @@
                     console.log("Imágenes a mostrar:", imagenesMostradas);
                     const contenconten = "img/pedido/" + (imagenesMostradas[1] || '');
                     console.log("contenido que deberia salir:", contenconten);
+                    console.log("contenido que deberia salir:", nombreCliente);
+                    console.log("contenido que deberia salir:", codigoEntrega);
+                    console.log("contenido que deberia salir:", direccionCliente);
+                    console.log("contenido que deberia salir:", fechaRegistro);
+                    console.log("contenido que deberia salir:", fechaAproximada);
 
                     // Actualiza el contenido de las imágenes en el contenedor
                     document.querySelector('.ic1').src = "img/pedido/" + (imagenesMostradas[0] || '');
@@ -271,11 +276,17 @@
                     document.querySelector('.ic4').src = "img/pedido/" + (imagenesMostradas[3] || '');
                     document.querySelector('.ic5').src = "img/pedido/" + (imagenesMostradas[4] || '');
 
-                    document.querySelector('cliente').src = nombreCliente;
-                    document.querySelector('codigoEntrega').src = codigoEntrega;
-                    document.querySelector('direccion').src = direccionCliente;
-                    document.querySelector('fechaPedido').src = fechaRegistro;
-                    document.querySelector('fechaLlegada').src = fechaAproximada;
+                    if (codigoEntrega) {
+                        const codigo = codigoEntrega;
+                    }else{
+                        const codigo = "------"
+                    }
+                    document.querySelector('.cliente').textContent = nombreCliente;
+                    document.querySelector('.codigoEntrega').textContent = codigoEntrega;
+                    document.querySelector('.direccion').textContent = direccionCliente;
+                    document.querySelector('.fechaPedido').textContent = fechaRegistro;
+                    document.querySelector('.fechaLlegada').textContent = fechaAproximada;
+
                     // document.querySelector().src = ;
                 })
 
