@@ -50,7 +50,7 @@
                             <div class="submenu">
                                 <ul>
                                     <li><a href="contactenos.html">• Contáctanos</a></li>
-                                    <li><a href="nosotros.html">• Nuestra Historia</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -78,47 +78,48 @@
             </div>
         </nav>
     </header>
-  
-   
-        <aside class="content-imagen" id="imagene">
-            <br><br>
-            <img src="" alt="Imagen del Producto" style="margin-left: 20%;">
-        </aside>
 
 
-          
-        <article id="cuer" class="cuer">
-            <div class="container">
+    <aside class="content-imagen" id="imagene">
+        <br><br>
+        <img src="" alt="Imagen del Producto" style="margin-left: 20%;">
+    </aside>
+
+
+
+    <article id="cuer" class="cuer">
+        <div class="container">
             <br>
             <div class="content-formulario-product">
                 <div class="content-formulario-product-menu" id="tipoDeJoya">
                     <br><br>
                 </div>
                 <div class="content-formulario-product-nombre" id="nombreProducto">
-                <br>
+                    <br>
                 </div>
                 <br>
                 <div class="content-formulario-product-precio" id="precioProducto">
-                    
+
                 </div>
                 <div class="content-formulario-product-description" id="descripcionProducto">
                 </div>
                 <br>
                 <div class="content-formulario-product-medidas" id="medidaProducto">
-                 
+
                 </div>
-                   
+
                 <br>
                 <form action="#" onsubmit="return validarCantidad()">
                     <div class="form-group">
-                        <div >
+                        <div>
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    CANTIDAD             
+                                    CANTIDAD   
                                 </div>
                                 <div class="col-2">
-                                <input type="number" class="form-control col-2" id="canti" value="" min="1" max="" required>
-                            </div>
+                                    <input type="number" class="form-control col-2" id="canti" value="" min="1" max=""
+                                        required>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,13 +129,14 @@
             <div class="form-row">
                 <button class="btn btn-primary col-md-4" type="submit" id="botonPersonalizar">PERSONALIZAR
                     PEDIDO</button>
-                <button class="btn btn-primary col-md-4" type="button" id="botonAgregarCarrito" onclick="validarCantidad()">AÑADIR AL
+                <button class="btn btn-primary col-md-4" type="button" id="botonAgregarCarrito"
+                    onclick="validarCantidad()">AÑADIR AL
                     CARRITO</button>
             </div>
-        </article>
-        
-  
-</div>
+    </article>
+
+
+    </div>
     <!-- script para obtener los datos de la tienda -->
 
     <script>
@@ -144,7 +146,7 @@
         var nombreImagen = localStorage.getItem('nombreImagen');
         var descripcionProducto = localStorage.getItem('descripcionProducto');
         var medidaProducto = localStorage.getItem('medidaProducto');
-        var tipoDeJoya = localStorage.getItem('tipoProducto'); 
+        var tipoDeJoya = localStorage.getItem('tipoProducto');
 
         // Llenar la información en la página de venta
         document.getElementById('nombreProducto').innerText = nombreProducto;
@@ -155,28 +157,28 @@
         document.getElementById('tipoDeJoya').innerText = "JOYERIA / CATEGORIA / " + tipoDeJoya;
     </script>
 
-<script>
-    // Función para validar la cantidad
-    function validarCantidad() {
-        var cantidadInput = document.getElementById('canti');
-        var cantidadSeleccionada = parseInt(cantidadInput.value, 10);
-        var stockDisponible = parseInt(localStorage.getItem('stockProducto'), 10);
+    <script>
+        // Función para validar la cantidad
+        function validarCantidad() {
+            var cantidadInput = document.getElementById('canti');
+            var cantidadSeleccionada = parseInt(cantidadInput.value, 10);
+            var stockDisponible = parseInt(localStorage.getItem('stockProducto'), 10);
 
-        if (isNaN(cantidadSeleccionada) || cantidadSeleccionada < 1) {
-            alert("La cantidad seleccionada no es válida.");
-            return false;
+            if (isNaN(cantidadSeleccionada) || cantidadSeleccionada < 1) {
+                alert("La cantidad seleccionada no es válida.");
+                return false;
+            }
+
+            if (cantidadSeleccionada > stockDisponible) {
+                alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
+                return false;
+            }
+
+            window.location.href = 'carrito.html';
+
+            return true;
         }
-
-        if (cantidadSeleccionada > stockDisponible) {
-            alert("No hay suficiente stock disponible. Por favor, elija una cantidad menor o igual a " + stockDisponible + ".");
-            return false;
-        }
-
-        window.location.href = 'carrito.html';
-
-        return true;
-    }
-</script>
+    </script>
 
 
     <!-- fin de los scripts -->
