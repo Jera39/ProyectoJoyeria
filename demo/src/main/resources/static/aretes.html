@@ -46,7 +46,7 @@
                             <a class="nav-link active " href="personalizacion.html">Personalizacion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active " href="">Nosotros</a>
+                            <a class="nav-link active " href="nosotrosh.html">Nosotros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active " href="produc.html">Mis Pedidos</a>
@@ -90,13 +90,13 @@
             </div>
         </div>
         <div class="contenido">
-            <div class="content-muestra" id="joyas-container">                
-                
+            <div class="content-muestra" id="joyas-container">
+
             </div>
 
-            
 
-            
+
+
             <script>
                 // Obtener las joyas desde el servidor
                 fetch('/joyas')
@@ -104,13 +104,13 @@
                     .then(joyas => {
                         // Filtrar las joyas del tipo "pendiente"
                         const tipoDeJoya = joyas.filter(joya => joya.tipo === 'pendiente');
-            
+
                         // Llenar dinámicamente el contenedor de joyas
                         const joyasContainer = document.getElementById('joyas-container');
                         tipoDeJoya.forEach(joya => {
                             const joyaElement = document.createElement('div');
                             joyaElement.classList.add('muestra-aretes');
-        
+
                             joyaElement.innerHTML = `
                             <div id="${joya.id}" class="content-muestra-aretes">
                                 <a href="venta.html" onclick="guardarInformacionProducto(this)">
@@ -125,7 +125,7 @@
                                 </a>
                             </div>
                             `;
-            
+
                             joyasContainer.appendChild(joyaElement);
                         });
                     })
