@@ -196,7 +196,7 @@
     <!--  -->
 
     <div class="container" id="ped" style="display: none;">
-        <div class="row border border-dark rounded-4"
+        <!-- <div class="row border border-dark rounded-4"
             style="background: rgba(228, 226, 226, 0.61); margin-bottom: 100px;">
             <div class="col-12 col-sm-3 col-md-2">
                 <img src="./img/anillos/ORA02CA62-7TC_918dd66c-8409-4555-818d-788f8deb01b8_1100x.png"
@@ -263,9 +263,6 @@
                     <label for="colour">Estado del pedido:</label>
                     <h1>Pendiente</h1>
                 </div>
-
-
-
             </div>
             <div class="col-2 col-sm-3 col-md-4">
                 <div class="form-group">
@@ -281,8 +278,7 @@
                     <h1>789456123</h1>
                 </div>
             </div>
-
-        </div>
+        </div> -->
 
     </div>
 
@@ -297,7 +293,7 @@
                 // Verificar si hay pedidos para el cliente
                 if (idDelCliente.length > 0) {
                     // Llenar dinámicamente el contenedor de pedidos
-                    const pedidosContainer = document.getElementById('pedido');
+                    const pedidosContainer = document.getElementById('ped');
 
                     pedidos.forEach(pedido => {
                         // Crear elementos y llenar con datos del pedido
@@ -307,39 +303,43 @@
                         pedidoElement.style.marginBottom = '30px';
                         pedidoElement.innerHTML = `
                             <div class="col-12 col-sm-3 col-md-2">
-                                <img src="${pedido.imagen}"
+                                <img src="./img/anillos/ARPAN6364-7Y_b683f1f1-c6b7-414c-83b7-c9d0094b0a30_1100x.png"
                                     class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-2 col-sm-3  col-md-5">
                                 <div class="form-group">
-                                    <label for="colour">Nombre del pedido:</label>
-                                    <h1>${pedido.nombrePedido}</h1>
+                                    <label for="colour">Tipo de pedido:</label>
+                                    <h1>Collar</h1>
                                 </div>
                                 <div class="form-group">
                                     <label for="colour">Cantidad:</label>
-                                    <h1>${pedido.cantidad}</h1>
+                                    <h1>5</h1>
                                 </div>
                                 <div class="form-group">
                                     <label for="colour">Precio:</label>
-                                    <h1>${pedido.precio}</h1>
+                                    <h1>900</h1>
                                 </div>
                                 <div class="form-group">
                                     <label for="colour">Estado del pedido:</label>
-                                    <h1>${pedido.estadoPedido}</h1>
+                                    <h1>Pendiente</h1>
                                 </div>
                             </div>
                             <div class="col-2 col-sm-3 col-md-4">
                                 <div class="form-group">
                                     <label for="colour">Descripcion:</label>
-                                    <h1>${pedido.descripcion}</h1>
+                                    <h1>Objeto material hecho de un metal noble y muy a menudo acompañado de piedras preciosas.</h1>
                                 </div>
                                 <div class="form-group">
                                     <label for="colour">Medida:</label>
-                                    <h1>${pedido.medida}</h1>
+                                    <h1>2.5</h1>
+                                </div>
+                                <div class="form-group">
+                                    <label for="colour">Codigo de Entrega:</label>
+                                    <h1>789456123</h1>
                                 </div>
                             </div>
                         `;
-                        
+
 
                         // Agregar el elemento al contenedor
                         pedidosContainer.appendChild(pedidoElement);
@@ -360,6 +360,79 @@
             .catch(error => console.error('Error al obtener pedidos:', error));
     </script>
 
+    <script>
+        // Obtener los pedidos del cliente desde el servidor
+        fetch('/pedidosPersonalizados')
+            .then(response => response.json())
+            .then(pedidos => {
+                // Filtrar los pedidos por ID del Cliente
+                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
+
+                // Verificar si hay pedidos para el cliente
+                if (idDelCliente.length > 0) {
+                    // Llenar dinámicamente el contenedor de pedidos
+                    const pedidosContainer = document.getElementById('pedido');
+
+                    pedidos.forEach(pedido => {
+                        // Crear elementos y llenar con datos del pedido
+                        const pedidoElement = document.createElement('div');
+                        pedidoElement.classList.add('row', 'border', 'border-dark', 'rounded-4');
+                        pedidoElement.style.background = 'rgba(228, 226, 226, 0.61)';
+                        pedidoElement.style.marginBottom = '30px';
+                        pedidoElement.innerHTML = `
+                        <div class="col-12 col-sm-3 col-md-2">
+                            <img src="${pedido.imagen}"
+                                class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-2 col-sm-3  col-md-5">
+                            <div class="form-group">
+                                <label for="colour">Nombre del pedido:</label>
+                                <h1>${pedido.nombrePedido}</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Cantidad:</label>
+                                <h1>${pedido.cantidad}</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Precio:</label>
+                                <h1>${pedido.precio}</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Estado del pedido:</label>
+                                <h1>${pedido.estadoPedido}</h1>
+                            </div>
+                        </div>
+                        <div class="col-2 col-sm-3 col-md-4">
+                            <div class="form-group">
+                                <label for="colour">Descripcion:</label>
+                                <h1>${pedido.descripcion}</h1>
+                            </div>
+                            <div class="form-group">
+                                <label for="colour">Medida:</label>
+                                <h1>${pedido.medida}</h1>
+                            </div>
+                        </div>
+                    `;
+
+
+                        // Agregar el elemento al contenedor
+                        pedidosContainer.appendChild(pedidoElement);
+
+
+                        // Agregar un evento de clic al elemento del pedido
+                        pedidoElement.addEventListener('click', function () {
+                            // Redirigir a pedido.html y pasar el ID del pedido como parámetro
+                            window.location.href = `/pedido.html?id=${pedido.id}`;
+                        });
+
+                        pedidosContainer.appendChild(pedidoElement);
+                    });
+                } else {
+                    console.log('No hay pedidos para el cliente con ID 1111');
+                }
+            })
+            .catch(error => console.error('Error al obtener pedidos:', error));
+    </script>
 
     <script>
         function mostrarperson() {
