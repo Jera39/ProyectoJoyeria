@@ -2554,6 +2554,28 @@ section {
   background-color: var(--color-primary);
 }
 
+/* estilo del svg */
+
+.svg-content {
+  display: flex;
+  fill: #ffffff;
+  transition: fill 0.3s;
+  width: 50%;
+  height: auto;
+  align-items: center;
+}
+
+/* #svg-container:hover { */
+.svg-content:hover {
+  fill: #c04f04;
+}
+
+/* #svg-container:active { */
+.svg-content:active {
+  fill: #000000;
+}
+
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

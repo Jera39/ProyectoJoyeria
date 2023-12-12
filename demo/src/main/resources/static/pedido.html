@@ -111,6 +111,7 @@
                     <p> Cliente: </p>
                     <p> Codigo de Entrega:</p>
                     <p> Dirección:</p>
+                    <br>
                     <p> Fec. de Pedido:</p>
                     <p> Fec. Entrega:</p>
                 </div>
@@ -277,12 +278,12 @@
                     document.querySelector('.ic4').src = "img/pedido/" + (imagenesMostradas[3] || '');
                     document.querySelector('.ic5').src = "img/pedido/" + (imagenesMostradas[4] || '');
 
-                    // if (!codigoEntrega === null) {
-                    //     const codigo = codigoEntrega;
-                    // } else {
-                    //     const codigo = "------";
-                    // }
-                    const codigo = "------";
+                    let codigo = "------";
+
+                    if (codigoEntrega !== null) {
+                        codigo = codigoEntrega;
+                    }
+
                     document.querySelector('.cliente').textContent = nombreCliente;
                     document.querySelector('.codigoEntrega').textContent = codigo;
                     document.querySelector('.direccion').textContent = direccionCliente;
