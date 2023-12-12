@@ -241,7 +241,7 @@
 
 
             <button class="btn btn-primary col-md-3" type="submit" id="soli"
-                onclick="validarFormulario()">SOLICITAR</button> <!-- enviarPedido() -->
+                onclick="enviarPedido()">SOLICITAR</button> <!-- enviarPedido() -->
             <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="crearModeloJoya()">VISTA
                 ANIMADA</button>
             <BR><BR><br>
@@ -264,6 +264,9 @@
     <!-- script para guardar los datos del nuevo pedido en la base de data-sb-validations -->
 
     <script>
+
+        let imagenmodelo;
+
         function crearModeloJoya() {
             var materialDropdown = document.getElementById('materialJoya');
             var tipoJoya = document.getElementById('tipoJoya').value;
@@ -306,7 +309,7 @@
                 "Tipo": tipoJoya,
                 "Piedra Preciosa": piedraPreciosa
             }
-
+            
             // Realizacion de contenido dinámico
             var vistaPreviaContainer = document.getElementById('vistaPrevia-container');
 
@@ -326,7 +329,7 @@
                     </div>
                 </div>
             `;
-
+            
             // Agregar el nuevo contenido al contenedor
 
 
@@ -342,13 +345,13 @@
                 vistaPreviaContainer.appendChild(nuevoContenido);
             }
 
-
+            imagenmodelo = ("./svg/" + tipoJoya + "-" + piedraPreciosa + "-" + materialJoya + ".svg");
             // console.log(pruebaConsola);
         }
 
         function enviarPedido() {
             // Obtener los valores del formulario
-
+            validarFormulario();
             var nombres = document.getElementById('nombres').value;
             var apellidos = document.getElementById('apellidos').value;
             var correo = document.getElementById('correo').value;
@@ -411,7 +414,7 @@
                 "telefonoCliente": telefono,
                 "edadCliente": edad,
                 "direccionCliente": "Provincia: " + provincia + "   | Distrito: " + distrito + "   | Direccion: " + direccion,
-                // imagen: linkImagen,
+                "imagen": imagenmodelo,
                 "tipo": tipoJoya,
                 "cantidad": cantidadJoya,
                 "material": materialJoya,
@@ -421,7 +424,7 @@
                 "estadoPedido": "En proceso",
                 "fechaRegistro": fechaRegistro.toISOString(),
                 "fechaAproximada": fechaAproximada.toISOString(),
-                "idCliente": 998
+                "idCliente": 1111
             };
 
             // console.log(pedidoData);
