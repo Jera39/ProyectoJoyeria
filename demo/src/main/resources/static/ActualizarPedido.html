@@ -51,54 +51,58 @@
             <br><BR>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Nombres*</label>
+                    <label for="inputEmail4">Codigo cliente</label>
                     <input type="text" class="form-control col-md-10" id="nombres" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Apellidos*</label>
-                    <input type="text" class="form-control col-md-10" id="apellidos" placeholder="" required>
+                    <label for="inputEmail4">Nombres</label>
+                    <input type="text" class="form-control col-md-10" id="nombres" placeholder="" required readonly>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Correo Electronico*</label>
-                    <input type="text" class="form-control col-md-10" id="correo" placeholder="" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputPassword4">Telefono*</label>
-                    <input type="tel" class="form-control col-md-10" id="telefono" placeholder="" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputPassword4">Fecha de Nacimiento*</label>
-                    <input type="date" class="form-control col-md-8" id="fechaNacimiento" placeholder="" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputPassword4">Provincia*</label>
-                    <input type="text" class="form-control col-md-10" id="provincia" placeholder="" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputPassword4">Distrito*</label>
-                    <input type="text" class="form-control col-md-8" id="distrito" placeholder="" required>
+                    <label for="inputPassword4">Apellidos</label>
+                    <input type="text" class="form-control col-md-10" id="apellidos" placeholder="" required readonly>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Dirección*</label>
-                    <input type="text" class="form-control col-md-10" id="direccion" placeholder="" required>
+                    <label for="inputEmail4">Correo Electronico</label>
+                    <input type="text" class="form-control col-md-10" id="correo" placeholder="" required readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Telefono</label>
+                    <input type="tel" class="form-control col-md-10" id="telefono" placeholder="" required readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control col-md-8" id="fechaNacimiento" placeholder="" required readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Provincia</label>
+                    <input type="text" class="form-control col-md-10" id="provincia" placeholder="" required readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Distrito</label>
+                    <input type="text" class="form-control col-md-8" id="distrito" placeholder="" required readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Dirección</label>
+                    <input type="text" class="form-control col-md-10" id="direccion" placeholder="" required readonly>
                 </div>
 
             </div>
             <div class="personalizalo">
 
                 <p>
-                    ¿Dispone de un diseño o imagen de la joya que desea que fabriquemos?*
+                    ¿Dispone de un diseño o imagen de la joya que desea que fabriquemos?
                     <br><br>
-                    <input type="radio" name="grupo1" id="bot">
+                    <input type="radio" name="grupo1" id="bot" readonly>
                     <label>Si  </label>
                     <br>
-                    <input type="radio" name="grupo1" id="bot">
+                    <input type="radio" name="grupo1" id="bot" readonly>
                     <label>No</label>
                 </p>
                 <p class="leve">
-                    Tipo de Joya*
+                    Tipo de Joya
                 <div class="tip">
-                    <select id="tipoJoya" class="form-control col-md-4" onchange="carga()">
+                    <select id="tipoJoya" class="form-control col-md-4" onchange="carga()" disabled>
                         <option value="">Seleccione una opción</option>
                         <option value="anillo">Anillo</option>
                         <option value="pendiente">Arete</option>
@@ -115,12 +119,12 @@
                 </p>
             </div>
             <p>
-                Cantidad de Joyas*
-                <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1" min="1">
+                Cantidad de Joyas
+                <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1" min="1" readonly>
             </p>
             <p>
-                Material*
-                <select class="form-control col-md-4" id="materialJoya" required>
+                Material
+                <select class="form-control col-md-4" id="materialJoya" required disabled>
                     <option>Seleccione una opción</option>
                     <option>Plata de Ley 925</option>
                     <option>Oro de Ley 18k</option>
@@ -130,18 +134,18 @@
             </p>
             <div class="precios">
                 <p>
-                    ¿Quieres incluir alguna pueda preciosa?*
+                    ¿Quieres incluir alguna pueda preciosa?
                     <br><br>
                     <label>
-                        <input type="radio" name="grupo2" id="roca" onclick="mostrarPiedras()">
+                        <input type="radio" name="grupo2" id="roca" onclick="mostrarPiedras()" readonly>
                         Si  </label>
                     <br>
                     <label>
-                        <input type="radio" name="grupo2" id="piedras2" onclick="mostrarPiedras()">
+                        <input type="radio" name="grupo2" id="piedras2" onclick="mostrarPiedras()" readonly>
                         No</label>
                 </p>
                 <div id="prueba1" style="display:none;">
-                    <form name="form1" method="post" action="">
+                    <form name="form1" method="post" action="" >
                         <table width="700px" height="173" >
                             <tr>
                                 <td height="35" width="15%">Amatista</td>
@@ -159,19 +163,19 @@
                             </tr>
                             <tr>
                                 <td height="20"><input type="checkbox" name="chkPiedra" id="chkAmatista"
-                                        value="Amatista">
+                                        value="Amatista" disabled>
                                     <label for="chkAmatista"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkRubí" value="rubi">
+                                <td><input type="checkbox" name="chkPiedra" id="chkRubí" value="rubi" disabled>
                                     <label for="chkRubí"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkPerla" value="perla">
+                                <td><input type="checkbox" name="chkPiedra" id="chkPerla" value="perla" disabled>
                                     <label for="chkPerla"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkZafiro" value="zafiro">
+                                <td><input type="checkbox" name="chkPiedra" id="chkZafiro" value="zafiro" disabled>
                                     <label for="chkZafiro"></label>
                                 </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkDiamante" value="diamante">
+                                <td><input type="checkbox" name="chkPiedra" id="chkDiamante" value="diamante" disabled>
                                     <label for="chkDiamante"></label>
                                 </td>
                             </tr>
@@ -181,15 +185,26 @@
             </div>
             <p>
                 <br>
-                ¿Para cuando deseas la joya?*<br>
+                ¿Para cuando deseas la joya?<br>
                 <br>
-                <input type="date" class="form-control col-md-2" id="fechaDeseada" placeholder="" required>
+                <input type="date" class="form-control col-md-2" id="fechaDeseada" placeholder="" required readonly>
             </p>
             <p>
                 Por último, para ayudarnos a diseñar tu joya, describela con exactitud. (medidas, numero de piedras...)
                 <br><br>
-                <textarea class="form-control col-md-6" id="descripcionJoya" placeholder="Ingresa detalles *"
-                    data-sb-validations="required"></textarea>
+                <textarea class="form-control col-md-6" id="descripcionJoya" placeholder="Ingresa detalles"
+                    data-sb-validations="required" readonly></textarea>
+            </p>
+            <br>
+            <p>
+                Estado del pedido
+                <select class="form-control col-md-4" id="estPedido" required>
+                    <option>Pedido Realizado</option>
+                    <option>Pedido Confirmado</option>
+                    <option>En Camino</option>
+                    <option>En entrega</option>
+                    <option>Entregado</option>
+                </select>
             </p>
             <br>
             <p>
