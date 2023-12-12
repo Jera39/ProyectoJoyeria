@@ -71,62 +71,75 @@
                     <tr>
                         <th scope="col">No.</th>
                         <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
+                        <th scope="col">Correo</th>
                         <th scope="col">Telefono</th>
+                        <th scope="col">Direccion</th>
                         <th scope="col">Joya</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Material</th>
                         <th scope="col">Piedra</th>
                         <th scope="col">Fecha deseada</th>
-                        <th scope="col">Eliminar</th>
-                        <th scope="col">Entregado</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Codigo Entrega</th>
+                        <th scope="col">Acciones</th>
+
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Alberto</td>
-                        <td>Sanchez Rodriguez</td>
-                        <td>951789487</td>
-                        <td>Anillo</td>
-                        <td>1</td>
-                        <td>Plata de Ley 925</td>
-                        <td>Diamante</td>
-                        <td>15/12/23</td>
-                        <td>Eliminar</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Alberto</td>
-                        <td>Sanchez Rodriguez</td>
-                        <td>951789487</td>
-                        <td>Anillo</td>
-                        <td>1</td>
-                        <td>Plata de Ley 925</td>
-                        <td>Diamante</td>
-                        <td>15/12/23</td>
-                        <td>Eliminar</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Alberto</td>
-                        <td>Sanchez Rodriguez</td>
-                        <td>951789487</td>
-                        <td>Anillo</td>
-                        <td>1</td>
-                        <td>Plata de Ley 925</td>
-                        <td>Diamante</td>
-                        <td>15/12/23</td>
-                        <td>Eliminar</td>
-                        <td>No</td>
-                    </tr>
+                <tbody id="pedidoBody">
+
                 </tbody>
             </table>
         </section><!-- End Our Projects Section -->
 
     </main><!-- End #main -->
+
+
+
+    <!-- ========= Scripts para contenido Diámico ========= -->
+
+    <script>
+        // Obtener los datos de los pedidos desde el servidor
+        fetch('/pedidosPersonalizados')
+            .then(response => response.json())
+            .then(pedidos => {
+                // Llenar dinámicamente la tabla de pedidos
+                const pedidosContainer = document.getElementById('pedidoBody');
+
+                pedidos.forEach((pedido, index) => {
+                    const row = document.createElement('tr');
+                    row.classList.add('pedido-row');
+
+                    row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${pedido.nombreCliente}</td>
+                    <td>${pedido.correoCliente}</td>
+                    <td>${pedido.telefonoCliente}</td>
+                    <td>${pedido.direccionCliente}</td>
+                    <td>${pedido.tipo}</td>
+                    <td>${pedido.cantidad}</td>
+                    <td>${pedido.material}</td>
+                    <td>${pedido.gema}</td>
+                    <td>${pedido.fechaSolicitada}</td>
+                    <td>${pedido.descripcion}</td>
+                    <td>${pedido.estadoPedido}</td>
+                    <td>${pedido.codigoEntrega}</td>
+                    <td><button onclick="eliminarPedido(${index})">Eliminar</button></td>
+                `;
+
+                    pedidosContainer.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error al obtener los pedidos:', error));
+
+        // Función para eliminar un pedido (puedes personalizarla según tus necesidades)
+        function eliminarPedido(index) {
+            // Implementa la lógica para eliminar el pedido del servidor y la interfaz
+            alert(`Eliminar pedido ${index + 1}`);
+        }
+    </script>
+
+
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
