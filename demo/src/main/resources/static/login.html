@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Register - MagtimusPro</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <main>
+
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
+            </div>
+
+            <!--Formulario de Login y registro-->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form id="form-login" action="" class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" id="correo" placeholder="Correo Electronico">
+                    <input type="password" id="contrasena" placeholder="Contraseña">
+                    <button type="button" onclick="loguearme()">Entrar</button>
+                </form>
+
+                <!--Register-->
+                <form action="php/registro_usuario.php" method="POST" class="formulario__register">
+                    <h2>Regístrarse</h2>
+                    <input type="text" placeholder="Nombre completo" name="nombre_completo">
+                    <input type="text" placeholder="Correo Electronico" name="correo">
+                    <input type="text" placeholder="Usuario" name="usuario">
+                    <input type="password" placeholder="Contraseña" name="contrasena">
+                    <button type="button" onclick="registrarme()">Regístrarse</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function loguearme() {
+            // Obtener los valores de los campos
+            var correo = document.getElementById("correo").value;
+            var contrasena = document.getElementById("contrasena").value;
+
+            // Validar que los campos no estén vacíos
+            if (correo.trim() === "" || contrasena.trim() === "") {
+                alert("Por favor, completa todos los campos");
+                return;
+            }
+
+            // Crear un objeto con los datos del usuario
+            var usuario = {
+                "correo": correo,
+                "contrasena": contrasena
+            };
+
+            // Enviar la solicitud al nuevo endpoint de inicio de sesión
+            fetch('/usuario/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(usuario),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Respuesta de red no válida');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Manejar la respuesta del servidor
+                    if (data.success) {
+                        alert("Inicio de sesión exitoso");
+                        // Redirigir a la página principal o realizar acciones adicionales
+                    } else {
+                        alert("Inicio de sesión fallido. Verifica tu correo y contraseña");
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function registrarme() {
+            // Obtener los valores de los campos de registro
+            var nombre = document.getElementById("nombre_completo").value;
+            var correoRegistro = document.getElementById("correo_registro").value;
+            var usuarioRegistro = document.getElementById("usuario_registro").value;
+            var contrasenaRegistro = document.getElementById("contrasena_registro").value;
+
+            // Validar que los campos no estén vacíos
+            if (nombre.trim() === "" || correoRegistro.trim() === "" || usuarioRegistro.trim() === "" || contrasenaRegistro.trim() === "") {
+                alert("Por favor, completa todos los campos");
+                return;
+            }
+
+            // Crear un objeto con los datos del nuevo usuario
+            var nuevoUsuario = {
+                nombre_completo: nombre,
+                correo: correoRegistro,
+                usuario: usuarioRegistro,
+                contrasena: contrasenaRegistro
+            };
+
+            // Enviar la solicitud al servidor para registrar el nuevo usuario
+            fetch('/usuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(nuevoUsuario),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Manejar la respuesta del servidor
+                    if (data.id) {
+                        alert("Registro exitoso. Ahora puedes iniciar sesión");
+                        // Puedes redirigir al usuario a la página de inicio de sesión o realizar otras acciones.
+                    } else {
+                        alert("Error al registrar usuario. Verifica los datos ingresados.");
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

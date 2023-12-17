@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="colour">Medida:</label>
-                                    <h1>${pedido.medida}</h1>
+                                    <h1>${pedido.medidaProducto}</h1>
                                 </div>
                             </div>
                         `;
@@ -263,7 +263,7 @@
                         // Agregar un evento de clic al elemento del pedido
                         pedidoElement.addEventListener('click', function () {
                             // Redirigir a pedido.html y pasar el ID del pedido como parámetro
-                            window.location.href = `/pedido.html?id=${pedido.id}`;
+                            // window.location.href = `/pedido.html?id=${pedido.id}`;
                         });
 
                         pedidosContainer.appendChild(pedidoElement);

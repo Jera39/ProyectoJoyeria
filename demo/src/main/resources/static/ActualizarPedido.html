@@ -10,7 +10,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +27,8 @@
 </head>
 
 <body class="grid-contenido">
-    <header id="header" style="background-color: rgb(26, 26, 26); position: fixed;" class="cabe header d-flex align-items-center">
+    <header id="header" style="background-color: rgb(26, 26, 26); position: fixed;"
+        class="cabe header d-flex align-items-center">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
@@ -34,7 +37,7 @@
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
-                <ul>  
+                <ul>
                     <li><a href="index.html">Salir</a></li>
                 </ul>
             </nav>
@@ -51,17 +54,10 @@
             <br><BR>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Codigo cliente</label>
-                    <input type="text" class="form-control col-md-10" id="nombres" placeholder="" required>
-                </div>
-                <div class="form-group col-md-6">
                     <label for="inputEmail4">Nombres</label>
                     <input type="text" class="form-control col-md-10" id="nombres" placeholder="" required readonly>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Apellidos</label>
-                    <input type="text" class="form-control col-md-10" id="apellidos" placeholder="" required readonly>
-                </div>
+
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Correo Electronico</label>
                     <input type="text" class="form-control col-md-10" id="correo" placeholder="" required readonly>
@@ -71,166 +67,43 @@
                     <input type="tel" class="form-control col-md-10" id="telefono" placeholder="" required readonly>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputPassword4">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control col-md-8" id="fechaNacimiento" placeholder="" required readonly>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputPassword4">Provincia</label>
+                    <label for="inputPassword4">Dirección del Cliente</label>
                     <input type="text" class="form-control col-md-10" id="provincia" placeholder="" required readonly>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputPassword4">Distrito</label>
+                    <label for="inputPassword4">Codigo Envío</label>
                     <input type="text" class="form-control col-md-8" id="distrito" placeholder="" required readonly>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Dirección</label>
-                    <input type="text" class="form-control col-md-10" id="direccion" placeholder="" required readonly>
-                </div>
-
             </div>
             <div class="personalizalo">
 
                 <p>
-                    ¿Dispone de un diseño o imagen de la joya que desea que fabriquemos?
-                    <br><br>
-                    <input type="radio" name="grupo1" id="bot" readonly>
-                    <label>Si  </label>
-                    <br>
-                    <input type="radio" name="grupo1" id="bot" readonly>
-                    <label>No</label>
+                    Cantidad de Joyas
+                    <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1" min="1" readonly>
                 </p>
-                <p class="leve">
-                    Tipo de Joya
-                <div class="tip">
-                    <select id="tipoJoya" class="form-control col-md-4" onchange="carga()" disabled>
-                        <option value="">Seleccione una opción</option>
-                        <option value="anillo">Anillo</option>
-                        <option value="pendiente">Arete</option>
-                        <option value="collar">Collar</option>
-                        <option value="pulsera">Pulsera</option>
-                    </select><br>
-                    <p id="mensaje" >  </p>
-                    <div id="miCuadroTexto" style="display: none;" >
-                        <label for="texto" id="Mens"></label>
-                        <input type="text" id="cuadroTexto" name="cuadroTexto" class="form-control col-md-5" placeholder="Ingrese dato...">
-                      
-                    </div>
-                </div>
-                </p>
-            </div>
-            <p>
-                Cantidad de Joyas
-                <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1" min="1" readonly>
-            </p>
-            <p>
-                Material
-                <select class="form-control col-md-4" id="materialJoya" required disabled>
-                    <option>Seleccione una opción</option>
-                    <option>Plata de Ley 925</option>
-                    <option>Oro de Ley 18k</option>
-                    <option>Oro rosa de Ley 18k</option>
-                    <option>Necesito asesoramiento</option>
-                </select>
-            </p>
-            <div class="precios">
+
+                <br>
                 <p>
-                    ¿Quieres incluir alguna pueda preciosa?
-                    <br><br>
-                    <label>
-                        <input type="radio" name="grupo2" id="roca" onclick="mostrarPiedras()" readonly>
-                        Si  </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="grupo2" id="piedras2" onclick="mostrarPiedras()" readonly>
-                        No</label>
+                    Estado del pedido
+                    <select class="form-control col-md-4" id="estPedido" required>
+                        <option>Pedido Realizado</option>
+                        <option>Pedido Confirmado</option>
+                        <option>En Camino</option>
+                        <option>En entrega</option>
+                        <option>Entregado</option>
+                    </select>
                 </p>
-                <div id="prueba1" style="display:none;">
-                    <form name="form1" method="post" action="" >
-                        <table width="700px" height="173" >
-                            <tr>
-                                <td height="35" width="15%">Amatista</td>
-                                <td width="15%">Rubí</td>
-                                <td width="15%">Perla Mar del Sur</td>
-                                <td width="15%">Zafiro</td>
-                                <td width="15%">Diamante</td>
-                            </tr>
-                            <tr>
-                                <td height="100"><img src="img/piedras/piedra1.png" alt=""></td>
-                                <td><img src="img/piedras/piedra2.png" alt=""></td>
-                                <td><img src="img/piedras/piedra3.png" alt=""></td>
-                                <td><img src="img/piedras/piedra4.png" alt=""></td>
-                                <td><img src="img/piedras/piedra5.png" alt=""></td>
-                            </tr>
-                            <tr>
-                                <td height="20"><input type="checkbox" name="chkPiedra" id="chkAmatista"
-                                        value="Amatista" disabled>
-                                    <label for="chkAmatista"></label>
-                                </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkRubí" value="rubi" disabled>
-                                    <label for="chkRubí"></label>
-                                </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkPerla" value="perla" disabled>
-                                    <label for="chkPerla"></label>
-                                </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkZafiro" value="zafiro" disabled>
-                                    <label for="chkZafiro"></label>
-                                </td>
-                                <td><input type="checkbox" name="chkPiedra" id="chkDiamante" value="diamante" disabled>
-                                    <label for="chkDiamante"></label>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-            </div>
-            <p>
                 <br>
-                ¿Para cuando deseas la joya?<br>
+                <br><br><br>
+
+                <button class="btn btn-primary col-md-3" type="submit" id="soli"
+                    style="background-color: rgb(22, 22, 22); border: none;">ACTUALIZAR</button>
+                <BR><BR><br>
                 <br>
-                <input type="date" class="form-control col-md-2" id="fechaDeseada" placeholder="" required readonly>
-            </p>
-            <p>
-                Por último, para ayudarnos a diseñar tu joya, describela con exactitud. (medidas, numero de piedras...)
-                <br><br>
-                <textarea class="form-control col-md-6" id="descripcionJoya" placeholder="Ingresa detalles"
-                    data-sb-validations="required" readonly></textarea>
-            </p>
-            <br>
-            <p>
-                Estado del pedido
-                <select class="form-control col-md-4" id="estPedido" required>
-                    <option>Pedido Realizado</option>
-                    <option>Pedido Confirmado</option>
-                    <option>En Camino</option>
-                    <option>En entrega</option>
-                    <option>Entregado</option>
-                </select>
-            </p>
-            <br>
-            <p>
-                <br>
-                Queremos que tu joya sea exactamente como la imaginas. ¿Quieres ver una vista previa animada del diseño
-                <br>
-                antes de confirmar tu pedido? ¡Te ayudará a visualizarla mejor!
-            </p>
-            <br><br><br>
 
-
-
-            <button class="btn btn-primary col-md-3" type="submit" id="soli" style="background-color: rgb(22, 22, 22); border: none;">ACTUALIZAR</button>
-            <BR><BR><br>
-            <br>
-
-            <!-- <button class="btn btn-primary col-md-3" type="submit" id="otro" onclick="crearModeloJoya()">Visualizar Modelo</button> -->
-
-            <div class="vistaPrevia">
-                <div id="vistaPrevia-container">
-
-                </div>
-            </div>
-            <BR><BR><BR>
+                <BR><BR><BR>
                 <br><br><br><br>
-        </div>
+            </div>
 
     </article>
 
@@ -238,164 +111,25 @@
     <!-- script para guardar los datos del nuevo pedido en la base de data-sb-validations -->
 
     <script>
-        function crearModeloJoya() {
-            var materialDropdown = document.getElementById('materialJoya');
-            var tipoJoya = document.getElementById('tipoJoya').value;
-            var checkboxes = document.getElementsByName('chkPiedra');
-            var piedrasSeleccionadas = [];
-            var material = document.getElementById('materialJoya').value;
 
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    piedrasSeleccionadas.push(checkboxes[i].value);
-                }
-            }
-            //variable    
-            var piedraPreciosa = piedrasSeleccionadas.join(', ');
+        const nombreCliente = localStorage.getItem('nombreProducto');
+        const correoCliente = parseFloat(localStorage.getItem('correoCliente'));
+        const telefonoCliente = localStorage.getItem('telefonoCliente');
+        const direccionCliente = localStorage.getItem('direccionCliente');
+        const cantidadJoya = localStorage.getItem('cantidadJoya');
 
-            // Obtener el valor seleccionado del dropdown de materiales Val,Ind,Lis
-            var materialSeleccionado = materialDropdown.options[materialDropdown.selectedIndex].value;
-
-            // Asignar el valor correspondiente a materialJoya
-            var materialJoya;
-            switch (materialSeleccionado) {
-                case 'Plata de Ley 925':
-                    materialJoya = 'plata';
-                    break;
-                case 'Oro de Ley 18k':
-                    materialJoya = 'oro';
-                    break;
-                case 'Oro rosa de Ley 18k':
-                    materialJoya = 'oroRosa';
-                    break;
-                case 'Necesito asesoramiento':
-                case 'Seleccione una opción':
-                default:
-                    materialJoya = null;
-                    break;
-            }
-            //obj->propi
-            var pruebaConsola = {
-                "Material": materialJoya,
-                "Tipo": tipoJoya,
-                "Piedra Preciosa": piedraPreciosa
-            }
-
-            // Realizacion de contenido dinámico
-            var vistaPreviaContainer = document.getElementById('vistaPrevia-container');
-
-            // Crear un elemento div y agregar HTML dinámicamente
-            var nuevoContenido = document.createElement("div");
-            vistaPreviaContainer.innerHTML = '';
-            nuevoContenido.innerHTML = `
-                <div class="vistaPrevia-container-container">
-                    <div class="vistaPrevia-container-imagen">
-                        <img src="./svg/${tipoJoya}-${piedraPreciosa}-${materialJoya}.svg" alt="Imagen del producto">
-                    </div>
-                    <div class="vistaPrevia-container-descripcion">
-                        Descripcion de Tu Joya:
-                        <br>
-                        <br>
-                        Un ${tipoJoya} hecho de ${material} con un ${piedraPreciosa}.
-                    </div>
-                </div>
-            `;
-
-            // Agregar el nuevo contenido al contenedor
-
-
-            if (!tipoJoya) {
-                alert("Debe elegir un tipo de joya");
-            } else if (!piedraPreciosa) {
-                alert("Debe elegir una piedra preciosa.");
-            } else if (materialJoya == null) {
-                alert("Debe elegir el material de la Joya.")
-            } else if (piedrasSeleccionadas.length > 1) {
-                alert("¡Atención! Has seleccionado más de una piedra preciosa.");
-            } else {
-                vistaPreviaContainer.appendChild(nuevoContenido);
-            }
-
-
-            // console.log(pruebaConsola);
-        }
+        document.getElementById('nombres').placeholder = nombreCliente;
+        document.getElementById('correo').placeholder = correoCliente;
+        document.getElementById('telefono').placeholder = telefonoCliente;
+        document.getElementById('provincia').placeholder = direccionCliente;
+        document.getElementById('distrito').placeholder = cantidadJoya;
 
         function enviarPedido() {
-            // Obtener los valores del formulario
-
-            var nombres = document.getElementById('nombres').value;
-            var apellidos = document.getElementById('apellidos').value;
-            var correo = document.getElementById('correo').value;
-            var telefono = document.getElementById('telefono').value;
-            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
-            var provincia = document.getElementById('provincia').value;
-            var distrito = document.getElementById('distrito').value;
-            var direccion = document.getElementById('direccion').value;
-            // var linkImagen = document.getElementById('linkImagen').value;
-            var tipoJoya = document.getElementById('tipoJoya').value;
-            var cantidadJoya = document.getElementById('cantidadJoya').value;
-            var materialJoya = document.getElementById('materialJoya').value;
-            var descripcionJoya = document.getElementById('descripcionJoya').value;
-            var fechaDeseada = document.getElementById('fechaDeseada').value;
-
-            //verificación de que hayan subido los datos
-
-            if (!fechaNacimiento) {
-                alert("Por favor, ingresa tu fecha de nacimiento.");
-                return;
-
-            }
-
-            //Calculando todas las fechas
-            var fechaActual = Date.now();
-            var fechaRegistro = new Date(fechaActual);
-            var fechaOptima = new Date(fechaDeseada)
-            var fechaActualObj = new Date(fechaActual);
-
-            var fechaNacimientoObj = new Date(fechaNacimiento);
-            var edad = fechaActualObj.getFullYear() - fechaNacimientoObj.getFullYear();
-            // Sumamos una semana a la fecha actual
-            var fechaAproximada = new Date(fechaActual + 7 * 24 * 60 * 60 * 1000)
-
-            // Obtener todos los checkboxes por su nombre para las piedra preciosas
-            var checkboxes = document.getElementsByName('chkPiedra');
-            var piedrasSeleccionadas = [];
-
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    piedrasSeleccionadas.push(checkboxes[i].value);
-                }
-            }
-
-            var piedraPreciosa = piedrasSeleccionadas.join(', ')
-
-            //ADICIONALES
-
-            // Verifica si el cumpleaños ya ha pasado este año
-            if (fechaActualObj.getMonth() < fechaNacimientoObj.getMonth() ||
-                (fechaActualObj.getMonth() === fechaNacimientoObj.getMonth() && fechaActualObj.getDate() < fechaNacimientoObj.getDate())) {
-                edad--;
-            }
-
 
             // Construir el objeto con los datos del formulario
             var pedidoData = {
-                "nombreCliente": nombres + " " + apellidos,
-                "correoCliente": correo,
-                "telefonoCliente": telefono,
-                "edadCliente": edad,
-                "direccionCliente": "Provincia: " + provincia + "   | Distrito: " + distrito + "   | Direccion: " + direccion,
-                // imagen: linkImagen,
-                "tipo": tipoJoya,
-                "cantidad": cantidadJoya,
-                "material": materialJoya,
-                "gema": piedraPreciosa,
-                "fechaSolicitada": fechaOptima.toISOString(),
-                "descripcion": descripcionJoya,
-                "estadoPedido": "En proceso",
-                "fechaRegistro": fechaRegistro.toISOString(),
-                "fechaAproximada": fechaAproximada.toISOString(),
-                "idCliente": 998
+                "estadoPedido": estadoPedido,
+                "codigoEntrega": codigoEntrega
             };
 
             // console.log(pedidoData);
@@ -418,9 +152,9 @@
                     // Manejar errores de la solicitud
                     console.error('Error al enviar la solicitud:', error);
                 });
-                alert("Se acaba de registrar tu nuevo pedido")
+            alert("Se acaba de registrar tu nuevo pedido")
 
-                window.location.href = 'index.html';
+            window.location.href = 'index.html';
         }
     </script>
 
@@ -442,8 +176,10 @@
                                 <strong>Email:</strong> joyeriacarito@gmail.com<br>
                             </p>
                             <div class="social-links d-flex mt-3">
-                                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-twitter"></i></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-facebook"></i></a>
                             </div>
                         </div>
                     </div>
@@ -481,13 +217,13 @@
     </footer>
     <script src="js/personaliz.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/aos/aos.js"></script>
-        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
-        <script src="assets/js/main.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

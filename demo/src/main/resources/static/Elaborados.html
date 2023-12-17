@@ -115,18 +115,18 @@
 
                     row.innerHTML = `
                     <td>${index + 1}</td>
-                    <td>${pedido.nombreCliente}</td>
-                    <td>${pedido.correoCliente}</td>
-                    <td>${pedido.telefonoCliente}</td>
-                    <td>${pedido.direccionCliente}</td>
+                    <td id="nombre">${pedido.nombreCliente}</td>
+                    <td id="correo">${pedido.correoCliente}</td>
+                    <td id="telefono">${pedido.telefonoCliente}</td>
+                    <td id="direccion">${pedido.direccionCliente}</td>
                     <td>${pedido.tipo}</td>
                     <td>${pedido.nombrePedido}</td>
-                    <td>${pedido.cantidad}</td>
+                    <td id="cantidad">${pedido.cantidad}</td>
                     <td>${pedido.fechaAproximada}</td>
                     <td>${pedido.codigoEntrega}</td>
                     <td>${pedido.estadoPedido}</td>
                     <td><svg class="svg-content" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 488.936 488.936"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="60px" viewBox="0 0 488.936 488.936"
                             xml:space="preserve" onclick="eliminarPedido(${index})">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -148,7 +148,14 @@
                         </svg>
                     </td>
                 `;
-
+                    // Agregar un evento de clic al elemento del pedido
+                    row.addEventListener('click', function () {
+                            // Redirigir a pedido.html y pasar el ID del pedido como parámetro
+                            window.location.href = `/ActualizarPedido.html?id=${pedido.id}`;
+                        });
+                    row.addEventListener('click', function(){
+                        guardarInformacionProducto(row);
+                    });
                     pedidosContainer.appendChild(row);
                 });
             })
@@ -158,6 +165,19 @@
         function eliminarPedido(index) {
             // Implementa la lógica para eliminar el pedido del servidor y la interfaz
             alert(`Eliminar pedido ${index + 1}`);
+        }
+        function guardarInformacionProducto(elemento) {
+            var nombreCliente = elemento.getElementById('nombre');
+            var correoCliente = elemento.getElementById('correo');
+            var telefonoCliente = elemento.getElementById('telefono');
+            var direccionCliente = elemento.getElementById('direccion');
+            var cantidadJoya = elemento.getElementById('cantidad');
+
+            localStorage.setItem('nombreCliente', nombreCliente);
+            localStorage.setItem('correoCliente', correoCliente);
+            localStorage.setItem('telefonoCliente', telefonoCliente);
+            localStorage.setItem('direccionCliente', direccionCliente);
+            localStorage.setItem('cantidadJoya', cantidadJoya);
         }
     </script>
 
