@@ -366,6 +366,7 @@
             var materialJoya = document.getElementById('materialJoya').value;
             var descripcionJoya = document.getElementById('descripcionJoya').value;
             var fechaDeseada = document.getElementById('fechaDeseada').value;
+            var idUsuario = parseInt(localStorage.getItem('idUsuario'));
 
             //verificación de que hayan subido los datos
 
@@ -424,7 +425,7 @@
                 "estadoPedido": "En proceso",
                 "fechaRegistro": fechaRegistro.toISOString(),
                 "fechaAproximada": fechaAproximada.toISOString(),
-                "idCliente": 1111
+                "idCliente": idUsuario
             };
 
             // console.log(pedidoData);

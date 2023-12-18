@@ -129,7 +129,8 @@
             .then(response => response.json())
             .then(pedidos => {
                 // Filtrar los pedidos por ID del Cliente
-                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
+                var idUsuario = localStorage.getItem('idUsuario');
+                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === parseInt(idUsuario))
 
                 // Verificar si hay pedidos para el cliente
                 if (idDelCliente.length > 0) {
@@ -191,7 +192,7 @@
                         pedidosContainer.appendChild(pedidoElement);
                     });
                 } else {
-                    console.log('No hay pedidos para el cliente con ID 1111');
+                    console.log('No hay pedidos para el cliente con ID '+ idUsuario);
                 }
             })
             .catch(error => console.error('Error al obtener pedidos:', error));
@@ -202,8 +203,8 @@
         fetch('/pedidosPersonalizados')
             .then(response => response.json())
             .then(pedidos => {
-                // Filtrar los pedidos por ID del Cliente
-                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === 1111)
+                var idUsuario = localStorage.getItem('idUsuario');
+                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === idUsuario)
 
                 // Verificar si hay pedidos para el cliente
                 if (idDelCliente.length > 0) {
@@ -269,7 +270,7 @@
                         pedidosContainer.appendChild(pedidoElement);
                     });
                 } else {
-                    console.log('No hay pedidos para el cliente con ID 1111');
+                    console.log('No hay pedidos para el cliente con ID ' + idUsuario);
                 }
             })
             .catch(error => console.error('Error al obtener pedidos:', error));
