@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ public class PedidoService {
 
     public ArrayList<PedidoModel> obtenerPorIdCliente(Long idCliente) {
         return pedidoRepository.findByIdCliente(idCliente);
+    }
+
+    public List<PedidoModel> getPedidoPorIdCliente(Long idCliente) {
+        return this.pedidoRepository.pedidoPorIdCliente(idCliente);
     }
 
     public boolean eliminarPedido(Long id) {

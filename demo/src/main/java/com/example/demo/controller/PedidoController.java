@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import com.example.demo.model.PedidoModel;
 import com.example.demo.service.PedidoService;
 
 @RestController
-@RequestMapping("/pedidos")
+@RequestMapping("api/carito/pedidos/comun")
 public class PedidoController {
 
     @Autowired
@@ -41,6 +42,11 @@ public class PedidoController {
     @GetMapping("/pedidosNormalesUsuario")
     public ArrayList<PedidoModel> obtenerPedidoPorIdCliente(@RequestParam("idCliente") Long idCliente) {
         return this.pedidoService.obtenerPorIdCliente(idCliente);
+    }
+
+    @GetMapping(path = "/cliente/{idCliente}")
+    public List<PedidoModel> getFiltrarPedidoPorIdCliente(@PathVariable("idCliente") Long idCliente) {
+        return this.pedidoService.getPedidoPorIdCliente(idCliente);
     }
 
     @DeleteMapping(path = "/{id}")

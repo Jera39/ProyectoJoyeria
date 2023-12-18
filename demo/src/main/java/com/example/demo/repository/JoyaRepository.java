@@ -13,4 +13,5 @@ import com.example.demo.model.JoyaModel;
 public interface JoyaRepository extends CrudRepository<JoyaModel, Long> {
     @Query(value = "SELECT * FROM joyas WHERE tipo = :tipo", nativeQuery = true)
     List<JoyaModel> joyaPorTipo(@Param("tipo") String tipo);
+
 }
