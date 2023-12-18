@@ -77,22 +77,31 @@
                                     <circle cx="12" cy="6" r="4" fill="#000000"></circle>
                                     <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
                                 </g>
-                            </svg> Loguearme</a>
+                            </svg><span id="usuarioLogin">Loguearme</span></a>
                     </div>
                 </li>
             </div>
         </nav>
     </header>
     <script>
-        // Obtener referencia al enlace de login
-        var enlaceLogin = document.getElementById('enlaceLogin');
-
-        // Agregar un event listener para redirigir al hacer clic
-        enlaceLogin.addEventListener('click', function () {
-            // Redirigir a la página login.php
-            window.location.href = 'login.php';
+        document.addEventListener("DOMContentLoaded", function () {
+            // Verificar si existe un dato en el localStorage
+            var nombreUsuario = localStorage.getItem('nombreUsuario');
+            
+            // Obtener el elemento del enlace
+            var enlaceLogin = document.getElementById('enlaceLogin');
+            // Obtener el elemento del texto dentro del enlace
+            var usuarioLogin = document.getElementById('usuarioLogin');
+    
+            // Verificar y actualizar el texto del enlace
+            if (nombreUsuario) {
+                usuarioLogin.textContent = '¡Hola, ' + nombreUsuario + '!';
+            } else {
+                usuarioLogin.textContent = 'Loguearme';
+            }
         });
     </script>
+
     <main>
         <div class="fondo-inicio">
             <div class="texto-inicio">

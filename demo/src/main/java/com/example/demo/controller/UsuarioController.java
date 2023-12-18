@@ -1,9 +1,14 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,18 +59,28 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest loginRequest) {
         try {
             String correo = loginRequest.getEmail();
             String password = loginRequest.getContra();
 
-            if (usuarioService.autenticar(correo, password)) {
-                return "¡Inicio de sesión exitoso!";
+            UsuarioModel usuarioAutenticado = usuarioService.autenticar(correo, password);
+
+            if (usuarioAutenticado != null) {
+                Map<String, Object> responseData = new HashMap<>();
+                responseData.put("mensaje", "¡Inicio de sesión exitoso!");
+                responseData.put("usuario", usuarioAutenticado.getUsuario());
+                responseData.put("id", usuarioAutenticado.getId());
+
+                return ResponseEntity.ok(responseData);
             } else {
-                return "Credenciales incorrectas. Inicio de sesión fallido.";
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                        Collections.singletonMap("mensaje", "Credenciales incorrectas. Inicio de sesión fallido."));
             }
         } catch (Exception e) {
-            return "Error durante el inicio de sesión: " + e.getMessage();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.singletonMap("mensaje", "Error durante el inicio de sesión: " + e.getMessage()));
         }
     }
+
 }

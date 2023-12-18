@@ -43,14 +43,14 @@
                 </form>
 
                 <!--Register-->
-                <form action="php/registro_usuario.php" method="POST" class="formulario__register">
+                <!-- <form action="php/registro_usuario.php" method="POST" class="formulario__register">
                     <h2>Regístrarse</h2>
                     <input type="text" placeholder="Nombre completo" name="nombre_completo">
                     <input type="text" placeholder="Correo Electronico" name="correo">
                     <input type="text" placeholder="Usuario" name="usuario">
                     <input type="password" placeholder="Contraseña" name="contrasena">
                     <button type="button" onclick="registrarme()">Regístrarse</button>
-                </form>
+                </form> -->
             </div>
         </div>
 
@@ -58,47 +58,47 @@
 
     <script>
         function loguearme() {
-            // Obtener los valores de los campos
+            // Obtener los valores del formulario
             var correo = document.getElementById("correo").value;
             var contrasena = document.getElementById("contrasena").value;
 
-            // Validar que los campos no estén vacíos
-            if (correo.trim() === "" || contrasena.trim() === "") {
-                alert("Por favor, completa todos los campos");
+            // Validar si se ingresaron ambos campos
+            if (correo.trim() === '' || contrasena.trim() === '') {
+                alert('Por favor, completa ambos campos.');
                 return;
             }
 
-            // Crear un objeto con los datos del usuario
-            var usuario = {
-                "correo": correo,
-                "contrasena": contrasena
+            // Crear un objeto con los datos del formulario
+            var datosLogin = {
+                "email": correo,
+                "contra": contrasena
             };
 
-            // Enviar la solicitud al nuevo endpoint de inicio de sesión
+            // Realizar la solicitud AJAX para enviar los datos al servidor
             fetch('/usuario/login', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(usuario),
+                body: JSON.stringify(datosLogin)
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Respuesta de red no válida');
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
-                    // Manejar la respuesta del servidor
-                    if (data.success) {
-                        alert("Inicio de sesión exitoso");
-                        // Redirigir a la página principal o realizar acciones adicionales
-                    } else {
-                        alert("Inicio de sesión fallido. Verifica tu correo y contraseña");
+                    alert(data.mensaje);
+                    if (data.mensaje.includes('exitoso')) {
+                        // Obtener datos adicionales del usuario
+                        const nombreUsuario = data.usuario;
+                        const idUsuario = data.id;
+                        // Guardar datos en el almacenamiento local
+                        localStorage.setItem('nombreUsuario', nombreUsuario);
+                        localStorage.setItem('idUsuario', idUsuario);
+                        console.log(nombreUsuario, idUsuario);
+                        window.location.href = '/';
                     }
                 })
-                .catch((error) => {
-                    console.error('Error:', error);
+                .catch(error => {
+                    console.error('Error al enviar la solicitud:', error);
+                    alert('Error durante el inicio de sesión. Por favor, intenta nuevamente.');
                 });
         }
 

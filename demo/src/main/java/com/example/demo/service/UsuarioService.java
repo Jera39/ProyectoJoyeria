@@ -30,9 +30,8 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
-    public boolean autenticar(String correo, String password) {
-        Optional<UsuarioModel> usuarioOptional = usuarioRepository.findByCorreoAndPassword(correo, password);
-        return usuarioOptional.isPresent();
+    public UsuarioModel autenticar(String correo, String password) {
+        return usuarioRepository.findByCorreoAndPassword(correo, password).orElse(null);
     }
 
     public boolean eliminarUsuario(Long id) {
