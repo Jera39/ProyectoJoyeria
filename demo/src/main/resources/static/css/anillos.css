@@ -285,3 +285,52 @@ footer{
     letter-spacing: 1px;
     padding-top: 20px;
 }
+
+
+/* Personalización del nuevo submenú para el login */
+.login-options {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 40px;
+}
+
+.login-options p {
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 10px 20px;
+}
+
+.login-options ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 20px;
+}
+
+.login-options li {
+    margin: 5px 0px 0px 10px;
+}
+
+.login-options li:hover {
+    transform: scale(1.2);
+}
+
+.login-options a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.login-options a:hover {
+    color: #f2bb5b;
+}
+
+/* Mostrar nuevo submenú al pasar el ratón por encima del elemento de login */
+#login:hover .login-options {
+    display: block;
+}
+
+/* fin del submenu del login */

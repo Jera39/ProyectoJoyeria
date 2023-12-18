@@ -59,20 +59,61 @@
                 <div class="cuadro-logotipo">
                     <a class="logotipo" href="index.html">Carito</a>
                 </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Verificar si existe un dato en el localStorage
+                        var nombreUsuario = localStorage.getItem('nombreUsuario');
 
+                        // Obtener el elemento del enlace
+                        var enlaceLogin = document.getElementById('enlaceLogin');
+                        // Obtener el elemento del texto dentro del enlace
+                        var usuarioLogin = document.getElementById('usuarioLogin');
+                        // Obtener el elemento del submenú para el login
+                        var loginOptions = document.querySelector('.login-options');
+                        // Obtener el elemento de la opción "Cerrar Sesión"
+                        var cerrarSesionOption = document.getElementById('cerrarSesionOption');
 
+                        // Verificar y actualizar el texto del enlace
+                        if (nombreUsuario) {
+                            usuarioLogin.textContent = (" ") + nombreUsuario;
+                        } else {
+                            usuarioLogin.textContent = ' Loguearme';
+                            loginOptions.style.display = 'none'; // Ocultar submenú si no hay nombre de usuario
+                        }
 
+                        // Agregar un evento de clic a la opción "Cerrar Sesión"
+                        cerrarSesionOption.addEventListener('click', function (event) {
+                            event.preventDefault(); // Evitar que el enlace redirija
+
+                            // Limpiar el localStorage y ocultar el submenú
+                            localStorage.removeItem('nombreUsuario');
+                            localStorage.removeItem('idUsuario');
+                            loginOptions.style.display = 'none';
+                            location.reload();
+                        });
+                    });
+
+                </script>
                 <li class="d-flex" id="login">
                     <div class="cuadro-login">
-                        <a href="login.html"><svg viewBox="0 0 24 24" width="50px" height="50px" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                        <a href="login.html" id="enlaceLogin" class="nav-link active "><svg viewBox="0 0 24 24"
+                                width="50px" height="50px" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
                                     <circle cx="12" cy="6" r="4" fill="#000000"></circle>
                                     <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
                                 </g>
-                            </svg> Loguearme</a>
+                            </svg>
+                            <span id="usuarioLogin"></span></a>
+                        <!-- Nuevo submenú para el login -->
+                        <div class="login-options">
+                            <ul>
+                                <li><a href="#">• Perfil</a></li>
+                                <li id="cerrarSesionOption"><a href="#">• Cerrar Sesión</a></li>
+                            </ul>
+                        </div>
+                        <!-- <li><a href="#">• Configuración</a></li> -->
                     </div>
                 </li>
             </div>
