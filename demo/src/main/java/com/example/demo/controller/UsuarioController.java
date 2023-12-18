@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.service.UsuarioService;
 import com.example.demo.model.UsuarioModel;
+import com.example.demo.request.LoginRequest;
 
 @RestController
 @RequestMapping("/usuario")
@@ -49,6 +50,22 @@ public class UsuarioController {
             return "se eliminó el usuario con id: " + id;
         } else {
             return "no se pudo eliminar el usuario con id" + id;
+        }
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest) {
+        try {
+            String correo = loginRequest.getEmail();
+            String password = loginRequest.getContra();
+
+            if (usuarioService.autenticar(correo, password)) {
+                return "¡Inicio de sesión exitoso!";
+            } else {
+                return "Credenciales incorrectas. Inicio de sesión fallido.";
+            }
+        } catch (Exception e) {
+            return "Error durante el inicio de sesión: " + e.getMessage();
         }
     }
 }
