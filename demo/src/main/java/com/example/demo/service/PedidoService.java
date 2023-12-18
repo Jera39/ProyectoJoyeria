@@ -32,7 +32,7 @@ public class PedidoService {
         return pedidoRepository.findByIdCliente(idCliente);
     }
 
-    public List<PedidoModel> getPedidoPorIdCliente(Long idCliente) {
+    public List<PedidoModel> getPedidoPorIdCliente(Integer idCliente) {
         return this.pedidoRepository.pedidoPorIdCliente(idCliente);
     }
 

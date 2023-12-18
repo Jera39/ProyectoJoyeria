@@ -15,5 +15,5 @@ public interface PedidoRepository extends CrudRepository<PedidoModel, Long> {
     public abstract ArrayList<PedidoModel> findByIdCliente(Long idCliente);
 
     @Query(value = "SELECT * FROM pedido WHERE idCliente = :idCliente", nativeQuery = true)
-    List<PedidoModel> pedidoPorIdCliente(@Param("idCliente") Long idCliente);
+    List<PedidoModel> pedidoPorIdCliente(@Param("idCliente") Integer idCliente);
 }

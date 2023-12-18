@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
-import java.util.List;
+// import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.PedidoPersonalizadoModel;
@@ -40,16 +39,17 @@ public class PedidoPersonalizadoController {
         return this.pedidoPersonalizadoService.obtenerPorId(id);
     }
 
-    @GetMapping("/pedidosUsuario")
+    @GetMapping(path = "/cliente/{idCliente}")
     public ArrayList<PedidoPersonalizadoModel> obtenerPedidoPersonalizadoPorIdCliente(
-            @RequestParam("idCliente") Long idCliente) {
+            @PathVariable("idCliente") Long idCliente) {
         return this.pedidoPersonalizadoService.obtenerPorIdCliente(idCliente);
     }
 
-    @GetMapping(path = "/cliente/{idCliente}")
-    public List<PedidoPersonalizadoModel> getFiltrarPedidoPorIdCliente(@PathVariable("idCliente") Long idCliente) {
-        return this.pedidoPersonalizadoService.getPedidoPorIdCliente(idCliente);
-    }
+    // @GetMapping(path = "/cliente/{idCliente}")
+    // public List<PedidoPersonalizadoModel>
+    // getFiltrarPedidoPorIdCliente(@PathVariable("idCliente") Long idCliente) {
+    // return this.pedidoPersonalizadoService.getPedidoPorIdCliente(idCliente);
+    // }
 
     @DeleteMapping(path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id) {

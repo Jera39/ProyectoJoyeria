@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
-import java.util.List;
+// import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+// import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.PedidoModel;
@@ -39,14 +39,9 @@ public class PedidoController {
         return this.pedidoService.obtenerPorId(id);
     }
 
-    @GetMapping("/pedidosNormalesUsuario")
-    public ArrayList<PedidoModel> obtenerPedidoPorIdCliente(@RequestParam("idCliente") Long idCliente) {
-        return this.pedidoService.obtenerPorIdCliente(idCliente);
-    }
-
     @GetMapping(path = "/cliente/{idCliente}")
-    public List<PedidoModel> getFiltrarPedidoPorIdCliente(@PathVariable("idCliente") Long idCliente) {
-        return this.pedidoService.getPedidoPorIdCliente(idCliente);
+    public ArrayList<PedidoModel> obtenerPedidoPorIdCliente(@PathVariable("idCliente") Long idCliente) {
+        return this.pedidoService.obtenerPorIdCliente(idCliente);
     }
 
     @DeleteMapping(path = "/{id}")
