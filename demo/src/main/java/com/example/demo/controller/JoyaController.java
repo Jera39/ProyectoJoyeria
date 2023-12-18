@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import com.example.demo.model.JoyaModel;
 import com.example.demo.service.JoyaService;
 
 @RestController
-@RequestMapping("/joyas")
+@RequestMapping("api/carito/joyas")
 public class JoyaController {
     @Autowired
     JoyaService joyaService;
@@ -29,6 +30,11 @@ public class JoyaController {
     @PostMapping()
     public JoyaModel guardarJoya(@RequestBody JoyaModel joya) {
         return this.joyaService.guardarJoya(joya);
+    }
+
+    @GetMapping(path = "/tipo/{tipo}")
+    public List<JoyaModel> getFiltrarJoyaPorTipo(@PathVariable("tipo") String tipo) {
+        return this.joyaService.getJoyaPorTipo(tipo);
     }
 
     @GetMapping(path = "/{id}")

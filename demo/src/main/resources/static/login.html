@@ -75,7 +75,7 @@
             };
 
             // Realizar la solicitud AJAX para enviar los datos al servidor
-            fetch('/usuario/login', {
+            fetch('http://localhost:8080/api/carito/usuario/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -124,7 +124,7 @@
             };
 
             // Enviar la solicitud al servidor para registrar el nuevo usuario
-            fetch('/usuario', {
+            fetch('http://localhost:8080/api/carito/usuario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

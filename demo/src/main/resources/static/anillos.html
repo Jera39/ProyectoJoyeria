@@ -95,15 +95,15 @@
             </div>
             <script>
                 // Obtener las joyas desde el servidor
-                fetch('/joyas')
+                fetch('http://localhost:8080/api/carito/joyas/tipo/anillo')
                     .then(response => response.json())
                     .then(joyas => {
                         // Filtrar las joyas del tipo "pendiente"
-                        const tipoDeJoya = joyas.filter(joya => joya.tipo === 'anillo');
+                        // const tipoDeJoya = joyas.filter(joya => joya.tipo === 'anillo');
 
                         // Llenar dinámicamente el contenedor de joyas
                         const joyasContainer = document.getElementById('joyas-container');
-                        tipoDeJoya.forEach(joya => {
+                        joyas.forEach(joya => {
                             const joyaElement = document.createElement('div');
                             joyaElement.classList.add('muestra-aretes');
 

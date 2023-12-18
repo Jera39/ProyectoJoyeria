@@ -20,6 +20,20 @@ public class JoyaModel {
     private Double medida; // la medida de las joyas sera en centimetros (cm)
     private String material;
 
+    // public JoyaModel(Long id, String nombre, Integer stock, Double precio, String
+    // imagen, String descripcion,
+    // String tipo, Double medida, String material) {
+    // this.id = id;
+    // this.nombre = nombre;
+    // this.stock = stock;
+    // this.precio = precio;
+    // this.imagen = imagen;
+    // this.descripcion = descripcion;
+    // this.tipo = tipo;
+    // this.medida = medida;
+    // this.material = material;
+    // }
+
     public Long getId() {
         return id;
     }

@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class JoyaService {
 
     public Optional<JoyaModel> obtenerPorId(Long id) {
         return joyaRepository.findById(id);
+    }
+
+    public List<JoyaModel> getJoyaPorTipo(String tipo) {
+        return this.joyaRepository.joyaPorTipo(tipo);
     }
 
     public boolean eliminarJoya(Long id) {

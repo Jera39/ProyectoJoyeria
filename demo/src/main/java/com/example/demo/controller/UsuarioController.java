@@ -23,7 +23,7 @@ import com.example.demo.model.UsuarioModel;
 import com.example.demo.request.LoginRequest;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("api/carito/usuario")
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
