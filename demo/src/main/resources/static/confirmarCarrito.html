@@ -139,6 +139,10 @@
             var provincia = document.getElementById('provincia').value;
             var distrito = document.getElementById('distrito').value;
             var direccion = document.getElementById('direccion').value;
+            var idUsuario = parseInt(localStorage.getItem('idUsuario'));
+
+            console.log("el id del usuario es: ", idUsuario);
+            
 
             // Validar que todos los campos estén llenos
             if (nombres === '' || apellidos === '' || correo === '' || telefono === '' ||
@@ -184,6 +188,7 @@
             var provincia = document.getElementById('provincia').value;
             var distrito = document.getElementById('distrito').value;
             var direccion = document.getElementById('direccion').value;
+            var idUsuario = parseInt(localStorage.getItem('idUsuario'));
 
             //Calculando todas las fechas
             var fechaActual = Date.now();
@@ -208,7 +213,7 @@
                 "estadoPedido": "Pedido realizado",
                 "fechaRegistro": fechaRegistro.toISOString(),
                 "fechaAproximada": fechaAproximada.toISOString(),
-                "idCliente": 1111
+                "idCliente": idUsuario
             };
 
             // Crear un nuevo array con los datos combinados
@@ -245,6 +250,7 @@
                     });
             });
             alert("Se acaba de registrar tu nuevo pedido")
+            alert("Id de usuario: " + idUsuario);
             // Limpiar el arrayPedidos después de enviarlos a la base de datos
             localStorage.removeItem('arrayPedidos');
             window.location.href = 'index.html';

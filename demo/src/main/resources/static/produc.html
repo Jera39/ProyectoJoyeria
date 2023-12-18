@@ -90,38 +90,30 @@
             </div>
         </nav>
     </header>
-    <script>
-        // Obtener referencia al enlace de login
-        var enlaceLogin = document.getElementById('enlaceLogin');
 
-        // Agregar un event listener para redirigir al hacer clic
-        enlaceLogin.addEventListener('click', function () {
-            // Redirigir a la página login.php
-            window.location.href = 'login.html';
-        });
-    </script>
-
-    <div>
-        <center>
-            <button type="button" class="btn btn-primary btn-lg" id="btn_Lista" onclick="mostrarperson()"
-                style="display: disabled;">Lista de
-                pedidos</button>
-            <button type="button" class="btn btn-secondary btn-lg" id="btn-Person" onclick="mosrtrarpedidos()">Lista de
-                pedidos
-                personalizados</button>
-        </center>
-
-    </div>
-    <br>
-
-    <div class="container" id="pedido">
-
-    </div>
-    <!--  -->
-
-    <div class="container" id="ped" style="display: none;">
-
-    </div>
+    <main class="mainBody">
+        <div>
+            <center>
+                <button type="button" class="btn btn-primary btn-lg" id="btn_Lista" onclick="mostrarperson()"
+                    style="display: disabled;">Lista de
+                    pedidos</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="btn-Person" onclick="mosrtrarpedidos()">Lista de
+                    pedidos
+                    personalizados</button>
+            </center>
+    
+        </div>
+        <br>
+    
+        <div class="container" id="pedido">
+    
+        </div>
+        <!--  -->
+    
+        <div class="container" id="ped" style="display: none;">
+    
+        </div>
+    </main>
 
     <script>
         // Obtener los pedidos del cliente desde el servidor
@@ -129,9 +121,10 @@
             .then(response => response.json())
             .then(pedidos => {
                 // Filtrar los pedidos por ID del Cliente
-                var idUsuario = localStorage.getItem('idUsuario');
-                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === parseInt(idUsuario))
-
+                var idUsuario = parseInt(localStorage.getItem('idUsuario'));
+                console.log("id: ",idUsuario)
+                const idDelCliente = pedidos.filter(pedido => pedido.idCliente === idUsuario)
+                console.log("id despues del filtro: ",idUsuario)
                 // Verificar si hay pedidos para el cliente
                 if (idDelCliente.length > 0) {
                     // Llenar dinámicamente el contenedor de pedidos
@@ -192,7 +185,7 @@
                         pedidosContainer.appendChild(pedidoElement);
                     });
                 } else {
-                    console.log('No hay pedidos para el cliente con ID '+ idUsuario);
+                    console.log("No hay pedidos para el cliente con ID ", idUsuario);
                 }
             })
             .catch(error => console.error('Error al obtener pedidos:', error));
@@ -203,7 +196,7 @@
         fetch('/pedidosPersonalizados')
             .then(response => response.json())
             .then(pedidos => {
-                var idUsuario = localStorage.getItem('idUsuario');
+                var idUsuario = parseInt(localStorage.getItem('idUsuario'));
                 const idDelCliente = pedidos.filter(pedido => pedido.idCliente === idUsuario)
 
                 // Verificar si hay pedidos para el cliente
@@ -270,7 +263,7 @@
                         pedidosContainer.appendChild(pedidoElement);
                     });
                 } else {
-                    console.log('No hay pedidos para el cliente con ID ' + idUsuario);
+                    console.log("No hay pedidos personalizados para el cliente con ID", idUsuario);
                 }
             })
             .catch(error => console.error('Error al obtener pedidos:', error));

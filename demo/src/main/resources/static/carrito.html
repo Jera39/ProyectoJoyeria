@@ -261,12 +261,25 @@
 
         // Función para continuar comprando
         function continuarComprando() {
+            limpiarDatosLocalStorage();
             window.location.href = 'index.html';
         }
 
         // Función para confirmar la compra
         function confirmarCompra() {
+            limpiarDatosLocalStorage();
             window.location.href = 'confirmarCarrito.html';
+        }
+
+        // Función para limpiar los datos utilizados del almacenamiento local
+        function limpiarDatosLocalStorage() {
+            localStorage.removeItem('nombrePedido');
+            localStorage.removeItem('precio');
+            localStorage.removeItem('imagen');
+            localStorage.removeItem('descripcion');
+            localStorage.removeItem('medidaProducto');
+            localStorage.removeItem('tipoProducto');
+            localStorage.removeItem('cantidad');
         }
 
     </script>

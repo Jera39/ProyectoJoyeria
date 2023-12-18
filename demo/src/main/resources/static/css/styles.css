@@ -23,7 +23,9 @@ header {
 	justify-content: center;
 }
 
-main{
+.mainBody {
+	min-height: calc(100vh - 436.5px);
+	box-sizing: border-box;
 	padding: 30px;
 }
 
@@ -48,7 +50,7 @@ main{
 
 }
 
-.container-img img{
+.container-img img {
 	width: 300px;
 	height: auto;
 }
@@ -104,7 +106,7 @@ main{
 	color: #666;
 }
 
-.form-group h1{
+.form-group h1 {
 	font-size: 20px;
 }
 
@@ -315,7 +317,7 @@ main{
 	color: #1bbeb4;
 }
 
-.pedidoItem{
+.pedidoItem {
 	display: flex;
 }
 
