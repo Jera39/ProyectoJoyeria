@@ -7,7 +7,6 @@ body {
 }
 /* toda la parte del nav */
 
-
 nav {
     background-color: #000000; /*  #f2bb5b */
     font-size: 18px;
@@ -154,6 +153,10 @@ nav {
 .content-imagen img{
     width: 220px;
     height: auto;
+}
+
+.content-formulario-product-menu{
+    font-size: 25px;
 }
 
 
@@ -304,6 +307,7 @@ table{
     margin-left: 25%;
     background-color: rgba(184, 97, 37, 1);
     border: none;
+    padding: 20px;
 }
 
 #botonAgregarCarrito:hover{
@@ -313,6 +317,7 @@ table{
 #botonPersonalizar{
     background-color: rgba(184, 97, 37, 1);
     border: none;
+    padding: 20px;  
 }
 #botonPersonalizar:hover{
     background-color: rgb(212, 100, 25);
